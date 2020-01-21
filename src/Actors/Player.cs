@@ -7,18 +7,18 @@ public class Player : Actor
     public override void _Process(float delta)
     {
         base._Process(delta);
-        
+
         Vector2 direction = GetDirection();
         Vector2 snap = GetSnapPosition(direction);
 
-        velocity = CalculateMovementVelocity(
-            velocity,
+        Velocity = CalculateMovementVelocity(
+            Velocity,
             direction,
-            speed
+            Speed
         );
-               
-        velocity = MoveAndSlideWithSnap(
-            velocity,
+
+        Velocity = MoveAndSlideWithSnap(
+            Velocity,
             snap,
             FLOOR_NORMAL,
             true
@@ -47,7 +47,7 @@ public class Player : Actor
         moveVelocity.x = speed.x * direction.x;
         if (direction.y != 0) {
             moveVelocity.y = speed.y * direction.y;
-        } 
+        }
         return moveVelocity;
     }
 }
