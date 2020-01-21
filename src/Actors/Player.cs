@@ -50,4 +50,10 @@ public class Player : Actor
         }
         return moveVelocity;
     }
+
+    private void _OnScreenExited()
+    {
+        GD.Print("You are Dead!");
+        QueueFree();
+    }
 }

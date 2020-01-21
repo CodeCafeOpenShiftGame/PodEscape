@@ -57,6 +57,7 @@
     <Compile Include="src\Actors\Actor.cs" />
     <Compile Include="src\Actors\Player.cs" />
     <Compile Include="src\Autoload\GameManager.cs" />
+    <Compile Include="src\CameraController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
