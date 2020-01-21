@@ -19,6 +19,10 @@ config/name="PodEscape"
 run/main_scene="res://src/Levels/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://src/Autoload/GameManager.cs"
+
 [input]
 
 move_up={
