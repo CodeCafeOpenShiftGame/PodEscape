@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Floor" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 512, 232, 512, 304, -512, 304, -512, 232 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.0627451, 0.45098, 0.662745, 1 )
+polygon = PoolVector2Array( -512, 232, -512, 304, 512, 304, 512, 232 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 512, 264 )
