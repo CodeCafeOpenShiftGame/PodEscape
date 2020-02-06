@@ -43,6 +43,7 @@ public class StateMachine
 
 	public void ChangeState(String newStateName)
 	{
+        // GD.Print(newStateName);
         State newState = this.GetStateByName(newStateName);
 
 		this.PreviousState = this.CurrentState;

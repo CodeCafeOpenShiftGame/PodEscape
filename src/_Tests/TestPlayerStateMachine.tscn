@@ -5,9 +5,10 @@
 
 [node name="World" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Floor" type="Node" parent="."]
 

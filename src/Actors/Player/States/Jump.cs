@@ -1,22 +1,20 @@
 using Godot;
 using System;
 
-public class Idle : State
+public class Jump : State
 {
     public override String Handle(Player actor, float delta)
     {
         Vector2 direction = actor.GetDirection();
 
-        if (direction != Vector2.Zero) {
-
-            if (direction.x > -1) {
-                GD.Print("Jump");
+        if (actor.IsOnFloor()) {
+            if (direction != Vector2.Zero) {
+                return "Run";
             }
 
-            return "Run";
+            return "Idle";
         }
 
         return null;
     }
-
 }

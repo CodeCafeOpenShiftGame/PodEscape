@@ -5,7 +5,7 @@ public class Run : State
 {
     public override String Handle(Player actor, float delta)
     {
-        if (actor.GetDirection() == Vector2.Zero) {
+        if (actor.GetDirection() == Vector2.Zero && actor.IsOnFloor()) {
             return "Idle";
         }
 

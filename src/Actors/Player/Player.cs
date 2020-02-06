@@ -10,6 +10,7 @@ public class Player : Actor, IActor
         this.StateMachine = new StateMachine();
         this.StateMachine.AddState((State)GetNode("States/Idle"));
         this.StateMachine.AddState((State)GetNode("States/Run"));
+        this.StateMachine.AddState((State)GetNode("States/Jump"));
         this.StateMachine.ChangeState("Idle");
     }
 
