@@ -1,7 +1,13 @@
 using Godot;
 using System;
 
-public class Actor : KinematicBody2D
+public interface IActor
+{
+    Vector2 GetDirection();
+    Vector2 CalculateVelocity(Vector2 linerarVelocity, Vector2 direction, Vector2 speed);
+}
+
+abstract public class Actor : KinematicBody2D
 {
     public Vector2 FLOOR_NORMAL = Vector2.Up;
 
@@ -10,10 +16,10 @@ public class Actor : KinematicBody2D
     [Export]
     public float Gravity = 3500;
 
-    protected Vector2 Velocity = Vector2.Zero;
+    public Vector2 Velocity = Vector2.Zero;
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override void _PhysicsProcess(float delta)
     {
         Velocity.y += Gravity * delta;
     }

@@ -1,36 +1,32 @@
 using Godot;
 using System;
 
-public class Player : Actor
+public class Player : Actor, IActor
 {
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    protected StateMachine StateMachine;
+
+    public override void _Ready()
     {
-        base._Process(delta);
-
-        Vector2 direction = GetDirection();
-        Vector2 snap = GetSnapPosition(direction);
-
-        Velocity = CalculateMovementVelocity(
-            Velocity,
-            direction,
-            Speed
-        );
-
-        Velocity = MoveAndSlideWithSnap(
-            Velocity,
-            snap,
-            FLOOR_NORMAL,
-            true
-        );
+        this.StateMachine = new StateMachine();
+        this.StateMachine.AddState((State)GetNode("States/Idle"));
+        this.StateMachine.AddState((State)GetNode("States/Run"));
+        this.StateMachine.ChangeState("Idle");
     }
 
-    private Vector2 GetSnapPosition(Vector2 direction)
+    public override void _PhysicsProcess(float delta)
+    {
+        base._PhysicsProcess(delta);
+
+        // this handle all the states
+        this.StateMachine.Handle(this, delta);
+    }
+
+    public Vector2 GetSnapPosition(Vector2 direction)
     {
         return direction.y == 0 ? Vector2.Down * 60 : Vector2.Zero;
     }
 
-    private Vector2 GetDirection()
+    public Vector2 GetDirection()
     {
         return new Vector2(
             Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
@@ -38,7 +34,7 @@ public class Player : Actor
         );
     }
 
-    private Vector2 CalculateMovementVelocity(
+    public Vector2 CalculateVelocity(
         Vector2 linearVelocity,
         Vector2 direction,
         Vector2 speed

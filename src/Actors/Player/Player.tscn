@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://src/Actors/Player.cs" type="Script" id=2]
+[ext_resource path="res://src/Actors/Player/Player.cs" type="Script" id=2]
+[ext_resource path="res://src/Actors/Player/States/Idle.cs" type="Script" id=3]
+[ext_resource path="res://src/Actors/Player/States/Run.cs" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60, 57 )
@@ -30,4 +32,12 @@ drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource( 3 )
+
+[node name="Run" type="Node" parent="States"]
+script = ExtResource( 4 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_OnScreenExited"]
