@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Run7.png-dee919de9c99a96699f2e21c3fe16c07.stex"
+path="res://.import/frame-2.png-c14988f242a3b3c8c30ed7d29092e4d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Player/Run7.png"
-dest_files=[ "res://.import/Run7.png-dee919de9c99a96699f2e21c3fe16c07.stex" ]
+source_file="res://assets/Sprites/Player/idle/frame-2.png"
+dest_files=[ "res://.import/frame-2.png-c14988f242a3b3c8c30ed7d29092e4d7.stex" ]
 
 [params]
 
