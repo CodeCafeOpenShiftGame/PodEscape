@@ -5,11 +5,12 @@ public class Run : State
 {
     public override String Handle(Player actor, float delta)
     {
-        if (actor.GetDirection() == Vector2.Zero && actor.IsOnFloor()) {
+        Vector2 direction = actor.GetDirection();
+
+        if (direction == Vector2.Zero && actor.IsOnFloor()) {
             return "Idle";
         }
 
-        Vector2 direction = actor.GetDirection();
         Vector2 snap = actor.GetSnapPosition(direction);
 
         actor.Velocity = actor.CalculateVelocity(

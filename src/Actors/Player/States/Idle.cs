@@ -7,10 +7,14 @@ public class Idle : State
     {
         Vector2 direction = actor.GetDirection();
 
+        if (!actor.IsOnFloor()) {
+            return "Fall";
+        }
+
         if (direction != Vector2.Zero) {
 
-            if (direction.x > -1) {
-                GD.Print("Jump");
+            if (direction.y < 0) {
+                return "Jump";
             }
 
             return "Run";

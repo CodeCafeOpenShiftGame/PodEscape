@@ -43,8 +43,11 @@ public class StateMachine
 
 	public void ChangeState(String newStateName)
 	{
-        // GD.Print(newStateName);
+        GD.Print(newStateName);
         State newState = this.GetStateByName(newStateName);
+        if (newState == null) {
+            throw new Exception($"Invalid state name or state not found: {newStateName}");
+        }
 
 		this.PreviousState = this.CurrentState;
 		this.CurrentState = newState;

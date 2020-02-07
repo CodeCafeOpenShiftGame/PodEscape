@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public class Jump : State
+public class Fall : State
 {
     public override String Handle(Player actor, float delta)
     {
         Vector2 direction = actor.GetDirection();
 
-        if (!actor.IsOnFloor()) {
-            return "Fall";
+        if (actor.IsOnFloor()) {
+            return "Idle";
         }
 
         Vector2 snap = actor.GetSnapPosition(direction);

@@ -18,9 +18,13 @@ abstract public class Actor : KinematicBody2D
 
     public Vector2 Velocity = Vector2.Zero;
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(float delta)
     {
-        Velocity.y += Gravity * delta;
+        this.ApplyGravity(delta);
+    }
+
+    public void ApplyGravity(float delta)
+    {
+        this.Velocity.y += this.Gravity * delta;
     }
 }
