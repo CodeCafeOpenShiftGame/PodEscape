@@ -9,8 +9,13 @@ public class Player : Actor, IActor
     }
     protected StateMachine StateMachine;
 
+    public AnimationPlayer AnimationPlayer;
+
     public override void _Ready()
     {
+        // OnReady
+        this.AnimationPlayer = (AnimationPlayer)GetNode("AnimationPlayer");
+
         this.StateMachine = new StateMachine();
         this.StateMachine.AddState((State)GetNode("States/Idle"));
         this.StateMachine.AddState((State)GetNode("States/Run"));
@@ -23,6 +28,11 @@ public class Player : Actor, IActor
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
+
+        // Handle sprite direction
+        Vector2 direction = this.GetDirection();
+        Sprite sprite = (Sprite)GetNode("Sprite");
+        sprite.FlipH = (direction.x < 0);
 
         // this handle all the states
         this.StateMachine.Handle(this, delta);

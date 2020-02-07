@@ -20,6 +20,8 @@ public class Idle : State
             return "Run";
         }
 
+        actor.AnimationPlayer.Play("Idle");
+
         return null;
     }
 

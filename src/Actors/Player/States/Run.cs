@@ -26,6 +26,8 @@ public class Run : State
             true
         );
 
+        actor.AnimationPlayer.Play("Run");
+
         return null;
     }
 }
