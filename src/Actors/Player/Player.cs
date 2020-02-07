@@ -3,6 +3,10 @@ using System;
 
 public class Player : Actor, IActor
 {
+    public Boolean IsDead {
+        get { return this.IsDead; }
+        set { this.IsDead = true; }
+    }
     protected StateMachine StateMachine;
 
     public override void _Ready()
@@ -12,6 +16,7 @@ public class Player : Actor, IActor
         this.StateMachine.AddState((State)GetNode("States/Run"));
         this.StateMachine.AddState((State)GetNode("States/Jump"));
         this.StateMachine.AddState((State)GetNode("States/Fall"));
+        this.StateMachine.AddState((State)GetNode("States/Die"));
         this.StateMachine.ChangeState("Idle");
     }
 
