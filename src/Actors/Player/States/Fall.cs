@@ -7,7 +7,7 @@ public class Fall : State
     {
         Vector2 direction = actor.GetDirection();
 
-        if (actor.IsOnFloor()) {
+        if (actor.IsOnFloor() && direction == Vector2.Zero) {
             return "Idle";
         }
 
@@ -25,6 +25,8 @@ public class Fall : State
             actor.FLOOR_NORMAL,
             true
         );
+
+        actor.AnimationPlayer.Play("Fall");
 
         return null;
     }

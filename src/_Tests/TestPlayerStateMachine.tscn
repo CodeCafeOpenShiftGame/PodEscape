@@ -5,11 +5,32 @@
 
 [node name="World" type="Node"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -716.905, -329.162 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 716.905, 329.162 )
+current = true
 
 [node name="Floor" type="Node" parent="."]
 
 [node name="Floor2" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( -448, 232 )
+
+[node name="Floor4" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 576, 232 )
+
+[node name="Floor5" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 976, -120 )
+
+[node name="Floor6" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 1600, 232 )
+
+[node name="Floor7" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 2624, 232 )
+
+[node name="Floor8" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 1840, -440 )
+
+[node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( -448, -440 )

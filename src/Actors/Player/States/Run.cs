@@ -5,10 +5,15 @@ public class Run : State
 {
     public override String Handle(Player actor, float delta)
     {
+        // @FIXME The Jump and Run states must to be reviewd
         Vector2 direction = actor.GetDirection();
 
         if (direction == Vector2.Zero && actor.IsOnFloor()) {
             return "Idle";
+        }
+
+        if (direction.x > 0 && !actor.IsOnFloor()) {
+            return "Fall";
         }
 
         Vector2 snap = actor.GetSnapPosition(direction);
