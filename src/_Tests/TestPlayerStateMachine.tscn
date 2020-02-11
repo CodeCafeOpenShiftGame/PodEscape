@@ -6,10 +6,9 @@
 [node name="World" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -716.905, -329.162 )
+position = Vector2( -816, -344 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 716.905, 329.162 )
 current = true
 
 [node name="Floor" type="Node" parent="."]

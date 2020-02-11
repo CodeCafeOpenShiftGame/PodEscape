@@ -1,13 +1,7 @@
 using Godot;
 using System;
 
-public interface IActor
-{
-    Vector2 GetDirection();
-    Vector2 CalculateVelocity(Vector2 linerarVelocity, Vector2 direction, Vector2 speed);
-}
-
-abstract public class Actor : KinematicBody2D
+public class Actor : KinematicBody2D
 {
     public Vector2 FLOOR_NORMAL = Vector2.Up;
 
@@ -26,5 +20,10 @@ abstract public class Actor : KinematicBody2D
     public void ApplyGravity(float delta)
     {
         this.Velocity.y += this.Gravity * delta;
+    }
+
+    public virtual Vector2 GetDirection()
+    {
+        return Vector2.Zero;
     }
 }

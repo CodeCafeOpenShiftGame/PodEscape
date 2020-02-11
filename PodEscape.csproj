@@ -56,10 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Actors\Actor.cs" />
     <Compile Include="src\Actors\Player\Player.cs" />
+    <Compile Include="src\Actors\Player\States\Air.cs" />
     <Compile Include="src\Actors\Player\States\Die.cs" />
-    <Compile Include="src\Actors\Player\States\Fall.cs" />
     <Compile Include="src\Actors\Player\States\Idle.cs" />
-    <Compile Include="src\Actors\Player\States\Jump.cs" />
+    <Compile Include="src\Actors\Player\States\Move.cs" />
     <Compile Include="src\Actors\Player\States\Run.cs" />
     <Compile Include="src\Autoload\GameManager.cs" />
     <Compile Include="src\CameraController.cs" />

@@ -1,76 +1,58 @@
 using Godot;
+using Godot.Collections;
 using System;
 
-public class StateListItem {
-    public String Name;
-    public State State;
-}
-
-public class StateMachine
+public class StateMachine : Node
 {
-    protected System.Collections.Generic.List<StateListItem> States;
+    [Export]
+    public NodePath InitialState;
+    public Node Actor;
+
 	protected State CurrentState;
-	protected State PreviousState;
+    protected String CurrentStateName = null;
 
-	public StateMachine()
-	{
-        this.States = new System.Collections.Generic.List<StateListItem>();
-    }
-
-	public virtual void Handle(Player actor, float delta)
-	{
-        String updatedState = this.CurrentState.Handle(actor, delta);
-        if (updatedState != null) {
-            this.ChangeState(updatedState);
-        }
-    }
-
-	public virtual void EnterState(State newState, State oldState)
-	{}
-
-	public virtual void ExitState(State oldState, State newState)
-	{}
-
-    protected State GetStateByName(String stateName)
+    public StateMachine() : base()
     {
-        StateListItem item = this.States.Find(s => s.Name == stateName);
-        if (item == null) {
-            return null;
-        }
-
-        return item.State;
+        this.AddToGroup("state_machine");
+        GD.Print("StateMachine Initialized");
     }
 
-	public void ChangeState(String newStateName)
+	async public override void _Ready()
 	{
-        GD.Print(newStateName);
-        State newState = this.GetStateByName(newStateName);
-        if (newState == null) {
-            throw new Exception($"Invalid state name or state not found: {newStateName}");
+        await ToSignal(this.Owner, "ready");
+        this.CurrentState = (State)this.GetNode(this.InitialState);
+        this.CurrentState.Enter();
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        this.CurrentState.UnhandledInput(@event);
+    }
+
+	public override void _PhysicsProcess(float delta)
+	{
+        this.CurrentState.PhysicsProcess(delta);
+    }
+
+    public virtual void TransitionTo(String NewStatePath, Dictionary msg = null)
+    {
+        if (this.HasNode(NewStatePath)) {
+            return;
         }
 
-		this.PreviousState = this.CurrentState;
-		this.CurrentState = newState;
+        State newState = (State)this.GetNode(NewStatePath);
 
-		if (this.PreviousState != null) {
-			this.ExitState(this.PreviousState, newState);
-		}
+        GD.Print(this.CurrentState.Name);
+        GD.Print(newState.Name);
 
-		if (newState != null) {
-			this.EnterState(newState, this.PreviousState);
-		}
-	}
-
-    public State GetCurrentState()
-    {
-        return this.CurrentState;
+        this.CurrentState.Exit();
+        this.CurrentState = newState;
+        this.CurrentState.Enter(msg);
     }
 
-    public void AddState(State state)
+    public virtual void SetCurrentState(State state)
     {
-        StateListItem stateItem = new StateListItem();
-        stateItem.Name = state.Name;
-        stateItem.State = state;
-        this.States.Add(stateItem);
+        this.CurrentStateName = state.Name;
+        this.CurrentState = state;
     }
 }

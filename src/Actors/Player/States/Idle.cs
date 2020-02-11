@@ -1,28 +1,29 @@
 using Godot;
+using Godot.Collections;
 using System;
 
-public class Idle : State
+public class Idle : Move
 {
-    public override String Handle(Player actor, float delta)
+    public override void PhysicsProcess(float delta)
     {
-        Vector2 direction = actor.GetDirection();
+        Player player = (Player)this.Owner;
 
-        if (!actor.IsOnFloor()) {
-            return "Fall";
+        if (player.IsOnFloor() && GetMoveDirection().x != 0) {
+            this.StateMachine.TransitionTo("Move/Run");
         }
-
-        if (direction != Vector2.Zero) {
-
-            if (direction.y < 0) {
-                return "Jump";
-            }
-
-            return "Run";
+        else if (!player.IsOnFloor()) {
+            this.StateMachine.TransitionTo("Move/Air");
         }
+        else {
+            base.PhysicsProcess(delta);
+        }
+    }
 
-        actor.AnimationPlayer.Play("Idle");
-
-        return null;
+    public override void Enter(Dictionary msg = null)
+    {
+        Player player = (Player)this.Owner;
+        AnimationPlayer animationPlayer = (AnimationPlayer)player.GetNode("AnimationPlayer");
+        animationPlayer.Play("Idle");
     }
 
 }
