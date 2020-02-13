@@ -5,12 +5,10 @@ using System;
 public class State : Node
 {
     public StateMachine StateMachine;
-    public State Parent;
 
     async public override void _Ready()
     {
         await ToSignal(this.Owner, "ready");
-        this.Parent = this.GetParent() as State;
         this.StateMachine = this.GetStateMachine(this);
     }
 
@@ -28,9 +26,10 @@ public class State : Node
 
     public virtual StateMachine GetStateMachine(Node node = null)
     {
-        if (node != null && !node.IsInGroup("state_machine")) {
+        if (node != null && !node.IsInGroup("state_machine"))
+        {
             return this.GetStateMachine(node.GetParent());
         }
-        return (StateMachine)node;
+        return node as StateMachine;
     }
 }

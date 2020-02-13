@@ -139,11 +139,29 @@ script = ExtResource( 6 )
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 3 )
 
+[node name="JumpDelay" type="Timer" parent="StateMachine/Move/Idle"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Run" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 4 )
 
+[node name="SlowStarter" type="Timer" parent="StateMachine/Move/Run"]
+wait_time = 0.7
+one_shot = true
+
+[node name="Tween" type="Tween" parent="StateMachine/Move/Run"]
+
 [node name="Air" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 16 )
+
+[node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
+wait_time = 0.1
+one_shot = true
+
+[node name="ControlsFreeze" type="Timer" parent="StateMachine/Move/Air"]
+wait_time = 0.16
+one_shot = true
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
@@ -154,4 +172,3 @@ anims/Idle = SubResource( 3 )
 anims/Jump = SubResource( 4 )
 anims/Run = SubResource( 5 )
 anims/Slide = SubResource( 6 )
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_OnScreenExited"]

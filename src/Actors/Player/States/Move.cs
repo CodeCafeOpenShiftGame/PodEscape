@@ -11,16 +11,25 @@ public class Move : State
     [Export]
     public float JumpImpulse = 900f;
 
-    protected Vector2 Acceleration;
-    protected Vector2 MaxSpeed;
-    protected Vector2 Velocity = Vector2.Zero;
-    protected float SnapDistance = 32f;
-    protected Vector2 SnapVector = new Vector2(0f, 32f);
+    public Vector2 Acceleration;
+    public Vector2 MaxSpeed;
+    public Vector2 Velocity = Vector2.Zero;
+    public float SnapDistance = 32f;
+    public Vector2 SnapVector = new Vector2(0f, 32f);
+
+    public override void _Ready()
+    {
+        base._Ready();
+        this.Acceleration = this.AccelerationDefault;
+        this.MaxSpeed = this.MaxSpeedDefault;
+    }
 
     public override void UnhandledInput(InputEvent @event)
     {
         Player player = (Player)this.Owner;
-        if (player.IsOnFloor() && @event.IsActionPressed("jump")) {
+
+        if (player.IsOnFloor() && @event.IsActionPressed("jump"))
+        {
             Dictionary msg = new Dictionary();
             msg.Add("impulse", JumpImpulse);
             this.StateMachine.TransitionTo("Move/Air", msg);
@@ -30,25 +39,35 @@ public class Move : State
     public override void PhysicsProcess(float delta)
     {
         Player player = (Player)this.Owner;
+        player.Flip(this.GetMoveDirection());
 
-        this.Velocity = CalculateVelocity(
+        this.Velocity = this.CalculateVelocity(
             this.Velocity,
             this.MaxSpeed,
             this.Acceleration,
             delta,
-            GetMoveDirection()
+            this.GetMoveDirection()
         );
+
+        this.Velocity.y += 3500f * delta;
 
         this.Velocity = player.MoveAndSlideWithSnap(
             this.Velocity,
             this.SnapVector,
             player.FLOOR_NORMAL
         );
-
-        // Events.emit_signal("player_moved", owner)
     }
 
-    public static Vector2 CalculateVelocity(
+    public virtual void Flip(Player player)
+    {
+        Position2D bodyPivot = player.GetNode("BodyPivot") as Position2D;
+        bodyPivot.Scale = new Vector2(
+            this.GetMoveDirection().x,
+            1
+        );
+    }
+
+    public virtual Vector2 CalculateVelocity(
 		Vector2 oldVelocity,
 		Vector2 maxSpeed,
 		Vector2 acceleration,
@@ -64,7 +83,7 @@ public class Move : State
         return newVelocity;
     }
 
-    public static Vector2 GetMoveDirection()
+    public virtual Vector2 GetMoveDirection()
     {
 	    return new Vector2(
 		    Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),

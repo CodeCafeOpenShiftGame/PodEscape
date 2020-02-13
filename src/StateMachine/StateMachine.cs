@@ -34,16 +34,16 @@ public class StateMachine : Node
         this.CurrentState.PhysicsProcess(delta);
     }
 
-    public virtual void TransitionTo(String NewStatePath, Dictionary msg = null)
+    public virtual void TransitionTo(String newStatePath, Dictionary msg = null)
     {
-        if (this.HasNode(NewStatePath)) {
-            return;
-        }
+        // @TODO @FIXME Make sure that the newStatePath exists
+        // if (this.HasNode(newStatePath)) {
+        //     return;
+        // }
 
-        State newState = (State)this.GetNode(NewStatePath);
+        State newState = (State)this.GetNode(newStatePath);
 
-        GD.Print(this.CurrentState.Name);
-        GD.Print(newState.Name);
+        GD.Print($"Transition from {this.CurrentState.Name} to {newState.Name}.");
 
         this.CurrentState.Exit();
         this.CurrentState = newState;
