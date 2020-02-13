@@ -48,30 +48,32 @@ public class Air : Move
         }
     }
 
-    public override void Enter(Dictionary msg = null)
+    public override void Enter(Dictionary<string, object> msg = null)
     {
         base.Enter(msg);
 
         this.Acceleration.x = this.HorizontalAcceleration;
         this.SnapVector.y = 0;
 
-        if (msg != null)
+        if (msg == null)
         {
             return;
         }
 
-        // @TODO Play the Animation when Falling or Jumping
+        Player player = (Player)this.Owner;
+        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
+        animationPlayer.Play("Jump");
 
-        // @TODO @FIXME How to get the values from dictionary?
-        // if (msg.Contains("velocity"))
-        // {
-        //     this.Velocity = (Vector2)msg["velocity"];
-        //     this.MaxSpeed.x = Math.Max(Math.Abs(this.Velocity.x), this.MaxSpeed.x);
-        // }
-        // if (msg.Contains("impulse"))
-        // {
-        //     this.Velocity += this.CalculateJumpVelocity((float)msg["impulse"]);
-        // }
+        if (msg.ContainsKey("velocity"))
+        {
+            this.Velocity = (Vector2)msg["velocity"];
+            this.MaxSpeed.x = Math.Max(Math.Abs(this.Velocity.x), this.MaxSpeed.x);
+        }
+
+        if (msg.ContainsKey("impulse"))
+        {
+            this.Velocity += this.CalculateJumpVelocity((float)msg["impulse"]);
+        }
     }
 
     public override void Exit()

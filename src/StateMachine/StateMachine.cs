@@ -34,7 +34,7 @@ public class StateMachine : Node
         this.CurrentState.PhysicsProcess(delta);
     }
 
-    public virtual void TransitionTo(String newStatePath, Dictionary msg = null)
+    public virtual void TransitionTo(String newStatePath, Dictionary<string, object> msg = null)
     {
         // @TODO @FIXME Make sure that the newStatePath exists
         // if (this.HasNode(newStatePath)) {
@@ -43,7 +43,7 @@ public class StateMachine : Node
 
         State newState = (State)this.GetNode(newStatePath);
 
-        GD.Print($"Transition from {this.CurrentState.Name} to {newState.Name}.");
+        // GD.Print($"Transition from {this.CurrentState.Name} to {newState.Name}.");
 
         this.CurrentState.Exit();
         this.CurrentState = newState;

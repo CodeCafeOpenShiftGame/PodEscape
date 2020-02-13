@@ -29,7 +29,7 @@ public class Idle : Move
         base.PhysicsProcess(delta);
     }
 
-    public override void Enter(Dictionary msg = null)
+    public override void Enter(Dictionary<string, object> msg = null)
     {
         base.Enter(msg);
 

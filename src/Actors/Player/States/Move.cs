@@ -30,7 +30,7 @@ public class Move : State
 
         if (player.IsOnFloor() && @event.IsActionPressed("jump"))
         {
-            Dictionary msg = new Dictionary();
+            Dictionary<string, object> msg = new Dictionary<string, object>();
             msg.Add("impulse", JumpImpulse);
             this.StateMachine.TransitionTo("Move/Air", msg);
         }

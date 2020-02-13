@@ -18,7 +18,7 @@ public class State : Node
     public virtual void PhysicsProcess(float delta)
     {}
 
-    public virtual void Enter(Dictionary msg = null)
+    public virtual void Enter(Dictionary<string, object> msg = null)
     {}
 
     public virtual void Exit()
