@@ -3,15 +3,15 @@ using System;
 
 public class CameraController : Node2D
 {
-    public float CurrentSpeed = 100f;
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
-    {
-        Position += CalculateCameraSpeed(delta);
-    }
+	public float CurrentSpeed = 100f;
 
-    public Vector2 CalculateCameraSpeed(float delta)
-    {
-        return new Vector2(CurrentSpeed * delta, 0);
-    }
+	public override void _PhysicsProcess(float delta)
+	{
+		Position += CalculateCameraSpeed(delta);
+	}
+
+	public Vector2 CalculateCameraSpeed(float delta)
+	{
+		return new Vector2(CurrentSpeed * delta, 0);
+	}
 }
