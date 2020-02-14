@@ -43,7 +43,7 @@ public class Air : Move
 
         if (player.IsOnFloor())
         {
-            string targetState = base.GetMoveDirection().x == 0 ? "Move/Idle" : "Move/Run";
+            string targetState = base.GetMoveDirection().x == 0 ? "Idle" : "Run";
             this.StateMachine.TransitionTo(targetState);
         }
     }

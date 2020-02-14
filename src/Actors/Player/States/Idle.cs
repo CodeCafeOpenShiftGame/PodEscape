@@ -19,11 +19,11 @@ public class Idle : Move
 
         if (player.IsOnFloor() && this.GetMoveDirection().x != 0)
         {
-            this.StateMachine.TransitionTo("Move/Run");
+            this.StateMachine.TransitionTo("Run");
         }
         else if (!player.IsOnFloor())
         {
-            this.StateMachine.TransitionTo("Move/Air");
+            this.StateMachine.TransitionTo("Air");
         }
 
         base.PhysicsProcess(delta);
@@ -42,7 +42,7 @@ public class Idle : Move
 
         if (this.JumpDelay.TimeLeft > 0f)
         {
-            this.StateMachine.TransitionTo("Move/Air");
+            this.StateMachine.TransitionTo("Air");
         }
     }
 

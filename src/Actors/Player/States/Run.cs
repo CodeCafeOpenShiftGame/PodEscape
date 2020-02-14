@@ -29,12 +29,12 @@ public class Run : Move
         {
             if (this.GetMoveDirection().x == 0f)
             {
-                this.StateMachine.TransitionTo("Move/Idle");
+                this.StateMachine.TransitionTo("Idle");
             }
         }
         else
         {
-            this.StateMachine.TransitionTo("Move/Air");
+            this.StateMachine.TransitionTo("Air");
         }
 
         base.PhysicsProcess(delta);

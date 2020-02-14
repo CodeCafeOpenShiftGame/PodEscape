@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public class Move : State
+abstract public class Move : State
 {
     [Export]
     public Vector2 MaxSpeedDefault = new Vector2(500f, 1500f);
@@ -32,7 +32,7 @@ public class Move : State
         {
             Dictionary<string, object> msg = new Dictionary<string, object>();
             msg.Add("impulse", JumpImpulse);
-            this.StateMachine.TransitionTo("Move/Air", msg);
+            this.StateMachine.TransitionTo("Air", msg);
         }
     }
 
