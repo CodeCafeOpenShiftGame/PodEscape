@@ -168,3 +168,4 @@ anims/Idle = SubResource( 3 )
 anims/Jump = SubResource( 4 )
 anims/Run = SubResource( 5 )
 anims/Slide = SubResource( 6 )
+[connection signal="draw" from="CollisionShape2D" to="." method="_on_CollisionShape2D_draw"]
