@@ -6,7 +6,7 @@
 [node name="World" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -816, -344 )
+position = Vector2( -816, 328 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -14,22 +14,48 @@ current = true
 [node name="Floor" type="Node" parent="."]
 
 [node name="Floor2" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( -448, 232 )
+position = Vector2( -384, 216 )
 
 [node name="Floor4" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 576, 232 )
+position = Vector2( 832, 216 )
 
 [node name="Floor5" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 976, -120 )
+position = Vector2( 2080, 96 )
+scale = Vector2( 0.222385, 1.16255 )
 
 [node name="Floor6" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 1600, 232 )
+position = Vector2( 2048, 216 )
 
 [node name="Floor7" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 2624, 232 )
+position = Vector2( 3072, 128 )
+scale = Vector2( 0.248446, 1.05662 )
+
+[node name="Floor9" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 3320, 128 )
+scale = Vector2( 0.248446, 1.05662 )
+
+[node name="Floor10" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 3320, 56 )
+scale = Vector2( 0.248446, 1.05662 )
+
+[node name="Floor11" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 3568, -16 )
+scale = Vector2( 0.248446, 1.05662 )
+
+[node name="Floor12" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 3568, 56 )
+scale = Vector2( 0.248446, 1.05662 )
+
+[node name="Floor13" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 3568, 128 )
+scale = Vector2( 0.248446, 1.05662 )
 
 [node name="Floor8" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( 1840, -440 )
+position = Vector2( 3200, 216 )
+
+[node name="Floor14" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 4352, -8 )
 
 [node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
-position = Vector2( -448, -440 )
+position = Vector2( 736, 64 )
+scale = Vector2( 0.0914381, 1.26329 )
