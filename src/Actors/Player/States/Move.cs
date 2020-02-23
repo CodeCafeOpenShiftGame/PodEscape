@@ -9,7 +9,9 @@ abstract public class Move : State
     [Export]
     public Vector2 AccelerationDefault = new Vector2(100000f, 3000f);
     [Export]
-    public float JumpImpulse = 900f;
+    public float JumpImpulse = 1200f;
+    [Export]
+    public float Gravity = 300f;
 
     public Vector2 Acceleration;
     public Vector2 MaxSpeed;
@@ -38,32 +40,25 @@ abstract public class Move : State
 
     public override void PhysicsProcess(float delta)
     {
+        Vector2 direction = this.GetMoveDirection();
+
         Player player = (Player)this.Owner;
-        player.Flip(this.GetMoveDirection());
+        player.Flip(direction);
 
         this.Velocity = this.CalculateVelocity(
             this.Velocity,
             this.MaxSpeed,
             this.Acceleration,
             delta,
-            this.GetMoveDirection()
+            direction
         );
 
-        this.Velocity.y += 3500f * delta;
+        this.Velocity.y += this.Gravity * delta;
 
         this.Velocity = player.MoveAndSlideWithSnap(
             this.Velocity,
             this.SnapVector,
             player.FLOOR_NORMAL
-        );
-    }
-
-    public virtual void Flip(Player player)
-    {
-        Position2D bodyPivot = player.GetNode("BodyPivot") as Position2D;
-        bodyPivot.Scale = new Vector2(
-            this.GetMoveDirection().x,
-            1
         );
     }
 
