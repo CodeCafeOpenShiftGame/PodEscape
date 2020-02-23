@@ -1,0 +1,123 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/_Tests/TestScores.cs" type="Script" id=1]
+
+[node name="TestScoresPanel" type="Panel"]
+margin_right = 1024.0
+margin_bottom = 768.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ScoresLabel" type="Label" parent="."]
+margin_left = 294.275
+margin_top = 21.1011
+margin_right = 336.275
+margin_bottom = 35.1011
+rect_scale = Vector2( 2, 2 )
+text = "Scores"
+
+[node name="GETLabel" type="Label" parent="."]
+margin_top = 133.913
+margin_right = 42.0
+margin_bottom = 147.913
+rect_scale = Vector2( 2, 2 )
+text = "GET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLLabel" type="Label" parent="."]
+margin_top = 49.1011
+margin_right = 42.0
+margin_bottom = 63.1011
+rect_scale = Vector2( 2, 2 )
+text = "URL:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoresButton" type="Button" parent="."]
+anchor_left = -0.00269031
+anchor_right = -0.0026903
+anchor_bottom = 4.29153e-07
+margin_left = 13.6328
+margin_top = 171.544
+margin_right = 75.6328
+margin_bottom = 191.544
+rect_scale = Vector2( 2, 2 )
+hint_tooltip = "Click Me!"
+text = "Scores"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoresCountButton" type="Button" parent="."]
+anchor_left = -0.00269031
+anchor_right = -0.0026903
+anchor_bottom = 4.29153e-07
+margin_left = 13.6328
+margin_top = 211.544
+margin_right = 104.633
+margin_bottom = 231.544
+rect_scale = Vector2( 2, 2 )
+hint_tooltip = "Click Me!"
+text = "ScoresCount"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopTenButton" type="Button" parent="."]
+anchor_left = -0.00269031
+anchor_right = -0.0026903
+anchor_bottom = 4.29153e-07
+margin_left = 13.6328
+margin_top = 251.544
+margin_right = 75.6328
+margin_bottom = 271.544
+rect_scale = Vector2( 2, 2 )
+hint_tooltip = "Click Me!"
+text = "Top Ten"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="POSTLabel" type="Label" parent="."]
+margin_top = 291.544
+margin_right = 42.0
+margin_bottom = 305.544
+rect_scale = Vector2( 2, 2 )
+text = "POST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="POSTScoreButton" type="Button" parent="."]
+anchor_left = -0.00269031
+anchor_right = -0.0026903
+anchor_bottom = 4.29153e-07
+margin_left = 13.6328
+margin_top = 319.544
+margin_right = 75.6328
+margin_bottom = 339.544
+rect_scale = Vector2( 2, 2 )
+hint_tooltip = "Click Me!"
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLTextEdit" type="TextEdit" parent="."]
+margin_left = 84.0
+margin_top = 49.1011
+margin_right = 984.0
+margin_bottom = 79.1011
+hint_tooltip = "http://someserver:port with NO ENTER"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "http://highscores-api-service-mongodb0.apps-crc.testing"
+caret_block_mode = true
+caret_blink = true

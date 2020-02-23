@@ -66,6 +66,7 @@
     <Compile Include="src\LevelController.cs" />
     <Compile Include="src\StateMachine\StateMachine.cs" />
     <Compile Include="src\StateMachine\State.cs" />
+    <Compile Include="src\_Tests\TestScores.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
