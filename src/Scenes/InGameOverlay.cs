@@ -30,6 +30,7 @@ public class InGameOverlay : Control
 		gameManager = GetNode<GameManager>("/root/GameManager");
 		
 		gameManager.Connect("UpdatedScore", this, "_on_ScoreUpdated");
+		gameManager.Connect("PlayerDied", this, "_on_PlayerDied");
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
@@ -47,14 +48,18 @@ public class InGameOverlay : Control
 
 	private void _on_QuitButton_button_up()
 	{
-		GD.Print("TODO Quit");
-		// TODO: if in game quit game back to main menu
+		gameManager.endGame();
 	}
 	
 	private void _on_ScoreUpdated(int score)
 	{
 		String scoreText = ""+score;
 		this.scoreLabel.Text = "Score: " + scoreText.PadLeft(6,'0');
+	}
+	
+	private void _on_PlayerDied(string deathString)
+	{
+		// TODO: anything or just let game manager switch to gameover scene
 	}
 }
 

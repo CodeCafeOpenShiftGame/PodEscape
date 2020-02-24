@@ -3,5 +3,5 @@
 [ext_resource path="res://assets/Fonts/Inconsolata-Regular.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 40
+size = 50
 font_data = ExtResource( 1 )

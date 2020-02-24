@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PodEscape"
-run/main_scene="res://src/Levels/World.tscn"
+run/main_scene="res://src/Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]

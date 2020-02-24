@@ -31,7 +31,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.321569, 0, 0, 0.313726 )
+color = Color( 0.160784, 0.0509804, 0.0509804, 0.705882 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,5 +60,6 @@ margin_bottom = 133.0
 margin_top = 137.0
 margin_right = 270.0
 margin_bottom = 270.0
+text = "End Game"
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_button_up"]
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]

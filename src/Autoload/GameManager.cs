@@ -21,6 +21,21 @@ public class GameManager : Node
 		everySecond.Connect("timeout", this, nameof(_on_Timer_timeout));
 		everySecond.Start(1);
 	}
+	
+	public void newGame()
+	{
+		this.Score = 0;
+		GetTree().ChangeScene("res://src/Levels/World.tscn");
+		GetTree().Paused = false;
+	}
+	
+	public void endGame()
+	{
+		GD.Print("player decided to end the current game")	;
+		// TODO: anything else - do they get a high score if they quit?
+		GetTree().ChangeScene("res://src/Scenes/Main.tscn");
+	}
+	
 	private void _on_Timer_timeout()
 	{
 		this.Score = this.Score + 10;  // TODO: this is just for demo, need to calculate based on dist traveled not just time
