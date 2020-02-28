@@ -26,66 +26,69 @@ z_index = 1
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="FarthestLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="FarthestLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2( 0, 1 )
 motion_scale = Vector2( 0.1, 1 )
 motion_mirroring = Vector2( 3999, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/FarthestLayer"]
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/FarthestLayer"]
 position = Vector2( 0, -100 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="KindaFarLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="KindaFarLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2( 0.25, 1 )
 motion_mirroring = Vector2( 3999, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/KindaFarLayer"]
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/KindaFarLayer"]
 position = Vector2( 0, -100 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="MiddleLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="MiddleLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2( 0.5, 1 )
 motion_mirroring = Vector2( 3999, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/MiddleLayer"]
 position = Vector2( 0, -100 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="CloserLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="CloserLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_mirroring = Vector2( 3999, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/CloserLayer"]
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/CloserLayer"]
 position = Vector2( 0, -100 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+[node name="ParallaxForeground" type="ParallaxBackground" parent="Background"]
 layer = 100
 
-[node name="TooClose" type="ParallaxLayer" parent="ParallaxForeground"]
+[node name="TooClose" type="ParallaxLayer" parent="Background/ParallaxForeground"]
 motion_scale = Vector2( 1.2, 1 )
 motion_mirroring = Vector2( 3999, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ParallaxForeground/TooClose"]
+[node name="Sprite" type="Sprite" parent="Background/ParallaxForeground/TooClose"]
 position = Vector2( 0, -100 )
 texture = ExtResource( 5 )
 centered = false
