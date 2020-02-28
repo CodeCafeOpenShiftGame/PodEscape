@@ -80,9 +80,6 @@ abstract public class Move : State
 
     public virtual Vector2 GetMoveDirection()
     {
-	    return new Vector2(
-		    Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
-		    1f
-	    );
+	    return new Vector2(1f, 1f); // Moves the player always to the right
     }
 }
