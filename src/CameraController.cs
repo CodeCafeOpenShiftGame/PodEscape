@@ -3,7 +3,7 @@ using System;
 
 public class CameraController : Node2D
 {
-	public float CurrentSpeed = 100f;
+	public float CurrentSpeed = 10f;
 
 	public override void _PhysicsProcess(float delta)
 	{

@@ -5,11 +5,11 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 1024, -64, 1024, 64, -1024, 64, -1024, -64 )
+polygon = PoolVector2Array( 512, -64, 512, 64, -512, 64, -512, -64 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color( 0.0627451, 0.168627, 0.662745, 1 )
-polygon = PoolVector2Array( -1024, -64, -1024, 64, 1024, 64, 1024, -64 )
+polygon = PoolVector2Array( -512, -64, -512, 64, 512, 64, 512, -64 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 1024, 0 )
