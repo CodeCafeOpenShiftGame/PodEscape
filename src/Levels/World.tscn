@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/CameraController.cs" type="Script" id=2]
 [ext_resource path="res://src/Levels/Floor1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/LevelController.cs" type="Script" id=4]
 [ext_resource path="res://src/Scenes/InGameOverlay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Levels/Floor2.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node"]
 
@@ -22,10 +23,11 @@ position = Vector2( 140, 0 )
 current = true
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -128 )
 
 [node name="LevelController" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 script = ExtResource( 4 )
-Scenes = [ ExtResource( 3 ) ]
+Scenes = [ ExtResource( 3 ), ExtResource( 6 ) ]
 
 [node name="Level" type="Node2D" parent="LevelController"]
