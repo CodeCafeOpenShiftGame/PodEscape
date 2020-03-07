@@ -119,14 +119,15 @@ script = ExtResource( 6 )
 [node name="CameraOffset" type="Position2D" parent="CameraPivot"]
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot/CameraOffset"]
+offset = Vector2( 768, 0 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-drag_margin_left = 0.3
+drag_margin_left = 0.1
 drag_margin_top = 0.4
-drag_margin_right = 0.4
+drag_margin_right = 0.1
 drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 

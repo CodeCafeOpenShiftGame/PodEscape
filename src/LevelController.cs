@@ -7,6 +7,10 @@ public class LevelController : Node2D
 	public Godot.Collections.Array<PackedScene> Scenes;
 
 	private Node2D LevelHolder;
+    private float lastX = 0.0f;
+    private float currentX = 0.0f;
+    private Vector2 currentPosition;
+    private Vector2 lastPosition;
 
 	public override void _Ready()
 	{
@@ -39,13 +43,14 @@ public class LevelController : Node2D
 		Node2D instance = this.InstantiateScene(scene);
 
         Node2D prevPiece = this.LevelHolder.GetChild<Node2D>(this.LevelHolder.GetChildCount() - 2);
-        if (prevPiece != null && prevPiece != instance) {
-            GD.Print(prevPiece.Position.x);
-            instance.Position = new Vector2(prevPiece.Position.x + 512f, 0f);
-        } else {
-            instance.Position = new Vector2(-512f, 0);
+        if (null == prevPiece)
+        {
+            this.lastPosition.x = -1024.0f;
         }
-	}
+        this.currentPosition.x = this.lastPosition.x + 1024.0f;
+        instance.Position = this.currentPosition;
+        this.lastPosition = instance.Position;
+    }
 
 	public void _OnPieceScreenExited()
 	{
