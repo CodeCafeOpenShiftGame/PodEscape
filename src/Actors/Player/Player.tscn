@@ -114,7 +114,6 @@ position = Vector2( 3.68323, 4.91095 )
 shape = SubResource( 1 )
 
 [node name="CameraPivot" type="Position2D" parent="."]
-script = ExtResource( 6 )
 
 [node name="CameraOffset" type="Position2D" parent="CameraPivot"]
 
