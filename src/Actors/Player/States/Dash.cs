@@ -4,28 +4,30 @@ using System;
 
 public class Dash : Move
 {
-	public Timer DashTimer;
-	[Export]
-	public float HorizontalAcceleration = 10000f;
+    public Timer DashTimer;
+    public Timer GhostTimer;
+    [Export((PropertyHint)24, "17/17:PackedScene")]
+    public PackedScene GhostScene;
+    [Export]
+    public float HorizontalAcceleration = 10000f;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		base._Ready();
-		this.DashTimer = this.GetNode<Timer>("DashTimer");
-	}
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        base._Ready();
+        this.DashTimer = this.GetNode<Timer>("DashTimer");
+        this.GhostTimer = this.GetNode<Timer>("GhostTimer");
+    }
 
-	public override void UnhandledInput(InputEvent @event)
-	{
-		if (@event.IsActionPressed("dash"))
-		{
-			base.Velocity = this.CalculateDashVelocity(base.DashImpulse);
-		}
-		else 
-		{
-			base.UnhandledInput(@event);
-		}
-	}
+    public override void UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("dash"))
+        {
+            base.Velocity = this.CalculateDashVelocity(base.DashImpulse);
+        }
+        else
+        {
+            base.UnhandledInput(@event); CZ
 
     public override void PhysicsProcess(float delta)
     {
@@ -33,29 +35,32 @@ public class Dash : Move
 
         Player player = this.Owner as Player;
 
-		if (player.IsOnFloor())
-		{
-			string targetState = base.GetMoveDirection().x == 0 ? "Idle" : "Run";
+        if (player.IsOnFloor())
+        {
+            string targetState = base.GetMoveDirection().x == 0 ? "Idle" : "Run";
             this.StateMachine.TransitionTo(targetState);
-		} else if (!player.IsOnFloor())
-		{
-			this.StateMachine.TransitionTo("Air");
-		}
+        }
+        else if (!player.IsOnFloor())
+        {
+            this.StateMachine.TransitionTo("Air");
+        }
 
     }
 
-	public override void Enter(Dictionary<string, object> msg = null)
-	{
-		base.Enter(msg);
+    public override void Enter(Dictionary<string, object> msg = null)
+    {
+        base.Enter(msg);
 
-		this.Acceleration.x = this.HorizontalAcceleration;
+        this.Acceleration.x = this.HorizontalAcceleration;
 
-		if (msg == null)
-			return;
+        if (msg == null)
+            return;
 
-		Player player = (Player)this.Owner;
-//        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
-//        animationPlayer.Play("Dash");
+        Player player = (Player)this.Owner;
+        //        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
+        //        animationPlayer.Play("Dash");
+
+        // this.GhostTimer.Start();
 
         if (msg.ContainsKey("velocity"))
         {
@@ -68,22 +73,34 @@ public class Dash : Move
             this.Velocity += this.CalculateDashVelocity((float)msg["impulse"]);
         }
 
-	}
+    }
 
-	public override void Exit()
-	{
-		this.Acceleration = this.AccelerationDefault;
-		base.Exit();
-	}
+    public override void Exit()
+    {
+        this.Acceleration = this.AccelerationDefault;
+        // this.GhostTimer.Stop();
+        base.Exit();
+    }
 
-	public virtual Vector2 CalculateDashVelocity(float impulse = 0f)
-	{
-		return base.CalculateVelocity(
-			base.Velocity,
-			base.MaxSpeed,
-			new Vector2(impulse, 0f),
-			1f,
-			Vector2.Right
-		);
-	} 
+    public virtual Vector2 CalculateDashVelocity(float impulse = 0f)
+    {
+        return base.CalculateVelocity(
+            base.Velocity,
+            base.MaxSpeed,
+            new Vector2(impulse, 0f),
+            1f,
+            Vector2.Right
+        );
+    }
+
+    public virtual void _OnGhostTimerTimeout()
+    {
+        Player player = this.Owner as Player;
+        Sprite playerSprite = player.GetNode("BodyPivot/Sprite") as Sprite;
+        Sprite ghost = this.GhostScene.Instance() as Sprite;
+        ghost.Scale = playerSprite.Scale;
+        ghost.Texture = playerSprite.Texture;
+        ghost.Position = player.Position;
+        this.GetParent().AddChild(ghost);
+    }
 }
