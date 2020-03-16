@@ -12,7 +12,7 @@ public class Dash : Move
 	public override void _Ready()
 	{
 		base._Ready();
-		this.DashTimer = this.GetNode("DashTimer") as Timer;
+		this.DashTimer = this.GetNode<Timer>("DashTimer");
 	}
 
 	public override void UnhandledInput(InputEvent @event)
@@ -54,8 +54,8 @@ public class Dash : Move
 			return;
 
 		Player player = (Player)this.Owner;
-        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
-        animationPlayer.Play("Dash");
+//        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
+//        animationPlayer.Play("Dash");
 
         if (msg.ContainsKey("velocity"))
         {

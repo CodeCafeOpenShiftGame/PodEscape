@@ -11,6 +11,8 @@ abstract public class Move : State
     [Export]
     public float JumpImpulse = 1200f;
     [Export]
+    public float DashImpulse = 2000f;
+    [Export]
     public float Gravity = 300f;
 
     public Vector2 Acceleration;
@@ -35,6 +37,13 @@ abstract public class Move : State
             Dictionary<string, object> msg = new Dictionary<string, object>();
             msg.Add("impulse", JumpImpulse);
             this.StateMachine.TransitionTo("Air", msg);
+        }
+
+        if (@event.IsActionPressed("dash"))
+        {
+            Dictionary<string, object> msg = new Dictionary<string, object>();
+            msg.Add("impulse", DashImpulse);
+            this.StateMachine.TransitionTo("Dash", msg);
         }
     }
 
