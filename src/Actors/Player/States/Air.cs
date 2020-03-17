@@ -6,9 +6,6 @@ using System.Text;
 [Tool]
 public class Air : Move
 {
-    [Export]
-    public float HorizontalAcceleration = 5000f;
-
     public Timer JumpDelay;
     public Timer ControlsFreeze;
 
@@ -52,7 +49,7 @@ public class Air : Move
     {
         base.Enter(msg);
 
-        this.Acceleration.x = this.HorizontalAcceleration;
+        // Disable the snap vector when Jumping
         this.SnapVector.y = 0;
 
         if (msg == null)
@@ -84,7 +81,7 @@ public class Air : Move
 
     public virtual Vector2 CalculateJumpVelocity(float impulse = 0f)
     {
-	    return base.CalculateVelocity(
+        return base.CalculateVelocity(
             base.Velocity,
             base.MaxSpeed,
             new Vector2(0f, impulse),

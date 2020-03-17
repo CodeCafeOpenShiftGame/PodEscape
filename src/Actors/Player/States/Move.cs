@@ -72,12 +72,13 @@ abstract public class Move : State
     }
 
     public virtual Vector2 CalculateVelocity(
-		Vector2 oldVelocity,
-		Vector2 maxSpeed,
-		Vector2 acceleration,
-		float delta,
-		Vector2 moveDirection
-	) {
+        Vector2 oldVelocity,
+        Vector2 maxSpeed,
+        Vector2 acceleration,
+        float delta,
+        Vector2 moveDirection
+    )
+    {
         Vector2 newVelocity = oldVelocity;
 
         newVelocity += moveDirection * acceleration * delta;
@@ -89,9 +90,9 @@ abstract public class Move : State
 
     public virtual Vector2 GetMoveDirection()
     {
-	    return new Vector2(
-		    1f,//Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
-		    1f
-	    );
+        return new Vector2(
+            1f,//Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
+            1f
+        );
     }
 }

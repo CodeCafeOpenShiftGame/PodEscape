@@ -8,8 +8,7 @@ public class Dash : Move
     public Timer GhostTimer;
     [Export((PropertyHint)24, "17/17:PackedScene")]
     public PackedScene GhostScene;
-    [Export]
-    public float HorizontalAcceleration = 10000f;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -35,6 +34,11 @@ public class Dash : Move
     {
         base.PhysicsProcess(delta);
 
+        if (this.DashTimer.TimeLeft > 0)
+        {
+            return;
+        }
+
         Player player = this.Owner as Player;
 
         if (player.IsOnFloor())
@@ -53,16 +57,15 @@ public class Dash : Move
     {
         base.Enter(msg);
 
-        this.Acceleration.x = this.HorizontalAcceleration;
-
         if (msg == null)
             return;
 
         Player player = (Player)this.Owner;
-        //        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
-        //        animationPlayer.Play("Dash");
+        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
+        animationPlayer.Play("Dash");
 
-        // this.GhostTimer.Start();
+        this.GhostTimer.Start();
+        this.DashTimer.Start();
 
         if (msg.ContainsKey("velocity"))
         {
@@ -74,13 +77,11 @@ public class Dash : Move
         {
             this.Velocity += this.CalculateDashVelocity((float)msg["impulse"]);
         }
-
     }
 
     public override void Exit()
     {
         this.Acceleration = this.AccelerationDefault;
-        // this.GhostTimer.Stop();
         base.Exit();
     }
 
@@ -104,5 +105,10 @@ public class Dash : Move
         ghost.Texture = playerSprite.Texture;
         ghost.Position = player.Position;
         this.GetParent().AddChild(ghost);
+    }
+
+    public virtual void _OnDashTimerTimeout()
+    {
+        this.GhostTimer.Stop();
     }
 }
