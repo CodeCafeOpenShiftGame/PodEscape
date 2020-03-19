@@ -21,7 +21,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 53.0155, 95.6667 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "Dash"
 length = 0.4
 tracks/0/type = "value"
@@ -37,8 +37,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 13 ), ExtResource( 13 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fall"
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Sprite:texture")
@@ -53,7 +52,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 14 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Sprite:texture")
@@ -68,8 +67,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ), ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Jump"
+[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -85,7 +83,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 12 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -170,6 +168,7 @@ one_shot = true
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
+DashImpulse = 2000.0
 GhostScene = ExtResource( 17 )
 
 [node name="DashTimer" type="Timer" parent="StateMachine/Dash"]
@@ -179,12 +178,14 @@ one_shot = true
 [node name="GhostTimer" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.1
 
+[node name="Tween" type="Tween" parent="StateMachine/Dash"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dash = SubResource( 6 )
-anims/Fall = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-anims/Jump = SubResource( 4 )
-anims/Run = SubResource( 5 )
+anims/Dash = SubResource( 2 )
+anims/Fall = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Run = SubResource( 6 )
 [connection signal="draw" from="CollisionShape2D" to="." method="_on_CollisionShape2D_draw"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]

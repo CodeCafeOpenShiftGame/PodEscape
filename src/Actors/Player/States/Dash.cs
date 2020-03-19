@@ -76,6 +76,18 @@ public class Dash : Move
         if (msg.ContainsKey("impulse"))
         {
             this.Velocity += this.CalculateDashVelocity((float)msg["impulse"]);
+
+            Tween dashTween = this.GetNode("Tween") as Tween;
+            dashTween.InterpolateProperty(
+                player,
+                "position",
+                player.Position,
+                new Vector2(player.Position.x + ((float)msg["impulse"] / 2), player.Position.y),
+                .5f,
+                Tween.TransitionType.Linear,
+                Tween.EaseType.InOut
+            );
+            dashTween.Start();
         }
     }
 
