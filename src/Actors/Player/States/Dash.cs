@@ -41,8 +41,17 @@ public class Dash : Move
 
         Player player = this.Owner as Player;
 
+        // TODO: Epsilon check
+        if (this.GetMoveDirection().x == 0f)
+        {
+            this.StateMachine.TransitionTo("Idle");
+
+            return;
+        }
+
         if (player.IsOnFloor())
         {
+            // TODO: Epsilon check
             string targetState = base.GetMoveDirection().x == 0 ? "Idle" : "Run";
             this.StateMachine.TransitionTo(targetState);
         }

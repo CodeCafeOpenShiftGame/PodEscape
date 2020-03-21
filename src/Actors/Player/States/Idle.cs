@@ -17,7 +17,14 @@ public class Idle : Move
     {
         Player player = this.Owner as Player;
 
-        if (player.IsOnFloor() && this.GetMoveDirection().x != 0)
+        // TODO: Epsilon check
+        if (this.GetMoveDirection().x == 0f)
+        {
+            return;
+        }
+
+        // TODO: Epsilon check
+        if (player.IsOnFloor())
         {
             this.StateMachine.TransitionTo("Run");
         }

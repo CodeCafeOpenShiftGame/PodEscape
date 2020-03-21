@@ -4,6 +4,8 @@ using System;
 
 abstract public class Move : State
 {
+    protected Vector2 moveDirection = Vector2.One;
+
     [Export]
     public Vector2 MaxSpeedDefault = new Vector2(500f, 1500f);
     [Export]
@@ -32,6 +34,12 @@ abstract public class Move : State
     {
         Player player = (Player)this.Owner;
 
+        // TODO: Epsilon check
+        if (this.GetMoveDirection().x == 0f)
+        {
+            return;
+        }
+
         if (player.IsOnFloor() && @event.IsActionPressed("jump"))
         {
             Dictionary<string, object> msg = new Dictionary<string, object>();
@@ -52,7 +60,7 @@ abstract public class Move : State
         Vector2 direction = this.GetMoveDirection();
 
         Player player = (Player)this.Owner;
-        player.Flip(direction);
+        //player.Flip(direction);
 
         this.Velocity = this.CalculateVelocity(
             this.Velocity,
@@ -90,9 +98,10 @@ abstract public class Move : State
 
     public virtual Vector2 GetMoveDirection()
     {
-        return new Vector2(
-            1f,//Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
-            1f
-        );
+        return this.moveDirection;
+//        return new Vector2(
+//            1f,//Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
+//            1f
+//        );
     }
 }

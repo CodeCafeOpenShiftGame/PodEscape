@@ -107,7 +107,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="BodyPivot"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.68323, 4.91095 )
@@ -168,7 +168,6 @@ one_shot = true
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
-DashImpulse = 2000.0
 GhostScene = ExtResource( 17 )
 
 [node name="DashTimer" type="Timer" parent="StateMachine/Dash"]

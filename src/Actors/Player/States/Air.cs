@@ -18,6 +18,12 @@ public class Air : Move
 
     public override void UnhandledInput(InputEvent @event)
     {
+        // TODO: Epsilon check
+        if (this.GetMoveDirection().x == 0f)
+        {
+            return;
+        }
+
         if (@event.IsActionPressed("jump"))
         {
             if (base.Velocity.y >= 0.0 && this.JumpDelay.TimeLeft > 0f)

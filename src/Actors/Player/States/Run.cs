@@ -25,14 +25,15 @@ public class Run : Move
     {
         Player player = this.Owner as Player;
 
-        if (player.IsOnFloor())
+        // TODO: Epsilon check
+        if (this.GetMoveDirection().x == 0f)
         {
-            if (this.GetMoveDirection().x == 0f)
-            {
-                this.StateMachine.TransitionTo("Idle");
-            }
+            this.StateMachine.TransitionTo("Idle");
+
+            return;
         }
-        else
+
+        if (!player.IsOnFloor())
         {
             this.StateMachine.TransitionTo("Air");
         }

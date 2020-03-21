@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+gracePeriodTotal = 4
 
 [node name="Score" type="Label" parent="."]
 anchor_left = 1.0
@@ -24,6 +25,16 @@ margin_top = 50.0
 margin_right = -50.0
 margin_bottom = 150.0
 text = "Score: 000000"
+valign = 1
+
+[node name="GracePeriod" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1840.0
+margin_top = 50.0
+margin_right = -1490.0
+margin_bottom = 150.0
+text = "Grace Period:"
 valign = 1
 
 [node name="PauseOverlay" type="ColorRect" parent="."]
@@ -61,5 +72,110 @@ margin_top = 137.0
 margin_right = 270.0
 margin_bottom = 270.0
 text = "End Game"
+
+[node name="HighScoresOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.160784, 0.0509804, 0.0509804, 0.705882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="HighScoresOverlay" instance=ExtResource( 3 )]
+text = "High Scores"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -260.0
+margin_top = -220.0
+margin_right = 265.0
+margin_bottom = 346.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel0" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_right = 524.0
+margin_bottom = 53.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel1" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 57.0
+margin_right = 524.0
+margin_bottom = 110.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel2" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 114.0
+margin_right = 524.0
+margin_bottom = 167.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel3" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 171.0
+margin_right = 524.0
+margin_bottom = 224.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel4" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 228.0
+margin_right = 524.0
+margin_bottom = 281.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel5" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 285.0
+margin_right = 524.0
+margin_bottom = 338.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel6" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 342.0
+margin_right = 524.0
+margin_bottom = 395.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel7" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 399.0
+margin_right = 524.0
+margin_bottom = 452.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel8" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 456.0
+margin_right = 524.0
+margin_bottom = 509.0
+text = "Player 000000"
+align = 1
+valign = 1
+
+[node name="ScoreLabel9" type="Label" parent="HighScoresOverlay/VBoxContainer"]
+margin_top = 513.0
+margin_right = 524.0
+margin_bottom = 566.0
+text = "Player 000000"
+align = 1
+valign = 1
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_button_up"]
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]
