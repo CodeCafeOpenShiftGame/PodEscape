@@ -4,6 +4,7 @@ using System.Net;
 using System.Runtime.Remoting.Channels;
 using System.Text;
 using Godot.Collections;
+using Array = System.Array;
 
 
 public class TestScores : Godot.Panel
@@ -16,14 +17,43 @@ public class TestScores : Godot.Panel
 
 	private void PrintRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
 	{
-		//var json = JSONParseResult()
-		JSONParseResult jsonParseResult = JSON.Parse(body.ToString());
 		GD.Print("result: ", result);
 		GD.Print("response_code: ", responseCode);
-		GD.Print("jsonParseResult: ", jsonParseResult.ToString());
-		GD.Print("body: ", body.ToString());
-	}
-	// Called when the node enters the scene tree for the first time.
+
+        GD.Print("Headers count " + headers.Count);
+        for (int j = 0; j < headers.Count; ++j)
+        {
+            GD.Print("header " + j + " " + headers[j]);
+        }
+
+        byte[] bytes = new byte[body.Count];
+        body.CopyTo(bytes, 0);
+        string str = System.Text.Encoding.Default.GetString(bytes);
+        GD.Print("str ", str);
+        if (str.Empty())
+        {
+            return;
+        }
+		JSONParseResult jsonParseResult = JSON.Parse(str);
+        GD.Print("jsonParseResult is ", jsonParseResult);
+        GD.Print("jsonParseResult.Result is ", jsonParseResult.Result);
+        GD.Print("jsonParseResult.Result.GetType() " + jsonParseResult.Result.GetType());
+        Godot.Collections.Array arrResults = jsonParseResult.Result as Godot.Collections.Array;
+        if (null == arrResults)
+        {
+            return;
+        }
+        GD.Print("arrResults count " + arrResults.Count);
+        for (int i = 0; i < arrResults.Count; ++i)
+        {
+            Godot.Collections.Dictionary dict = arrResults[i] as Godot.Collections.Dictionary;
+            GD.Print(dict["id"]);
+            GD.Print(dict["name"]);
+            GD.Print(dict["score"]);
+        }
+    }
+
+    // Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GD.Print("_Ready");

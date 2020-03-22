@@ -16,6 +16,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 gracePeriodTotal = 4
+highScoresAPIURL = "http://highscores-api-service-mongodb0.apps-crc.testing"
 
 [node name="Score" type="Label" parent="."]
 anchor_left = 1.0
@@ -83,6 +84,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="HighScoresOverlay"]
+
 [node name="Title" parent="HighScoresOverlay" instance=ExtResource( 3 )]
 text = "High Scores"
 
@@ -100,82 +103,78 @@ __meta__ = {
 }
 
 [node name="ScoreLabel0" type="Label" parent="HighScoresOverlay/VBoxContainer"]
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 53.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel1" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 57.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 110.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel2" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 114.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 167.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel3" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 171.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 224.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel4" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 228.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 281.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel5" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 285.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 338.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel6" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 342.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 395.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel7" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 399.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 452.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel8" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 456.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 509.0
-text = "Player 000000"
 align = 1
 valign = 1
 
 [node name="ScoreLabel9" type="Label" parent="HighScoresOverlay/VBoxContainer"]
 margin_top = 513.0
-margin_right = 524.0
+margin_right = 525.0
 margin_bottom = 566.0
-text = "Player 000000"
 align = 1
 valign = 1
+
+[node name="Footer" parent="HighScoresOverlay" instance=ExtResource( 3 )]
+margin_top = 980.0
+margin_right = 0.00012207
+margin_bottom = 1080.0
+text = "Press any key to continue"
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_button_up"]
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]

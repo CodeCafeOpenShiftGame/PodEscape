@@ -11,6 +11,8 @@ public class InGameOverlay : Control
 	private Label titleLabel;
 	private GameManager gameManager;
 
+    private Label[] arrScoreLabels;
+
 	private bool paused = false;
 	public bool Paused
 	{
@@ -37,6 +39,13 @@ public class InGameOverlay : Control
     [Export]
     public int gracePeriodTotal = 0;
 
+    [Export]
+    public string highScoresAPIURL = "";
+
+    private HTTPRequest _httpRequest;
+    private string _strURL;
+
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -49,10 +58,27 @@ public class InGameOverlay : Control
         this.gracePeriodLabel = GetNode<Label>("GracePeriod");
         this.titleLabel = GetNode<Label>("PauseOverlay/Title");
 
+        this.arrScoreLabels = new Label[10];
+        for (int i = 0; i < 10; ++i)
+        {
+            this.arrScoreLabels[i] = GetNode<Label>("HighScoresOverlay/VBoxContainer/ScoreLabel" + i);
+        }
+
         this.gameManager.Connect("UpdatedScore", this, "_on_ScoreUpdated");
         this.gameManager.Connect("UpdatedGracePeriod", this, "_on_GracePeriodUpdated");
         this.gameManager.Connect("PlayerDied", this, "_on_PlayerDied");
         this.gameManager.Connect("GracePeriodExpired", this, "_on_GracePeriodExpired");
+
+        this._httpRequest = (Godot.HTTPRequest)GetNode("HighScoresOverlay/HTTPRequest");
+        this._httpRequest.Connect("request_completed", this, nameof(this._OnRequestCompleted));
+        if (!this.highScoresAPIURL.Empty())
+        {
+            this._strURL = this.highScoresAPIURL;
+        }
+        else
+        {
+            this._strURL = "127.0.0.1";//"http://highscores-api-service-mongodb0.apps-crc.testing";
+        }
     }
 
 	public override void _UnhandledInput(InputEvent @event)
@@ -101,6 +127,39 @@ public class InGameOverlay : Control
     private void _on_GracePeriodExpired()
     {
         this.gracePeriodLabel.Text = "EXPIRED";
+        this._httpRequest.Request(this._strURL + "/scores/topten");
         this.HighScores = true;
+    }
+
+    public void _OnRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
+    {
+        GD.Print("_OnRequestCompleted");
+
+        do
+        {
+            if (0 != result)
+            {
+                GD.Print("FAIL: result was " + result);
+                break;
+            }
+
+            if (200 != responseCode)
+            {
+                GD.Print("FAIL: responseCode was " + responseCode);
+                break;
+            }
+
+            byte[] bytes = new byte[body.Count];
+            body.CopyTo(bytes, 0);
+            string str = System.Text.Encoding.Default.GetString(bytes);
+            JSONParseResult jsonParseResult = JSON.Parse(str);
+            Godot.Collections.Array arrResults = jsonParseResult.Result as Godot.Collections.Array;
+            Godot.Collections.Dictionary dict;
+            for (int i = 0; i < arrResults.Count; ++i)
+            {
+                dict = arrResults[i] as Godot.Collections.Dictionary;
+                this.arrScoreLabels[i].Text = dict["name"] + " " + dict["score"];
+            }
+        } while (false);
     }
 }
