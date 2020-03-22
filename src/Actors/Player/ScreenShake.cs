@@ -9,7 +9,8 @@ public class ScreenShake : Node
     Timer frequency;
     Timer duration;
 
-    public const int OFFSET_X = 768;
+    public float offset_x;
+    public float offset_y;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -17,6 +18,8 @@ public class ScreenShake : Node
         base._Ready();
         shakeTween = this.GetNode("ShakeTween") as Tween;
         camera2D = this.GetParent() as Camera2D;
+        this.offset_x = this.camera2D.Offset.x;
+        this.offset_y = this.camera2D.Offset.y;
         frequency = this.GetNode("Frequency") as Timer;
         duration = this.GetNode("Duration") as Timer;
     }
@@ -43,8 +46,8 @@ public class ScreenShake : Node
     {
         Vector2 randVector = new Vector2(0f, 0f);
         Random random = new Random();
-        randVector.x = random.Next(-amplitude, amplitude) + OFFSET_X;
-        randVector.y = random.Next(-amplitude, amplitude);
+        randVector.x = random.Next(-amplitude, amplitude) + this.offset_x;
+        randVector.y = random.Next(-amplitude, amplitude) + this.offset_y;
 
         shakeTween.InterpolateProperty(
             camera2D,
@@ -64,7 +67,7 @@ public class ScreenShake : Node
             camera2D,
             "offset",
             camera2D.Offset,
-            new Vector2(OFFSET_X, 0),
+            new Vector2(offset_x, offset_y),
             frequency.WaitTime,
             Tween.TransitionType.Sine,
             Tween.EaseType.InOut
