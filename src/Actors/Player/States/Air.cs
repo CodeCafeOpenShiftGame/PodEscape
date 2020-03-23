@@ -82,6 +82,7 @@ public class Air : Move
     public override void Exit()
     {
         this.Acceleration = this.AccelerationDefault;
+        hasDashed = false;
         base.Exit();
     }
 
