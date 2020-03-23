@@ -9,6 +9,9 @@ public class Dash : Move
     [Export((PropertyHint)24, "17/17:PackedScene")]
     public PackedScene GhostScene;
 
+    [Signal]
+    public delegate void DashSignal();
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -97,6 +100,7 @@ public class Dash : Move
                 Tween.EaseType.InOut
             );
             dashTween.Start();
+            EmitSignal(nameof(DashSignal));
         }
     }
 

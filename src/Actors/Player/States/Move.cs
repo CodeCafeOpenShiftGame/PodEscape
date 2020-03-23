@@ -23,6 +23,8 @@ abstract public class Move : State
     public float SnapDistance = 32f;
     public Vector2 SnapVector = new Vector2(0f, 32f);
 
+    public Boolean hasDashed;
+
     public override void _Ready()
     {
         base._Ready();
@@ -49,10 +51,23 @@ abstract public class Move : State
 
         if (@event.IsActionPressed("dash"))
         {
-            Dictionary<string, object> msg = new Dictionary<string, object>();
-            msg.Add("impulse", DashImpulse);
-            this.StateMachine.TransitionTo("Dash", msg);
+            if (player.IsOnFloor())
+            {
+                StartDash();
+            }
+            else if (!player.IsOnFloor() && !this.hasDashed)
+            {
+                StartDash();
+                hasDashed = true;
+            }
         }
+    }
+
+    public void StartDash()
+    {
+        Dictionary<string, object> msg = new Dictionary<string, object>();
+        msg.Add("impulse", DashImpulse);
+        this.StateMachine.TransitionTo("Dash", msg);
     }
 
     public override void PhysicsProcess(float delta)

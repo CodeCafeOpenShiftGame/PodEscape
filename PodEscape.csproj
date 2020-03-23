@@ -57,6 +57,7 @@
     <Compile Include="src\Actors\Actor.cs" />
     <Compile Include="src\Actors\Player\GhostEffect.cs" />
     <Compile Include="src\Actors\Player\Player.cs" />
+    <Compile Include="src\Actors\Player\ScreenShake.cs" />
     <Compile Include="src\Actors\Player\States\Air.cs" />
     <Compile Include="src\Actors\Player\States\Dash.cs" />
     <Compile Include="src\Actors\Player\States\Die.cs" />

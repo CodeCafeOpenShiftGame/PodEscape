@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-gracePeriodTotal = 4
+gracePeriodTotal = 30
 highScoresAPIURL = "http://highscores-api-service-mongodb0.apps-crc.testing"
 
 [node name="Score" type="Label" parent="."]
