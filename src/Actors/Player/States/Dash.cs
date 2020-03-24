@@ -74,7 +74,15 @@ public class Dash : Move
 
         Player player = (Player)this.Owner;
         AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
-        animationPlayer.Play("Dash");
+
+        if (player.IsOnFloor())
+        {
+            animationPlayer.Play("Slide");
+        } else
+        {
+            animationPlayer.Play("Dash");
+        }
+        
 
         this.GhostTimer.Start();
         this.DashTimer.Start();
