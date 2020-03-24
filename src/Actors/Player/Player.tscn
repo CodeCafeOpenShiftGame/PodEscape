@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/Sprites/Player/idle/frame-1.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player/Player.cs" type="Script" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://src/Actors/Player/States/Air.cs" type="Script" id=16]
 [ext_resource path="res://src/Actors/Player/GhostEffect.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/Actors/Player/ScreenShake.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/SFX/player_dash.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/SFX/player_jump.wav" type="AudioStream" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 53.0155, 95.6667 )
@@ -191,6 +193,9 @@ one_shot = true
 wait_time = 0.16
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Air"]
+stream = ExtResource( 20 )
+
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
 GhostScene = ExtResource( 17 )
@@ -203,6 +208,9 @@ one_shot = true
 wait_time = 0.1
 
 [node name="Tween" type="Tween" parent="StateMachine/Dash"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Dash"]
+stream = ExtResource( 19 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dash = SubResource( 2 )

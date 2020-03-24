@@ -67,6 +67,9 @@ public class Air : Move
         AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
         animationPlayer.Play("Jump");
 
+        AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+        audio.Play();
+
         if (msg.ContainsKey("velocity"))
         {
             this.Velocity = (Vector2)msg["velocity"];
