@@ -12,7 +12,6 @@ public class ScreenShake : Node
     public float offset_x;
     public float offset_y;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         base._Ready();
@@ -23,12 +22,6 @@ public class ScreenShake : Node
         frequency = this.GetNode("Frequency") as Timer;
         duration = this.GetNode("Duration") as Timer;
     }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 
     public void Start(float duration = 0.2f, float frequency = 15f, int amplitude = 16)
     {
@@ -75,7 +68,7 @@ public class ScreenShake : Node
         shakeTween.Start();
     }
 
-    public virtual void OnFrenquencyTimeout()
+    public virtual void OnFrequencyTimeout()
     {
         this.NewShake();
     }

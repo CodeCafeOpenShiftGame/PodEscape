@@ -211,8 +211,6 @@ anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )
 anims/Run = SubResource( 6 )
 anims/Slide = SubResource( 7 )
-[connection signal="draw" from="CollisionShape2D" to="." method="_on_CollisionShape2D_draw"]
-[connection signal="draw" from="SlideCollision" to="." method="_on_CollisionShape2D_draw"]
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
