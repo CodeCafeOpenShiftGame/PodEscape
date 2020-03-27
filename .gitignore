@@ -9,3 +9,7 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash*.json
+
+
+# Platform related ignores
+.DS_Store

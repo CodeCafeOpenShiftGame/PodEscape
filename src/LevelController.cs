@@ -46,8 +46,10 @@ public class LevelController : Node2D
         if (null == prevPiece)
         {
             this.lastPosition.x = -1024.0f;
+            this.lastPosition.y = 1000.0f;
         }
         this.currentPosition.x = this.lastPosition.x + 1024.0f;
+        this.currentPosition.y = 1000.0f;
         instance.Position = this.currentPosition;
         this.lastPosition = instance.Position;
     }
