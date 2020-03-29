@@ -12,9 +12,9 @@ public class Dash : Move
     [Signal]
     public delegate void DashSignal();
 
-    public CollisionShape2D collisionShape; 
-    public CollisionShape2D slideCollision; 
-    public Player player; 
+    public CollisionShape2D collisionShape;
+    public CollisionShape2D slideCollision;
+    public Player player;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -84,15 +84,18 @@ public class Dash : Move
         if (player.IsOnFloor())
         {
             animationPlayer.Play("Slide");
-            
-        } else
+
+        }
+        else
         {
             animationPlayer.Play("Dash");
         }
 
         collisionShape.Disabled = true;
         slideCollision.Disabled = false;
-        
+
+        AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+        audio.Play();
 
         this.GhostTimer.Start();
         this.DashTimer.Start();
