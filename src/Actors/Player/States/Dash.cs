@@ -11,9 +11,6 @@ public class Dash : Move
 
     [Signal]
     public delegate void DashSignal();
-
-    public CollisionShape2D collisionShape;
-    public CollisionShape2D slideCollision;
     public Player player;
 
 
@@ -24,8 +21,6 @@ public class Dash : Move
         this.DashTimer = this.GetNode<Timer>("DashTimer");
         this.GhostTimer = this.GetNode<Timer>("GhostTimer");
         this.player = (Player)this.Owner;
-        this.collisionShape = player.GetNode("CollisionShape2D") as CollisionShape2D;
-        this.slideCollision = player.GetNode("SlideCollision") as CollisionShape2D;
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -91,9 +86,6 @@ public class Dash : Move
             animationPlayer.Play("Dash");
         }
 
-        collisionShape.Disabled = true;
-        slideCollision.Disabled = false;
-
         AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         audio.Play();
 
@@ -128,8 +120,6 @@ public class Dash : Move
     public override void Exit()
     {
         this.Acceleration = this.AccelerationDefault;
-        collisionShape.Disabled = false;
-        slideCollision.Disabled = true;
         base.Exit();
     }
 
