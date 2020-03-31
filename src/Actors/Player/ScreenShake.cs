@@ -81,7 +81,7 @@ public class ScreenShake : Node
 
     public virtual void _on_Dash_DashSignal()
     {
-       //this.Start();
+       this.Start();
     }
 
 }

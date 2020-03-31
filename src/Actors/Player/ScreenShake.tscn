@@ -8,7 +8,9 @@ script = ExtResource( 1 )
 [node name="ShakeTween" type="Tween" parent="."]
 
 [node name="Frequency" type="Timer" parent="."]
+one_shot = true
 
 [node name="Duration" type="Timer" parent="."]
+one_shot = true
 [connection signal="timeout" from="Frequency" to="." method="OnFrequencyTimeout"]
 [connection signal="timeout" from="Duration" to="." method="OnDurationTimeout"]
