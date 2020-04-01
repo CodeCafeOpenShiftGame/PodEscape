@@ -12,6 +12,9 @@ public class Dash : Move
     [Signal]
     public delegate void DashSignal();
     public Player player;
+    public CollisionPolygon2D runDashPolygon2D;
+    public CollisionPolygon2D jumpPolygon2D;
+    public CollisionPolygon2D slidePolygon2D;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -21,6 +24,9 @@ public class Dash : Move
         this.DashTimer = this.GetNode<Timer>("DashTimer");
         this.GhostTimer = this.GetNode<Timer>("GhostTimer");
         this.player = (Player)this.Owner;
+        this.runDashPolygon2D = player.GetNode<CollisionPolygon2D>("RunDashPolygon2D");
+        this.jumpPolygon2D = player.GetNode<CollisionPolygon2D>("JumpPolygon2D");
+        this.slidePolygon2D = player.GetNode<CollisionPolygon2D>("SlidePolygon2D");
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -56,12 +62,18 @@ public class Dash : Move
 
         if (player.IsOnFloor())
         {
+            // this.runDashPolygon2D.Disabled = true;
+            // this.jumpPolygon2D.Disabled = true;
+            // this.slidePolygon2D.Disabled = false;
             // TODO: Epsilon check
             string targetState = base.GetMoveDirection().x == 0 ? "Idle" : "Run";
             this.StateMachine.TransitionTo(targetState);
         }
         else if (!player.IsOnFloor())
         {
+            // this.runDashPolygon2D.Disabled = false;
+            // this.jumpPolygon2D.Disabled = true;
+            // this.slidePolygon2D.Disabled = true;
             this.StateMachine.TransitionTo("Air");
         }
 
@@ -78,12 +90,17 @@ public class Dash : Move
 
         if (player.IsOnFloor())
         {
+            this.runDashPolygon2D.Disabled = true;
+            this.jumpPolygon2D.Disabled = true;
+            this.slidePolygon2D.Disabled = false;
             animationPlayer.Play("Slide");
-
         }
         else
         {
             animationPlayer.Play("Dash");
+            this.runDashPolygon2D.Disabled = false;
+            this.jumpPolygon2D.Disabled = true;
+            this.slidePolygon2D.Disabled = true;
         }
 
         AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
@@ -92,11 +109,11 @@ public class Dash : Move
         this.GhostTimer.Start();
         this.DashTimer.Start();
 
-        if (msg.ContainsKey("velocity"))
-        {
-            this.Velocity = (Vector2)msg["velocity"];
-            this.MaxSpeed.x = Math.Max(Math.Abs(this.Velocity.x), this.MaxSpeed.x);
-        }
+        // if (msg.ContainsKey("velocity"))
+        // {
+        //     this.Velocity = (Vector2)msg["velocity"];
+        //     this.MaxSpeed.x = Math.Max(Math.Abs(this.Velocity.x), this.MaxSpeed.x);
+        // }
 
         if (msg.ContainsKey("impulse"))
         {

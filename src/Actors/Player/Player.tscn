@@ -20,7 +20,7 @@
 [ext_resource path="res://src/Actors/Player/ScreenShake.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/Sprites/Pod/burst/Podman_animation_Burst_C.png" type="Texture" id=19]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Dash"
 length = 0.4
 tracks/0/type = "value"
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 19 ), ExtResource( 19 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Sprite:texture")
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 19 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Sprite:texture")
@@ -66,7 +66,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 8 ), ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -98,7 +98,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 10 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "Slide"
 length = 0.4
 tracks/0/type = "value"
@@ -122,7 +122,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="BodyPivot"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 19 )
+texture = ExtResource( 12 )
 
 [node name="CameraPivot" type="Position2D" parent="."]
 
@@ -199,17 +199,33 @@ wait_time = 0.1
 stream = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dash = SubResource( 2 )
-anims/Fall = SubResource( 3 )
-anims/Idle = SubResource( 4 )
-anims/Jump = SubResource( 5 )
-anims/Run = SubResource( 6 )
-anims/Slide = SubResource( 7 )
+anims/Dash = SubResource( 1 )
+anims/Fall = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Jump = SubResource( 4 )
+anims/Run = SubResource( 5 )
+anims/Slide = SubResource( 6 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="RunDashPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 2
 position = Vector2( 0, 0.52948 )
 scale = Vector2( 1, 0.99328 )
 polygon = PoolVector2Array( 0.0911713, -49.3961, 40.8564, -25.2927, 41.1799, 23.24, 0.738251, 47.6692, -42.2917, 23.5657, -41.7368, -25.3195 )
+
+[node name="JumpPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 2
+position = Vector2( 0, 0.52948 )
+rotation = -0.0958199
+scale = Vector2( 1, 0.99328 )
+polygon = PoolVector2Array( 0.0911713, -49.3961, 40.8564, -25.2927, 41.1799, 23.24, 0.738251, 47.6692, -42.2917, 23.5657, -41.7368, -25.3195 )
+disabled = true
+
+[node name="SlidePolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 2
+position = Vector2( 0, 0.52948 )
+scale = Vector2( 1, 0.99328 )
+polygon = PoolVector2Array( 50.2415, -3.22927, 50.2975, 13.2036, -49.6458, 13.0524, -49.8836, -3.4687 )
+disabled = true
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
