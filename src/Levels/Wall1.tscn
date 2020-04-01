@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://src/Levels/Wall1.tscn" type="PackedScene" id=1]
+[gd_scene format=2]
 
 [node name="Floor" type="StaticBody2D"]
 z_index = 1
@@ -8,14 +6,13 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = -1.57525
 polygon = PoolVector2Array( 512, 64, 512, -64, -512, -64, -512, 64 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = -1.56986
 color = Color( 0.0627451, 0.45098, 0.662745, 0.501961 )
 polygon = PoolVector2Array( -512, 64, -512, -64, 512, -64, 512, 64 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 512, 0 )
-
-[node name="Floor" parent="." instance=ExtResource( 1 )]
-position = Vector2( 442.918, -647.972 )
