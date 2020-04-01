@@ -224,7 +224,7 @@ disabled = true
 light_mask = 2
 position = Vector2( 0, 0.52948 )
 scale = Vector2( 1, 0.99328 )
-polygon = PoolVector2Array( 50.2415, -3.22927, 50.2975, 13.2036, -49.6458, 13.0524, -49.8836, -3.4687 )
+polygon = PoolVector2Array( 50.3767, -3.29898, 50.1927, 48.0211, -49.9174, 47.8358, -49.8836, -3.4687 )
 disabled = true
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
