@@ -8,12 +8,20 @@ public class Air : Move
 {
     public Timer JumpDelay;
     public Timer ControlsFreeze;
+    public Player player;
+    public CollisionPolygon2D runDashPolygon2D;
+    public CollisionPolygon2D jumpPolygon2D;
+    public CollisionPolygon2D slidePolygon2D;
 
     public override void _Ready()
     {
         base._Ready();
         this.JumpDelay = this.GetNode("JumpDelay") as Timer;
         this.ControlsFreeze = this.GetNode("ControlsFreeze") as Timer;
+        this.player = (Player)this.Owner;
+        this.runDashPolygon2D = player.GetNode<CollisionPolygon2D>("RunDashPolygon2D");
+        this.jumpPolygon2D = player.GetNode<CollisionPolygon2D>("JumpPolygon2D");
+        this.slidePolygon2D = player.GetNode<CollisionPolygon2D>("SlidePolygon2D");
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -63,9 +71,12 @@ public class Air : Move
             return;
         }
 
-        Player player = (Player)this.Owner;
-        AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
+        AnimationPlayer animationPlayer = this.player.GetNode("AnimationPlayer") as AnimationPlayer;
         animationPlayer.Play("Jump");
+        this.runDashPolygon2D.Disabled = true;
+        this.jumpPolygon2D.Disabled = false;
+        this.slidePolygon2D.Disabled = true;
+
 
         AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         audio.Play();
