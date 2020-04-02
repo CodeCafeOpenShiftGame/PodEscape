@@ -1,0 +1,51 @@
+[gd_scene format=2]
+
+[node name="LevelNode2D" type="Node2D"]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 307.2, 0 )
+scale = Vector2( 0.6, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor" type="StaticBody2D" parent="."]
+modulate = Color( 0.45098, 0.0627451, 0.0627451, 1 )
+z_index = 3
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
+polygon = PoolVector2Array( 512, -64, 512, 64, -512, 64, -512, -64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+color = Color( 0.0627451, 0.168627, 0.662745, 0.501961 )
+polygon = PoolVector2Array( -512, 64, -512, -64, 512, -64, 512, 64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+modulate = Color( 0.988235, 0.12549, 0.12549, 1 )
+position = Vector2( 0, -100 )
+rotation = 1.5708
+scale = Vector2( 0.2, 1 )
+z_index = 3
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacle"]
+polygon = PoolVector2Array( 512, -64, 512, 64, -512, 64, -512, -64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacle"]
+color = Color( 0.0627451, 0.168627, 0.662745, 0.501961 )
+polygon = PoolVector2Array( -512, 64, -512, -64, 512, -64, 512, 64 )
+__meta__ = {
+"_edit_group_": true
+}
