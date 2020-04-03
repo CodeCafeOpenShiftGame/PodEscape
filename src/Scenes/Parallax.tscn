@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/Sprites/ParallaxExample/1_1.png" type="Texture" id=1]
-[ext_resource path="res://assets/Sprites/ParallaxExample/1_2.png" type="Texture" id=2]
-[ext_resource path="res://assets/Sprites/ParallaxExample/1_3.png" type="Texture" id=3]
-[ext_resource path="res://assets/Sprites/ParallaxExample/1_5.png" type="Texture" id=4]
-[ext_resource path="res://assets/Sprites/ParallaxExample/1_4.png" type="Texture" id=5]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_5.png" type="Texture" id=2]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_3.png" type="Texture" id=3]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_7.png" type="Texture" id=5]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_6.png" type="Texture" id=6]
+[ext_resource path="res://assets/Backgrounds/Parallax/1_4.png" type="Texture" id=7]
+[ext_resource path="res://assets/Backgrounds/Parallax/grain.png" type="Texture" id=8]
 
 [node name="ParallaxNode2D" type="Node2D"]
 
@@ -18,7 +21,29 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/FarthestLayer"]
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="EvenFartherLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 3999, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/EvenFartherLayer"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Grain" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 3999, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Grain"]
+texture = ExtResource( 8 )
 centered = false
 
 [node name="KindaFarLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -43,6 +68,17 @@ __meta__ = {
 texture = ExtResource( 3 )
 centered = false
 
+[node name="CloseLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 3999, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+texture = ExtResource( 7 )
+centered = false
+
 [node name="CloserLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 3999, 0 )
 __meta__ = {
@@ -50,7 +86,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/CloserLayer"]
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
@@ -64,5 +100,5 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="ParallaxForeground/TooClose"]
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 centered = false
