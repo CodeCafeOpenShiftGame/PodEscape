@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="AudioButton" type="Button"]
+margin_right = 230.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Audio Off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
