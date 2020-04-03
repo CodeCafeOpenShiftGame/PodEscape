@@ -68,6 +68,7 @@
     <Compile Include="src\Autoload\GameManager.cs" />
     <Compile Include="src\CameraController.cs" />
     <Compile Include="src\LevelController.cs" />
+    <Compile Include="src\Scenes\Firewall.cs" />
     <Compile Include="src\Scenes\InGameOverlay.cs" />
     <Compile Include="src\Scenes\Main.cs" />
     <Compile Include="src\StateMachine\StateMachine.cs" />
