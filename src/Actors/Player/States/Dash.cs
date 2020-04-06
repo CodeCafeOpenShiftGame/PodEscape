@@ -14,6 +14,10 @@ public class Dash : Move
     public Player player;
     Tween dashTween;
 
+    // Collision shapes
+    CollisionShape2D playerCollisionShape;
+    CollisionShape2D slideCollisionShape;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -23,6 +27,8 @@ public class Dash : Move
         this.GhostTimer = this.GetNode<Timer>("GhostTimer");
         this.player = (Player)this.Owner;
         this.dashTween = this.GetNode<Tween>("Tween");
+        this.playerCollisionShape = this.GetParent().GetParent().GetNode("PlayerCollisionShape") as CollisionShape2D;
+        this.slideCollisionShape = this.GetParent().GetParent().GetNode("SlideCollisionShape") as CollisionShape2D;
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -91,6 +97,8 @@ public class Dash : Move
                 if (player.IsOnFloor())
                 {
                     animationPlayer.Play("Slide");
+                    this.playerCollisionShape.Disabled = true;
+                    this.slideCollisionShape.Disabled = false;
                 }
                     else
                 {
@@ -150,5 +158,7 @@ public class Dash : Move
     public virtual void _OnDashTimerTimeout()
     {
         this.GhostTimer.Stop();
+        this.slideCollisionShape.Disabled = true;
+        this.playerCollisionShape.Disabled = false;
     }
 }
