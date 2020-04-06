@@ -8,9 +8,6 @@ public class Run : Move
     public Tween Tween;
     public float SlowDurationSeconds = 0.4f;
     public Player player;
-    public CollisionPolygon2D runDashPolygon2D;
-    public CollisionPolygon2D jumpPolygon2D;
-    public CollisionPolygon2D slidePolygon2D;
 
     public override void _Ready()
     {
@@ -19,9 +16,6 @@ public class Run : Move
         this.SlowStarter.Connect("timeout", this, "OnSlowDownTimeout");
         this.Tween = this.GetNode("Tween") as Tween;
         this.player = (Player)this.Owner;
-        this.runDashPolygon2D = player.GetNode<CollisionPolygon2D>("RunDashPolygon2D");
-        this.jumpPolygon2D = player.GetNode<CollisionPolygon2D>("JumpPolygon2D");
-        this.slidePolygon2D = player.GetNode<CollisionPolygon2D>("SlidePolygon2D");
     }
 
     public virtual void OnSlowDownTimeout()
@@ -54,9 +48,6 @@ public class Run : Move
         base.Enter(msg);
 
         this.player.AnimationPlayer.Play("Run");
-        this.runDashPolygon2D.Disabled = false;
-        this.jumpPolygon2D.Disabled = true;
-        this.slidePolygon2D.Disabled = true;
 
         if (Mathf.IsEqualApprox(this.MaxSpeed.x, this.MaxSpeedDefault.x))
         {
