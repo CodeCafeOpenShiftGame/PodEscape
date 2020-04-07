@@ -120,17 +120,29 @@ public class InGameOverlay : Control
 
 	private void _on_PlayerDied(string deathString)
 	{
-		// TODO: anything or just let game manager switch to gameover scene
-        // display game over overlay after player has died, i.e. death animation is complete
+        this.gracePeriodLabel.Text = deathString;
+        Timer waitForDeathAnimation = new Timer();
+        waitForDeathAnimation.OneShot = true;
+        waitForDeathAnimation.WaitTime = 2;
+        waitForDeathAnimation.Connect("timeout", this, nameof(_on_DeathAnimationComplete));
+        waitForDeathAnimation.Autostart = true;
     }
 
     private void _on_GracePeriodExpired()
     {
         this.gracePeriodLabel.Text = "EXPIRED";
+        Timer waitForDeathAnimation = new Timer();
+        waitForDeathAnimation.OneShot = true;
+        waitForDeathAnimation.WaitTime = 2;
+        waitForDeathAnimation.Connect("timeout", this, nameof(_on_DeathAnimationComplete));
+        waitForDeathAnimation.Autostart = true;
+    }
+
+    private void _on_DeathAnimationComplete()
+    {
         this._httpRequest.Request(this._strURL + "/scores/topten");
         this.HighScores = true;
     }
-
     public void _OnRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
     {
         GD.Print("_OnRequestCompleted");
