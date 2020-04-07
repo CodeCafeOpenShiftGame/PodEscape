@@ -92,6 +92,19 @@ abstract public class Move : State
             this.SnapVector,
             player.FLOOR_NORMAL
         );
+
+        var collisionInfo = player.MoveAndCollide(this.Velocity * delta, true, true, true);
+
+        if (collisionInfo != null)
+        {
+            foreach (Node2D node in GetTree().GetNodesInGroup("killingObstacles"))
+            {
+                if (collisionInfo.ColliderId == node.GetInstanceId())
+                {
+                    this.StateMachine.TransitionTo("Die");
+                }
+            }
+        }
     }
 
     public virtual Vector2 CalculateVelocity(
