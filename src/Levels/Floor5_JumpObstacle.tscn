@@ -27,7 +27,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Obstacle" type="StaticBody2D" parent="."]
+[node name="Obstacle" type="StaticBody2D" parent="." groups=[
+"killingObstacles",
+]]
 modulate = Color( 0.988235, 0.12549, 0.12549, 1 )
 position = Vector2( 0, -100 )
 rotation = 1.5708

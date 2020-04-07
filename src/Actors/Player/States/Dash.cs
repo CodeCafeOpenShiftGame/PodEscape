@@ -84,34 +84,56 @@ public class Dash : Move
 
         AnimationPlayer animationPlayer = player.GetNode("AnimationPlayer") as AnimationPlayer;
 
-
-
         if (msg.ContainsKey("impulse"))
         {
 
+            Boolean collisionDetected = false;
             this.Velocity += this.CalculateDashVelocity((float)msg["impulse"]);
-            var collisionInfo = player.MoveAndCollide(this.Velocity, true, true, true);
 
-            if (collisionInfo == null)
+            if (player.IsOnFloor())
             {
-                if (player.IsOnFloor())
+                animationPlayer.Play("Slide");
+                this.playerCollisionShape.Disabled = true;
+                this.slideCollisionShape.Disabled = false;
+            }
+                else
+            {
+                animationPlayer.Play("Dash");
+            }
+
+            AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+            audio.Play();
+
+            this.GhostTimer.Start();
+            this.DashTimer.Start();
+
+            foreach (Node2D node in GetTree().GetNodesInGroup("killingObstacles"))
+            {
+                if (node.GlobalPosition.x > player.Position.x && node.GlobalPosition.x < player.Position.x + ((float)msg["impulse"] / 2))
                 {
-                    animationPlayer.Play("Slide");
-                    this.playerCollisionShape.Disabled = true;
-                    this.slideCollisionShape.Disabled = false;
+                    if (player.IsOnFloor())
+                    {
+                        dashTween.InterpolateProperty
+                        (
+                            player,
+                            "position",
+                            player.Position,
+                            new Vector2(node.GlobalPosition.x, player.Position.y),
+                            .5f,
+                            Tween.TransitionType.Linear,
+                            Tween.EaseType.InOut
+                        );
+                        dashTween.Start();
+                        this.StateMachine.TransitionTo("Die");
+                        collisionDetected = true;
+                    }
                 }
-                    else
-                {
-                    animationPlayer.Play("Dash");
-                }
+            }
 
-                AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-                audio.Play();
-
-                this.GhostTimer.Start();
-                this.DashTimer.Start();
-
-                dashTween.InterpolateProperty(
+            if (!collisionDetected)
+            {
+                dashTween.InterpolateProperty
+                (
                     player,
                     "position",
                     player.Position,
@@ -121,9 +143,8 @@ public class Dash : Move
                     Tween.EaseType.InOut
                 );
                 dashTween.Start();
-                EmitSignal(nameof(DashSignal));
             }
-            
+            EmitSignal(nameof(DashSignal));
         }
     }
 
@@ -158,7 +179,10 @@ public class Dash : Move
     public virtual void _OnDashTimerTimeout()
     {
         this.GhostTimer.Stop();
-        this.slideCollisionShape.Disabled = true;
-        this.playerCollisionShape.Disabled = false;
+        if (playerCollisionShape.Disabled)
+        {
+            this.slideCollisionShape.Disabled = true;
+            this.playerCollisionShape.Disabled = false;
+        }
     }
 }

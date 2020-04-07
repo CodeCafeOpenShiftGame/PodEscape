@@ -114,10 +114,10 @@ tracks/0/keys = {
 "values": [ ExtResource( 12 ), ExtResource( 12 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=7]
 radius = 47.318
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 50.4351, 8.18768 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -230,15 +230,12 @@ anims/Run = SubResource( 5 )
 anims/Slide = SubResource( 6 )
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="SlideCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.225937, 5.19054 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 disabled = true
-__meta__ = {
-"_edit_group_": true
-}
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
