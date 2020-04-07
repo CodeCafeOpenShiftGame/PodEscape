@@ -11,6 +11,7 @@ public class Die : Move
         Player player = this.GetParent().GetParent() as Player;
 
         player.AnimationPlayer.Play("Fall");
+        player.PlayerTrail.Emitting = false;
 
         base.moveDirection = Vector2.Zero;
     }

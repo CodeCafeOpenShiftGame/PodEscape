@@ -95,6 +95,7 @@ public class Dash : Move
                 animationPlayer.Play("Slide");
                 this.playerCollisionShape.Disabled = true;
                 this.slideCollisionShape.Disabled = false;
+                player.PlayerTrail.Emitting = false;
             }
                 else
             {
@@ -184,5 +185,6 @@ public class Dash : Move
             this.slideCollisionShape.Disabled = true;
             this.playerCollisionShape.Disabled = false;
         }
+        player.PlayerTrail.Emitting = true;
     }
 }

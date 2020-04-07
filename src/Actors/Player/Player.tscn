@@ -141,7 +141,6 @@ script = ExtResource( 2 )
 
 [node name="PlayerTrail" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 45 )
-emitting = false
 amount = 25
 lifetime = 0.5
 preprocess = 0.1
