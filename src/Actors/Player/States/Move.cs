@@ -104,6 +104,13 @@ abstract public class Move : State
                     this.StateMachine.TransitionTo("Die");
                 }
             }
+            foreach (Node2D node in GetTree().GetNodesInGroup("dashable"))
+            {
+                if (collisionInfo.ColliderId == node.GetInstanceId())
+                {
+                    this.StateMachine.TransitionTo("Die");
+                }
+            }
         }
     }
 

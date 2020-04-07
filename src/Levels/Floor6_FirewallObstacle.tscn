@@ -34,6 +34,10 @@ __meta__ = {
 position = Vector2( 0, -64 )
 scale = Vector2( 0.2, 0.2 )
 
+[node name="StaticBody2D" parent="FirewallNode2D/GeneratorNode2D/FireNode2D" index="1" groups=[
+"dashable",
+]]
+
 [node name="StaticBody2D" parent="FirewallNode2D/GeneratorNode2D" index="2" groups=[
 "killingObstacles",
 ]]
