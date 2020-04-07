@@ -12,8 +12,7 @@ __meta__ = {
 [node name="Floor" type="StaticBody2D" parent="."]
 modulate = Color( 0.45098, 0.0627451, 0.0627451, 1 )
 z_index = 3
-collision_layer = 2
-collision_mask = 0
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
 polygon = PoolVector2Array( 512, -64, 512, 64, -512, 64, -512, -64 )
@@ -28,14 +27,15 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Obstacle" type="StaticBody2D" parent="."]
+[node name="Obstacle" type="StaticBody2D" parent="." groups=[
+"killingObstacles",
+]]
 modulate = Color( 0.988235, 0.12549, 0.12549, 1 )
 position = Vector2( 0, -100 )
 rotation = 1.5708
 scale = Vector2( 0.2, 1 )
 z_index = 3
-collision_layer = 2
-collision_mask = 0
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacle"]
 polygon = PoolVector2Array( 512, -64, 512, 64, -512, 64, -512, -64 )

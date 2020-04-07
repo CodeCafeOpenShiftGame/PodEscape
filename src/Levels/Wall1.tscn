@@ -2,12 +2,12 @@
 
 [node name="Wall" type="StaticBody2D"]
 z_index = 1
-collision_layer = 2
-collision_mask = 0
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = -1.57525
-polygon = PoolVector2Array( 512, 64, 512, -64, -512, -64, -512, 64 )
+polygon = PoolVector2Array( 512, 64, 512, -64, -513.098, -62.9352, -512, 64 )
+one_way_collision = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 rotation = -1.56986

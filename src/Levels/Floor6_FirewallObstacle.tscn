@@ -34,4 +34,8 @@ __meta__ = {
 position = Vector2( 0, -64 )
 scale = Vector2( 0.2, 0.2 )
 
+[node name="StaticBody2D" parent="FirewallNode2D/GeneratorNode2D" index="2" groups=[
+"killingObstacles",
+]]
+
 [editable path="FirewallNode2D"]
