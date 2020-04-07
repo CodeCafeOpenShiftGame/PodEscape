@@ -8,6 +8,10 @@ public class Die : Move
     {
         base.Enter(msg);
 
+        Player player = this.GetParent().GetParent() as Player;
+
+        player.AnimationPlayer.Play("Fall");
+
         base.moveDirection = Vector2.Zero;
     }
 }
