@@ -65,11 +65,14 @@ public class Air : Move
             return;
         }
 
-        AnimationPlayer animationPlayer = this.player.GetNode("AnimationPlayer") as AnimationPlayer;
-        animationPlayer.Play("Jump");
+        if (GameManager.AudioOn)
+        {
+            AnimationPlayer animationPlayer = this.player.GetNode("AnimationPlayer") as AnimationPlayer;
+            animationPlayer.Play("Jump");
 
-        AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-        audio.Play();
+            AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+            audio.Play();
+        }
 
         if (msg.ContainsKey("velocity"))
         {

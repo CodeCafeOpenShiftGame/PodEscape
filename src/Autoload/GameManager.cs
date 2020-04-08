@@ -19,7 +19,7 @@ public class GameManager : Node
     public int GracePeriod { get; set; } = 0;
 	private Timer everySecond = new Timer();
 
-	public Boolean AudioOn = false;
+	public static Boolean AudioOn = true;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

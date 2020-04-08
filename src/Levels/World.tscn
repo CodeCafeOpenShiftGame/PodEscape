@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Parallax.tscn" type="PackedScene" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://assets/SFX/bg_music.wav" type="AudioStream" id=8]
 [ext_resource path="res://src/Levels/Floor6_FirewallObstacle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Levels/Floor5_JumpObstacle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Levels/World.cs" type="Script" id=11]
 
 [node name="World" type="Node"]
+script = ExtResource( 11 )
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -34,4 +36,3 @@ Scenes = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10
 stream = ExtResource( 8 )
 volume_db = -10.0
 autoplay = true
-stream_paused = true
