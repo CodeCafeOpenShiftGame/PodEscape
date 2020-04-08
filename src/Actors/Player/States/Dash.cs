@@ -102,8 +102,11 @@ public class Dash : Move
                 animationPlayer.Play("Dash");
             }
 
-            AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-            audio.Play();
+            if (GameManager.AudioOn)
+            {
+                AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+                audio.Play();
+            }
 
             this.GhostTimer.Start();
             this.DashTimer.Start();

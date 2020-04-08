@@ -45,12 +45,16 @@ public class InGameOverlay : Control
     private HTTPRequest _httpRequest;
     private string _strURL;
 
+    private Button audioButton;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
         this.gameManager = GetNode<GameManager>("/root/GameManager");
         this.gameManager.GracePeriod = this.gracePeriodTotal;
+
+        this.audioButton = this.GetNode<Button>("PauseOverlay/VBoxContainer/AudioButton");
 
         this.pauseOverlay = GetNode<ColorRect>("PauseOverlay");
         this.highScoresOverlay = GetNode<ColorRect>("HighScoresOverlay");
@@ -105,6 +109,14 @@ public class InGameOverlay : Control
 	{
 		gameManager.endGame();
 	}
+
+    private void _on_AudioButton_button_up()
+    {
+        // Changing audio
+        if (GameManager.AudioOn) GameManager.AudioOn = false; else GameManager.AudioOn = true;
+        // Changing text
+        if (this.audioButton.Text.Equals("Audio Off")) this.audioButton.Text = "Audio On"; else this.audioButton.Text = "Audio Off";
+    }
 
 	private void _on_ScoreUpdated(int score)
 	{
