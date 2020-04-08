@@ -24,12 +24,14 @@ abstract public class Move : State
     public Vector2 SnapVector = new Vector2(0f, 32f);
 
     public Boolean hasDashed;
+    public Boolean isDashing;
 
     public override void _Ready()
     {
         base._Ready();
         this.Acceleration = this.AccelerationDefault;
         this.MaxSpeed = this.MaxSpeedDefault;
+        this.isDashing = false;
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -95,7 +97,7 @@ abstract public class Move : State
 
         var collisionInfo = player.MoveAndCollide(this.Velocity * delta, true, true, true);
 
-        if (collisionInfo != null)
+        if (collisionInfo != null && !isDashing)
         {
             foreach (Node2D node in GetTree().GetNodesInGroup("killingObstacles"))
             {

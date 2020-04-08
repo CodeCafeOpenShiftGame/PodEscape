@@ -100,6 +100,7 @@ public class Dash : Move
                 else
             {
                 animationPlayer.Play("Dash");
+                base.isDashing = true;
             }
 
             if (GameManager.AudioOn)
@@ -189,5 +190,6 @@ public class Dash : Move
             this.playerCollisionShape.Disabled = false;
         }
         player.PlayerTrail.Emitting = true;
+        base.isDashing = false;
     }
 }
