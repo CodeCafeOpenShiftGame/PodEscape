@@ -106,6 +106,12 @@ public class InGameOverlay : Control
 		gameManager.endGame();
 	}
 
+    private void _on_AudioButton_button_up()
+    {
+        //AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), 0);
+
+    }
+
 	private void _on_ScoreUpdated(int score)
 	{
 		String scoreText = ""+score;

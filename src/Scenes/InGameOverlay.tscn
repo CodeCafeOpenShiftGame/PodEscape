@@ -40,6 +40,7 @@ text = "Grace Period:"
 valign = 1
 
 [node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -182,4 +183,5 @@ margin_right = 0.00012207
 margin_bottom = 1080.0
 text = "Press any key to continue"
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_button_up"]
+[connection signal="button_up" from="PauseOverlay/VBoxContainer/AudioButton" to="." method="_on_AudioButton_button_up"]
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]
