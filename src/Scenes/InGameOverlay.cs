@@ -4,26 +4,25 @@ using Godot.Collections;
 
 public class InGameOverlay : Control
 {
-	private ColorRect pauseOverlay;
+    private ColorRect pauseOverlay;
     private ColorRect highScoresOverlay;
-	private Label scoreLabel;
+    private Label scoreLabel;
     private Label gracePeriodLabel;
-	private Label titleLabel;
-	private GameManager gameManager;
+    private GameManager gameManager;
 
     private Label[] arrScoreLabels;
 
-	private bool paused = false;
-	public bool Paused
-	{
-		get => paused;
-		set
-		{
-			paused = value;
-			GetTree().Paused = value;
-			pauseOverlay.Visible = value;
-		}
-	}
+    private bool paused = false;
+    public bool Paused
+    {
+        get => paused;
+        set
+        {
+            paused = value;
+            GetTree().Paused = value;
+            pauseOverlay.Visible = value;
+        }
+    }
 
     private bool highScores = false;
     public bool HighScores
@@ -48,9 +47,9 @@ public class InGameOverlay : Control
     private Button audioButton;
 
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
         this.gameManager = GetNode<GameManager>("/root/GameManager");
         this.gameManager.GracePeriod = this.gracePeriodTotal;
 
@@ -60,7 +59,6 @@ public class InGameOverlay : Control
         this.highScoresOverlay = GetNode<ColorRect>("HighScoresOverlay");
         this.scoreLabel = GetNode<Label>("Score");
         this.gracePeriodLabel = GetNode<Label>("GracePeriod");
-        this.titleLabel = GetNode<Label>("PauseOverlay/Title");
 
         this.arrScoreLabels = new Label[10];
         for (int i = 0; i < 10; ++i)
@@ -85,8 +83,8 @@ public class InGameOverlay : Control
         }
     }
 
-	public override void _UnhandledInput(InputEvent @event)
-	{
+    public override void _UnhandledInput(InputEvent @event)
+    {
         if (this.HighScores)
         {
             this.gameManager.GracePeriod = this.gracePeriodTotal;
@@ -94,21 +92,21 @@ public class InGameOverlay : Control
             return;
         }
 
-		if (Input.IsActionPressed("pause")) // TODO: and player state != dead
-		{
-			this.Paused = !this.Paused;
-		}
-	}
+        if (Input.IsActionPressed("pause")) // TODO: and player state != dead
+        {
+            this.Paused = !this.Paused;
+        }
+    }
 
-	private void _on_ContinueButton_button_up()
-	{
-		this.Paused = false;
-	}
+    private void _on_ContinueButton_button_up()
+    {
+        this.Paused = false;
+    }
 
-	private void _on_QuitButton_button_up()
-	{
-		gameManager.endGame();
-	}
+    private void _on_QuitButton_button_up()
+    {
+        gameManager.endGame();
+    }
 
     private void _on_AudioButton_button_up()
     {
@@ -118,11 +116,11 @@ public class InGameOverlay : Control
         if (this.audioButton.Text.Equals("Audio Off")) this.audioButton.Text = "Audio On"; else this.audioButton.Text = "Audio Off";
     }
 
-	private void _on_ScoreUpdated(int score)
-	{
-		String scoreText = ""+score;
-		this.scoreLabel.Text = "Score: " + scoreText.PadLeft(6,'0');
-	}
+    private void _on_ScoreUpdated(int score)
+    {
+        String scoreText = ""+score;
+        this.scoreLabel.Text = "Score: " + scoreText.PadLeft(6,'0');
+    }
 
     private void _on_GracePeriodUpdated(int gracePeriod)
     {
@@ -130,8 +128,8 @@ public class InGameOverlay : Control
         this.gracePeriodLabel.Text = "Grace Period: " + gracePeriodText.PadLeft(3,'0');
     }
 
-	private void _on_PlayerDied(string deathString)
-	{
+    private void _on_PlayerDied(string deathString)
+    {
         this.gracePeriodLabel.Text = deathString;
         Timer waitForDeathAnimation = new Timer();
         waitForDeathAnimation.OneShot = true;

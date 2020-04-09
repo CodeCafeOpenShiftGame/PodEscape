@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1_2.png-532bd19904e351241520bb7275658ac7.stex"
+path="res://.import/PodEscape_logo_Main.png-dccc017368b91ea68fcda18979ec6566.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/ParallaxExample/1_2.png"
-dest_files=[ "res://.import/1_2.png-532bd19904e351241520bb7275658ac7.stex" ]
+source_file="res://assets/Backgrounds/PodEscape_logo_Main.png"
+dest_files=[ "res://.import/PodEscape_logo_Main.png-dccc017368b91ea68fcda18979ec6566.stex" ]
 
 [params]
 
