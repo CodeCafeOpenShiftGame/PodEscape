@@ -7,7 +7,7 @@ public class Run : Move
     public Timer SlowStarter;
     public Tween Tween;
     public float SlowDurationSeconds = 0.4f;
-    public Player player;
+    //public Player player;
 
     public override void _Ready()
     {

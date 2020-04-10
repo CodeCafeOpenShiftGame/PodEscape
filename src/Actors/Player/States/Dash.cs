@@ -11,7 +11,7 @@ public class Dash : Move
 
     [Signal]
     public delegate void DashSignal();
-    public Player player;
+    //public Player player;
     Tween dashTween;
 
     // Collision shapes

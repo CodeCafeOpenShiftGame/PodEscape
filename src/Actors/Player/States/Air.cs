@@ -8,7 +8,7 @@ public class Air : Move
 {
     public Timer JumpDelay;
     public Timer ControlsFreeze;
-    public Player player;
+    //public Player player;
 
     public override void _Ready()
     {
