@@ -19,6 +19,7 @@ script = ExtResource( 11 )
 
 [node name="InGameOverlay" parent="UILayer" instance=ExtResource( 5 )]
 gracePeriodTotal = 30
+highScoresAPIURL = ""
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 256, 540 )
@@ -36,3 +37,4 @@ Scenes = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10
 stream = ExtResource( 8 )
 volume_db = -10.0
 autoplay = true
+stream_paused = true

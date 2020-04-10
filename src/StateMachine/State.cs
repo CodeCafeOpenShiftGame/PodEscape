@@ -5,11 +5,13 @@ using System;
 public class State : Node
 {
     public StateMachine StateMachine;
+    protected Player player;
 
     async public override void _Ready()
     {
         await ToSignal(this.Owner, "ready");
         this.StateMachine = this.GetStateMachine(this);
+        player = this.GetParent().GetParent() as Player;
     }
 
     public virtual void UnhandledInput(InputEvent @event)

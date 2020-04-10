@@ -8,11 +8,23 @@ public class Die : Move
     {
         base.Enter(msg);
 
-        Player player = this.GetParent().GetParent() as Player;
-
         player.AnimationPlayer.Play("Fall");
         player.PlayerTrail.Emitting = false;
 
         base.moveDirection = Vector2.Zero;
+    }
+
+    public override void Exit()
+    {
+        GD.Print("Die::Exit()");
+        base.Exit();
+
+        //this.StateMachine.TransitionTo("[stop]");
+    }
+
+    public void _on_AnimationPlayer_animation_finished(String anim_name)
+    {
+        GD.Print("Die::_on_AnimationPlayer_animation_finished() anim_name is " + anim_name);
+        this.Exit();
     }
 }

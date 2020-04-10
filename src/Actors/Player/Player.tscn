@@ -157,7 +157,7 @@ scale_amount = 5.0
 
 [node name="Sprite" type="Sprite" parent="BodyPivot"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 27 )
+texture = ExtResource( 19 )
 
 [node name="CameraPivot" type="Position2D" parent="."]
 
@@ -253,3 +253,5 @@ disabled = true
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Die" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

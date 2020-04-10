@@ -5,13 +5,10 @@ public class GameManager : Node
 {
 	[Signal]
 	delegate void GameManagerReady();
-	[Signal]
-	delegate void PlayerDied(string howPlayerDied);
-	[Signal]
+    [Signal]
 	delegate void UpdatedScore(int score);
     [Signal]
     delegate void UpdatedGracePeriod(int gracePeriod);
-
     [Signal]
     delegate void GracePeriodExpired();
 
@@ -27,6 +24,7 @@ public class GameManager : Node
 		EmitSignal(nameof(GameManagerReady)); // just testing the C# signals
 		this.AddChild(everySecond);
 		everySecond.Connect("timeout", this, nameof(_on_Timer_timeout));
+        //this.Connect("PlayerDied", Player, "_on_PlayerDied");
     }
 
 	public void newGame()
@@ -39,10 +37,11 @@ public class GameManager : Node
 
 	public void endGame()
 	{
-		GD.Print("player decided to end the current game");
+		//GD.Print("player decided to end the current game");
+        GD.Print("GameManager::endGame()");
 		// TODO: anything else - do they get a high score if they quit?
         this.everySecond.Stop();
-		GetTree().ChangeScene("res://src/Scenes/Main.tscn");
+		//GetTree().ChangeScene("res://src/Scenes/Main.tscn");
 	}
 
 	private void _on_Timer_timeout()
@@ -56,8 +55,13 @@ public class GameManager : Node
         if (0 == GracePeriod)
         {
             this.everySecond.Stop();
-            //EmitSignal(nameof(PlayerDied), "KILLed");
             EmitSignal(nameof(GracePeriodExpired));
         }
+    }
+
+    private void _on_PlayerDied(string howPlayerDied)
+    {
+        GD.Print("GameManager::_on_PlayerDied by " + howPlayerDied);
+        this.endGame();
     }
 }

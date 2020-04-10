@@ -9,6 +9,7 @@ public class InGameOverlay : Control
     private Label scoreLabel;
     private Label gracePeriodLabel;
     private GameManager gameManager;
+    private Player player;
 
     private Label[] arrScoreLabels;
 
@@ -52,6 +53,7 @@ public class InGameOverlay : Control
     {
         this.gameManager = GetNode<GameManager>("/root/GameManager");
         this.gameManager.GracePeriod = this.gracePeriodTotal;
+        this.player = GetNode<Player>("/root/World/Player");
 
         this.audioButton = this.GetNode<Button>("PauseOverlay/VBoxContainer/AudioButton");
 
@@ -68,7 +70,7 @@ public class InGameOverlay : Control
 
         this.gameManager.Connect("UpdatedScore", this, "_on_ScoreUpdated");
         this.gameManager.Connect("UpdatedGracePeriod", this, "_on_GracePeriodUpdated");
-        this.gameManager.Connect("PlayerDied", this, "_on_PlayerDied");
+        this.player.Connect("PlayerDied", this, "_on_PlayerDied");
         this.gameManager.Connect("GracePeriodExpired", this, "_on_GracePeriodExpired");
 
         this._httpRequest = (Godot.HTTPRequest)GetNode("HighScoresOverlay/HTTPRequest");
@@ -79,7 +81,10 @@ public class InGameOverlay : Control
         }
         else
         {
-            this._strURL = "127.0.0.1";//"http://highscores-api-service-mongodb0.apps-crc.testing";
+            // NOTE: If using local crc this might be like
+            //"http://highscores-api-service-mongodb0.apps-crc.testing";
+            // Use the crc value above in the Godot GUI if required for local testing
+            this._strURL = "http://api.podescape.io";
         }
     }
 
@@ -88,7 +93,8 @@ public class InGameOverlay : Control
         if (this.HighScores)
         {
             this.gameManager.GracePeriod = this.gracePeriodTotal;
-            this.gameManager.endGame();
+            //this.gameManager.endGame();
+            GetTree().ChangeScene("res://src/Scenes/Main.tscn");
             return;
         }
 
@@ -106,6 +112,8 @@ public class InGameOverlay : Control
     private void _on_QuitButton_button_up()
     {
         gameManager.endGame();
+        this._httpRequest.Request(this._strURL + "/scores/topten");
+        this.HighScores = true;
     }
 
     private void _on_AudioButton_button_up()
@@ -128,34 +136,23 @@ public class InGameOverlay : Control
         this.gracePeriodLabel.Text = "Grace Period: " + gracePeriodText.PadLeft(3,'0');
     }
 
-    private void _on_PlayerDied(string deathString)
+    private void _on_PlayerDied(string howPlayerDied)
     {
-        this.gracePeriodLabel.Text = deathString;
-        Timer waitForDeathAnimation = new Timer();
-        waitForDeathAnimation.OneShot = true;
-        waitForDeathAnimation.WaitTime = 2;
-        waitForDeathAnimation.Connect("timeout", this, nameof(_on_DeathAnimationComplete));
-        waitForDeathAnimation.Autostart = true;
+        GD.Print("InGameOverlay::_on_PlayerDied()");
+        this.gracePeriodLabel.Text = "DIED";
+        this._httpRequest.Request(this._strURL + "/scores/topten");
+        this.HighScores = true;
     }
 
     private void _on_GracePeriodExpired()
     {
+        GD.Print("InGameOverlay::_on_GracePeriodExpired()");
         this.gracePeriodLabel.Text = "EXPIRED";
-        Timer waitForDeathAnimation = new Timer();
-        waitForDeathAnimation.OneShot = true;
-        waitForDeathAnimation.WaitTime = 2;
-        waitForDeathAnimation.Connect("timeout", this, nameof(_on_DeathAnimationComplete));
-        waitForDeathAnimation.Autostart = true;
     }
 
-    private void _on_DeathAnimationComplete()
-    {
-        this._httpRequest.Request(this._strURL + "/scores/topten");
-        this.HighScores = true;
-    }
     public void _OnRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
     {
-        GD.Print("_OnRequestCompleted");
+        GD.Print("InGameOverlay::_OnRequestCompleted");
 
         do
         {
