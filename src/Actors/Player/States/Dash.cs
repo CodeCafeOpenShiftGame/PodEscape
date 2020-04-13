@@ -14,9 +14,10 @@ public class Dash : Move
     //public Player player;
     Tween dashTween;
 
-    // Collision shapes
+    // Collision handling
     CollisionShape2D playerCollisionShape;
     CollisionShape2D slideCollisionShape;
+    Boolean collisionDetected;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -29,6 +30,7 @@ public class Dash : Move
         this.dashTween = this.GetNode<Tween>("Tween");
         this.playerCollisionShape = this.GetParent().GetParent().GetNode("PlayerCollisionShape") as CollisionShape2D;
         this.slideCollisionShape = this.GetParent().GetParent().GetNode("SlideCollisionShape") as CollisionShape2D;
+        this.collisionDetected = false;
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -86,8 +88,6 @@ public class Dash : Move
 
         if (msg.ContainsKey("impulse"))
         {
-
-            Boolean collisionDetected = false;
             this.Velocity += this.CalculateDashVelocity((float)msg["impulse"]);
 
             if (player.IsOnFloor())
@@ -112,7 +112,15 @@ public class Dash : Move
             this.GhostTimer.Start();
             this.DashTimer.Start();
 
-            foreach (Node2D node in GetTree().GetNodesInGroup("killingObstacles"))
+            this.HandleCollisions(msg);
+
+            EmitSignal(nameof(DashSignal));
+        }
+    }
+
+    private void HandleCollisions(Dictionary<string, object> msg = null)
+    {
+        foreach (Node2D node in GetTree().GetNodesInGroup("killingObstacles"))
             {
                 if (node.GlobalPosition.x > player.Position.x && node.GlobalPosition.x < player.Position.x + ((float)msg["impulse"] / 2))
                 {
@@ -129,27 +137,25 @@ public class Dash : Move
                             Tween.EaseType.InOut
                         );
                         dashTween.Start();
-                        this.StateMachine.TransitionTo("Die");
+                        // this.StateMachine.TransitionTo("Die");
                         collisionDetected = true;
                     }
                 }
             }
 
-            if (!collisionDetected)
-            {
-                dashTween.InterpolateProperty
-                (
-                    player,
-                    "position",
-                    player.Position,
-                    new Vector2(player.Position.x + ((float)msg["impulse"] / 2), player.Position.y),
-                    .5f,
-                    Tween.TransitionType.Linear,
-                    Tween.EaseType.InOut
-                );
-                dashTween.Start();
-            }
-            EmitSignal(nameof(DashSignal));
+        if (!collisionDetected)
+        {
+            dashTween.InterpolateProperty
+            (
+                player,
+                "position",
+                player.Position,
+                new Vector2(player.Position.x + ((float)msg["impulse"] / 2), player.Position.y),
+                .5f,
+                Tween.TransitionType.Linear,
+                Tween.EaseType.InOut
+            );
+            dashTween.Start();
         }
     }
 
@@ -183,6 +189,10 @@ public class Dash : Move
 
     public virtual void _OnDashTimerTimeout()
     {
+        if (collisionDetected)
+        {
+            this.StateMachine.TransitionTo("Die");
+        }
         this.GhostTimer.Stop();
         if (playerCollisionShape.Disabled)
         {

@@ -95,6 +95,11 @@ abstract public class Move : State
             player.FLOOR_NORMAL
         );
 
+        this.HandleCollisions(delta);
+    }
+
+    public void HandleCollisions(float delta)
+    {
         var collisionInfo = player.MoveAndCollide(this.Velocity * delta, true, true, true);
 
         if (collisionInfo != null && !isDashing)
