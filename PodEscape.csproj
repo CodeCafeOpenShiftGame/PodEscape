@@ -67,6 +67,7 @@
     <Compile Include="src\Actors\Player\States\Run.cs" />
     <Compile Include="src\Autoload\GameManager.cs" />
     <Compile Include="src\CameraController.cs" />
+    <Compile Include="src\Collectable\Collectable.cs" />
     <Compile Include="src\LevelController.cs" />
     <Compile Include="src\Levels\World.cs" />
     <Compile Include="src\Scenes\Firewall.cs" />
