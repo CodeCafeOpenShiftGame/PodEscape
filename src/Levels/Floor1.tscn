@@ -1,4 +1,7 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Collectable/10mCPU.tscn" type="PackedScene" id=1]
+
 
 [node name="Floor" type="StaticBody2D"]
 z_index = 1
@@ -13,3 +16,15 @@ polygon = PoolVector2Array( -512, 64, -512, -64, 512, -64, 512, 64 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 512, 0 )
+
+[node name="10mCPU" parent="." instance=ExtResource( 1 )]
+position = Vector2( -291.622, -248.09 )
+
+[node name="10mCPU2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -158.378, -248.09 )
+
+[node name="10mCPU3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 145.123, -248.09 )
+
+[node name="10mCPU4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 265.413, -248.09 )
