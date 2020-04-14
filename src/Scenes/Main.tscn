@@ -155,9 +155,9 @@ __meta__ = {
 [node name="StoryLabel" type="Label" parent="."]
 anchor_left = 0.1
 anchor_right = 0.9
-margin_left = 8.00002
+margin_left = 8.0
 margin_top = -260.0
-margin_right = -27.9999
+margin_right = -28.0
 margin_bottom = -135.0
 theme = ExtResource( 5 )
 custom_styles/normal = SubResource( 1 )
@@ -172,9 +172,9 @@ __meta__ = {
 [node name="Instructions-Firewalls" type="Label" parent="."]
 anchor_left = 0.1
 anchor_right = 0.9
-margin_left = 8.00002
+margin_left = 8.0
 margin_top = -260.0
-margin_right = -27.9999
+margin_right = -28.0
 margin_bottom = -185.0
 theme = ExtResource( 5 )
 custom_styles/normal = SubResource( 1 )
@@ -189,9 +189,9 @@ __meta__ = {
 [node name="Instructions-NetworkTunnels" type="Label" parent="."]
 anchor_left = 0.1
 anchor_right = 0.9
-margin_left = 8.00002
+margin_left = 8.0
 margin_top = -260.0
-margin_right = -27.9999
+margin_right = -28.0
 margin_bottom = -185.0
 theme = ExtResource( 5 )
 custom_styles/normal = SubResource( 1 )
@@ -206,9 +206,9 @@ __meta__ = {
 [node name="Instructions-DontCrash" type="Label" parent="."]
 anchor_left = 0.1
 anchor_right = 0.9
-margin_left = 8.00002
+margin_left = 8.0
 margin_top = -260.0
-margin_right = -27.9999
+margin_right = -28.0
 margin_bottom = -185.0
 theme = ExtResource( 5 )
 custom_styles/normal = SubResource( 1 )
