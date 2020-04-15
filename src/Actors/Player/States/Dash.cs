@@ -93,11 +93,12 @@ public class Dash : Move
             player.PlayerTrail.Emitting = false;
             if (player.IsOnFloor())
             {
+                player.PlayerBurst.Emitting = false;
                 animationPlayer.Play("Slide");
                 this.playerCollisionShape.Disabled = true;
                 this.slideCollisionShape.Disabled = false;
             }
-                else
+            else
             {
                 animationPlayer.Play("Dash");
                 base.isDashing = true;
