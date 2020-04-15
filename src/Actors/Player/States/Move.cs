@@ -46,6 +46,11 @@ abstract public class Move : State
             return;
         }
 
+        if (@event.IsActionPressed("slow") && isDashing)
+        {
+            // StopDash();
+        }
+
         if (player.IsOnFloor() && @event.IsActionPressed("jump"))
         {
             Dictionary<string, object> msg = new Dictionary<string, object>();
