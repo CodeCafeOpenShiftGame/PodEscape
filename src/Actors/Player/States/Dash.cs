@@ -90,12 +90,12 @@ public class Dash : Move
         {
             this.Velocity += this.CalculateDashVelocity((float)msg["impulse"]);
 
+            player.PlayerTrail.Emitting = false;
             if (player.IsOnFloor())
             {
                 animationPlayer.Play("Slide");
                 this.playerCollisionShape.Disabled = true;
                 this.slideCollisionShape.Disabled = false;
-                player.PlayerTrail.Emitting = false;
             }
                 else
             {
@@ -199,7 +199,6 @@ public class Dash : Move
             this.slideCollisionShape.Disabled = true;
             this.playerCollisionShape.Disabled = false;
         }
-        player.PlayerTrail.Emitting = true;
         base.isDashing = false;
     }
 }
