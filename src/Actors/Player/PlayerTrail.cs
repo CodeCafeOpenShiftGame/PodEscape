@@ -13,10 +13,10 @@ public class PlayerTrail : CPUParticles2D
     public override void _Process(float delta)
     {
         Player player = (Player)this.Owner;
-        // Vector2 velocity = new Vector2(1,0); // get from Move state
-        if (player.IsOnFloor()) // && velocity.x > 0.1) 
+        if (player.IsOnFloor())
         {
             this.Emitting = true;
+            // Note: we also turn off the trail in some state changes
         }
         else 
         {
@@ -24,6 +24,6 @@ public class PlayerTrail : CPUParticles2D
         }
 
         // you can change gravity to pull the trail in different directions
-        this.Gravity = new Vector2(0, 0);
+        // this.Gravity = new Vector2(0, 0);
   }
 }

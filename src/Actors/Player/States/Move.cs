@@ -11,6 +11,8 @@ abstract public class Move : State
     [Export]
     public Vector2 AccelerationDefault = new Vector2(100000f, 3000f);
     [Export]
+    public Vector2 SlowAccelerationDefault = new Vector2(-1000f, -10f); // -1000f, 3000f for normal slow jumping
+    [Export]
     public float JumpImpulse = 1200f;
     [Export]
     public float DashImpulse = 1500f;
@@ -44,6 +46,11 @@ abstract public class Move : State
             return;
         }
 
+        if (@event.IsActionPressed("slow") && isDashing)
+        {
+            // StopDash();
+        }
+
         if (player.IsOnFloor() && @event.IsActionPressed("jump"))
         {
             Dictionary<string, object> msg = new Dictionary<string, object>();
@@ -62,6 +69,15 @@ abstract public class Move : State
                 StartDash();
                 hasDashed = true;
             }
+        }
+
+        if (@event.IsActionPressed("slow"))
+        {
+            GD.Print("slow");
+            this.Acceleration = this.SlowAccelerationDefault;
+        }
+        else {
+            this.Acceleration = this.AccelerationDefault;
         }
     }
 

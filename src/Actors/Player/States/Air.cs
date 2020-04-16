@@ -65,9 +65,10 @@ public class Air : Move
             return;
         }
 
+        player.PlayerTrail.Emitting = false; // no trail in the air
         AnimationPlayer animationPlayer = this.player.GetNode("AnimationPlayer") as AnimationPlayer;
         animationPlayer.Play("Jump");
-
+        player.PlayerBurst.Emitting = true;
         if (GameManager.AudioOn)
         {
             AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");

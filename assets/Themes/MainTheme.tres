@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=2]
 
-[ext_resource path="res://assets/Fonts/Inconsolata-Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Fonts/RedHatText-Regular.tres" type="DynamicFont" id=1]
 
 [resource]
 default_font = ExtResource( 1 )
