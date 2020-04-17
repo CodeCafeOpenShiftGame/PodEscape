@@ -70,6 +70,7 @@
     <Compile Include="src\Collectable\Collectable.cs" />
     <Compile Include="src\LevelController.cs" />
     <Compile Include="src\Levels\World.cs" />
+    <Compile Include="src\Scenes\Credits.cs" />
     <Compile Include="src\Scenes\Firewall.cs" />
     <Compile Include="src\Scenes\InGameOverlay.cs" />
     <Compile Include="src\Scenes\Main.cs" />

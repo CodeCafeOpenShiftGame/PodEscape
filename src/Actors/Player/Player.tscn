@@ -276,5 +276,5 @@ shadow_enabled = true
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Die" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

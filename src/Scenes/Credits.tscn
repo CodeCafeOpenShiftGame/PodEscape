@@ -1,0 +1,187 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Themes/MainTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/Scenes/Credits.cs" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CreditsAnimation"
+length = 60.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 1080 ), Vector2( 480, -2428 ) ]
+}
+
+[node name="CreditsControl" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 480.0
+margin_top = 1080.0
+margin_right = 1440.0
+margin_bottom = 3508.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThanksToLabel" type="Label" parent="VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 129.0
+theme = ExtResource( 1 )
+text = "THANKS TO THE FOLLOWING
+COMMUNITIES AND TEAMS
+"
+align = 1
+
+[node name="ThanksToListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 133.0
+margin_right = 960.0
+margin_bottom = 482.0
+theme = ExtResource( 1 )
+text = "The Godot community
+The Kubernetes community
+The OpenShift community
+The IBM Cloud team
+The Red Hat OpenShift Container Storage team
+The Red Hat Virtual Summit event team
+
+"
+align = 1
+
+[node name="ContributorsLabel" type="Label" parent="VBoxContainer"]
+margin_top = 486.0
+margin_right = 960.0
+margin_bottom = 571.0
+theme = ExtResource( 1 )
+text = "CONTRIBUTORS
+"
+align = 1
+
+[node name="ArtContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 575.0
+margin_right = 960.0
+margin_bottom = 748.0
+theme = ExtResource( 1 )
+text = "Art
+Kaliq Ray
+Luke Dary
+"
+align = 1
+
+[node name="AudioContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 752.0
+margin_right = 960.0
+margin_bottom = 881.0
+theme = ExtResource( 1 )
+text = "Audio
+Ricardo Luders
+"
+align = 1
+
+[node name="CodeContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 885.0
+margin_right = 960.0
+margin_bottom = 1146.0
+theme = ExtResource( 1 )
+text = "Code
+Ernesto Gonzalez
+Jason Dudash
+Ricardo Luders
+Roddie Kieley
+"
+align = 1
+
+[node name="ConceptContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1150.0
+margin_right = 960.0
+margin_bottom = 1279.0
+theme = ExtResource( 1 )
+text = "Concept
+Ernesto Gonzalez
+"
+align = 1
+
+[node name="ConceptRepitchContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1283.0
+margin_right = 960.0
+margin_bottom = 1412.0
+theme = ExtResource( 1 )
+text = "Concept Repitch
+Derek Reese
+"
+align = 1
+
+[node name="MeetingSpaceContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1416.0
+margin_right = 960.0
+margin_bottom = 1545.0
+theme = ExtResource( 1 )
+text = "Meeting Space
+Radka Gustavsson
+"
+align = 1
+
+[node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1549.0
+margin_right = 960.0
+margin_bottom = 1766.0
+theme = ExtResource( 1 )
+text = "Event Coordination
+Jared Sprague
+Kathy D'Angelo
+Roddie Kieley
+"
+align = 1
+
+[node name="CloudCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1770.0
+margin_right = 960.0
+margin_bottom = 2075.0
+theme = ExtResource( 1 )
+text = "IBM Cloud Coordination
+Akash Gunjal
+Jason Dudash
+Roddie Kieley
+Sagy Volkov
+Sandy Amin
+"
+align = 1
+
+[node name="IdeasContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2079.0
+margin_right = 960.0
+margin_bottom = 2428.0
+theme = ExtResource( 1 )
+text = "Ideation
+Adrian Brightmore
+Adrian Leal
+Eric Kramer
+Juan Jose Floristan Jusue
+Roman Luks
+Tom McKay
+"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CreditsAnimation = SubResource( 1 )
