@@ -89,20 +89,10 @@ Luke Dary
 "
 align = 1
 
-[node name="AudioContributorsListLabel" type="Label" parent="VBoxContainer"]
+[node name="CodeContributorsListLabel" type="Label" parent="VBoxContainer"]
 margin_top = 752.0
 margin_right = 960.0
-margin_bottom = 881.0
-theme = ExtResource( 1 )
-text = "Audio
-Ricardo Luders
-"
-align = 1
-
-[node name="CodeContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 885.0
-margin_right = 960.0
-margin_bottom = 1146.0
+margin_bottom = 1013.0
 theme = ExtResource( 1 )
 text = "Code
 Ernesto Gonzalez
@@ -113,9 +103,9 @@ Roddie Kieley
 align = 1
 
 [node name="ConceptContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1150.0
+margin_top = 1017.0
 margin_right = 960.0
-margin_bottom = 1279.0
+margin_bottom = 1146.0
 theme = ExtResource( 1 )
 text = "Concept
 Ernesto Gonzalez
@@ -123,9 +113,9 @@ Ernesto Gonzalez
 align = 1
 
 [node name="ConceptRepitchContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1283.0
+margin_top = 1150.0
 margin_right = 960.0
-margin_bottom = 1412.0
+margin_bottom = 1279.0
 theme = ExtResource( 1 )
 text = "Concept Repitch
 Derek Reese
@@ -133,9 +123,9 @@ Derek Reese
 align = 1
 
 [node name="MeetingSpaceContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1416.0
+margin_top = 1283.0
 margin_right = 960.0
-margin_bottom = 1545.0
+margin_bottom = 1412.0
 theme = ExtResource( 1 )
 text = "Meeting Space
 Radka Gustavsson
@@ -143,9 +133,9 @@ Radka Gustavsson
 align = 1
 
 [node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1549.0
+margin_top = 1416.0
 margin_right = 960.0
-margin_bottom = 1766.0
+margin_bottom = 1633.0
 theme = ExtResource( 1 )
 text = "Event Coordination
 Jared Sprague
@@ -155,9 +145,9 @@ Roddie Kieley
 align = 1
 
 [node name="CloudCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1770.0
+margin_top = 1637.0
 margin_right = 960.0
-margin_bottom = 2075.0
+margin_bottom = 1942.0
 theme = ExtResource( 1 )
 text = "IBM Cloud Coordination
 Akash Gunjal
@@ -169,9 +159,9 @@ Sandy Amin
 align = 1
 
 [node name="IdeasContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 2079.0
+margin_top = 1946.0
 margin_right = 960.0
-margin_bottom = 2428.0
+margin_bottom = 2295.0
 theme = ExtResource( 1 )
 text = "Ideation
 Adrian Brightmore
@@ -180,6 +170,16 @@ Eric Kramer
 Juan Jose Floristan Jusue
 Roman Luks
 Tom McKay
+"
+align = 1
+
+[node name="AudioContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2299.0
+margin_right = 960.0
+margin_bottom = 2428.0
+theme = ExtResource( 1 )
+text = "Music & SFX
+Juhani Junkala
 "
 align = 1
 
