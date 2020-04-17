@@ -84,7 +84,7 @@ public class InGameOverlay : Control
             // NOTE: If using local crc this might be like
             //"http://highscores-api-service-mongodb0.apps-crc.testing";
             // Use the crc value above in the Godot GUI if required for local testing
-            this._strURL = "http://api.podescape.io";
+            this._strURL = "https://api.podescape.io";
         }
     }
 
