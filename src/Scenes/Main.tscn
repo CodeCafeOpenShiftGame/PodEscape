@@ -234,7 +234,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 399.0
+margin_right = 400.0
 margin_bottom = 47.0
 theme = ExtResource( 5 )
 alignment = 1
@@ -243,21 +243,21 @@ __meta__ = {
 }
 
 [node name="PlayButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_right = 197.0
+margin_right = 198.0
 margin_bottom = 47.0
 theme = ExtResource( 5 )
 text = "Play"
 
 [node name="QuitButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 201.0
-margin_right = 399.0
+margin_left = 202.0
+margin_right = 400.0
 margin_bottom = 47.0
 theme = ExtResource( 5 )
 
 [node name="CreditsButton" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 51.0
-margin_right = 399.0
-margin_bottom = 99.0
+margin_right = 400.0
+margin_bottom = 100.0
 theme = ExtResource( 5 )
 text = "Credits"
 

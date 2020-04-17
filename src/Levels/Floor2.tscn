@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/Collectable/1GiMemory.tscn" type="PackedScene" id=1]
-
+[ext_resource path="res://src/Collectable/1Gi.tscn" type="PackedScene" id=1]
 
 [node name="Floor" type="StaticBody2D"]
 z_index = 2
@@ -19,5 +18,3 @@ position = Vector2( 512, 0 )
 
 [node name="1GiMemory" parent="." instance=ExtResource( 1 )]
 position = Vector2( -0.647308, -216.846 )
-collision_layer = 8
-[connection signal="body_entered" from="1GiMemory" to="1GiMemory" method="onBodyEntered"]
