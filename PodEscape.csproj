@@ -74,6 +74,7 @@
     <Compile Include="src\Scenes\Firewall.cs" />
     <Compile Include="src\Scenes\InGameOverlay.cs" />
     <Compile Include="src\Scenes\Main.cs" />
+    <Compile Include="src\Scenes\Tunnel.cs" />
     <Compile Include="src\StateMachine\StateMachine.cs" />
     <Compile Include="src\StateMachine\State.cs" />
     <Compile Include="src\_Tests\TestScores.cs" />

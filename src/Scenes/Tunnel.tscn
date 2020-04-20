@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Entrance_cropped.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Exit_recropped.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Entrance_recropped.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Exit_cropped.png" type="Texture" id=4]
+[ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Middle_cropped.png" type="Texture" id=5]
+[ext_resource path="res://src/Scenes/Tunnel.cs" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[node name="Tunnel" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="EntranceNode2D" type="Node2D" parent="."]
+
+[node name="LeftSprite" type="Sprite" parent="EntranceNode2D"]
+texture = ExtResource( 1 )
+
+[node name="RightSprite" type="Sprite" parent="EntranceNode2D"]
+texture = ExtResource( 3 )
+offset = Vector2( 13, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="EntranceNode2D"]
+position = Vector2( 13, 78 )
+scale = Vector2( 1.3, 1.7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceNode2D/StaticBody2D"]
+shape = SubResource( 4 )
+disabled = true
+
+[node name="MiddleNode2D" type="Node2D" parent="."]
+position = Vector2( 26, 0 )
+
+[node name="Sprite" type="Sprite" parent="MiddleNode2D"]
+texture = ExtResource( 5 )
+offset = Vector2( 5, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MiddleNode2D"]
+position = Vector2( 0, 78 )
+scale = Vector2( 0.5, 1.7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleNode2D/StaticBody2D"]
+position = Vector2( 10, 0 )
+shape = SubResource( 3 )
+
+[node name="ExitNode2D" type="Node2D" parent="."]
+position = Vector2( 36, 0 )
+
+[node name="LeftNode2D" type="Node2D" parent="ExitNode2D"]
+
+[node name="LeftSprite" type="Sprite" parent="ExitNode2D/LeftNode2D"]
+texture = ExtResource( 2 )
+offset = Vector2( 13, 0 )
+
+[node name="RightNode2D" type="Node2D" parent="ExitNode2D"]
+position = Vector2( 26, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ExitNode2D/RightNode2D"]
+position = Vector2( -13, 78 )
+scale = Vector2( 1.3, 1.7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitNode2D/RightNode2D/StaticBody2D"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="RightSprite" type="Sprite" parent="ExitNode2D/RightNode2D"]
+texture = ExtResource( 4 )
