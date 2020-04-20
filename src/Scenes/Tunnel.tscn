@@ -7,13 +7,14 @@
 [ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Middle_cropped.png" type="Texture" id=5]
 [ext_resource path="res://src/Scenes/Tunnel.cs" type="Script" id=6]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="RectangleShape2D" id=5]
-
 [node name="Tunnel" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.501961 )
 script = ExtResource( 6 )
 
 [node name="EntranceNode2D" type="Node2D" parent="."]
@@ -30,7 +31,7 @@ position = Vector2( 13, 78 )
 scale = Vector2( 1.3, 1.7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceNode2D/StaticBody2D"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="MiddleNode2D" type="Node2D" parent="."]
@@ -46,7 +47,7 @@ scale = Vector2( 0.5, 1.7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleNode2D/StaticBody2D"]
 position = Vector2( 10, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="ExitNode2D" type="Node2D" parent="."]
 position = Vector2( 36, 0 )
@@ -59,13 +60,14 @@ offset = Vector2( 13, 0 )
 
 [node name="RightNode2D" type="Node2D" parent="ExitNode2D"]
 position = Vector2( 26, 0 )
+z_index = -1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ExitNode2D/RightNode2D"]
 position = Vector2( -13, 78 )
 scale = Vector2( 1.3, 1.7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitNode2D/RightNode2D/StaticBody2D"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="RightSprite" type="Sprite" parent="ExitNode2D/RightNode2D"]
