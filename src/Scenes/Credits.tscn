@@ -60,9 +60,9 @@ margin_right = 960.0
 margin_bottom = 482.0
 theme = ExtResource( 1 )
 text = "The Godot community
+The IBM Cloud team
 The Kubernetes community
 The OpenShift community
-The IBM Cloud team
 The Red Hat OpenShift Container Storage team
 The Red Hat Virtual Summit event team
 
@@ -122,20 +122,10 @@ Derek Reese
 "
 align = 1
 
-[node name="MeetingSpaceContributorsListLabel" type="Label" parent="VBoxContainer"]
+[node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
 margin_top = 1283.0
 margin_right = 960.0
-margin_bottom = 1412.0
-theme = ExtResource( 1 )
-text = "Meeting Space
-Radka Gustavsson
-"
-align = 1
-
-[node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1416.0
-margin_right = 960.0
-margin_bottom = 1633.0
+margin_bottom = 1500.0
 theme = ExtResource( 1 )
 text = "Event Coordination
 Jared Sprague
@@ -145,9 +135,9 @@ Roddie Kieley
 align = 1
 
 [node name="CloudCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1637.0
+margin_top = 1504.0
 margin_right = 960.0
-margin_bottom = 1942.0
+margin_bottom = 1809.0
 theme = ExtResource( 1 )
 text = "IBM Cloud Coordination
 Akash Gunjal
@@ -159,17 +149,27 @@ Sandy Amin
 align = 1
 
 [node name="IdeasContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1946.0
+margin_top = 1813.0
 margin_right = 960.0
-margin_bottom = 2295.0
+margin_bottom = 2162.0
 theme = ExtResource( 1 )
 text = "Ideation
-Adrian Brightmore
+Adrian Brightmoore
 Adrian Leal
 Eric Kramer
 Juan Jose Floristan Jusue
 Roman Luks
 Tom McKay
+"
+align = 1
+
+[node name="MeetingSpaceContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2166.0
+margin_right = 960.0
+margin_bottom = 2295.0
+theme = ExtResource( 1 )
+text = "Meeting Space
+Radka Gustavsson
 "
 align = 1
 
