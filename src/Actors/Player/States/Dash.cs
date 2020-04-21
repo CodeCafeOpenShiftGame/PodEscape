@@ -45,6 +45,7 @@ public class Dash : Move
         {
             dashTween.Stop(player, "position");
             dashStopped = true;
+            hasDashed = false;
         }
         else
         {
