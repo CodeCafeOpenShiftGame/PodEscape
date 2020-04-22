@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/LevelDesign/Obstacles/Firewall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/LevelDesign/Obstacles/Tunnel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/LevelDesign/Floors/MediumFloor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/LevelDesign/Collectable/100Mi.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/LevelDesign/Levels/LevelRoot.tscn" type="PackedScene" id=5]
+
+[node name="LevelRoot" instance=ExtResource( 5 )]
+difficulty = 1
+
+[node name="MediumFloor" parent="." index="0" instance=ExtResource( 3 )]
+
+[node name="Firewall" parent="." index="1" instance=ExtResource( 1 )]
+position = Vector2( -226.698, -64.7144 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Firewall2" parent="." index="2" instance=ExtResource( 1 )]
+position = Vector2( 27.4438, -64.7144 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="100Mi" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 249.648, -98.4529 )
+
+[node name="Tunnel" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 646.976, -295.359 )
+xtraMiddleSegments = 20

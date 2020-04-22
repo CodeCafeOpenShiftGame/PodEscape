@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="MediumFloor" type="StaticBody2D"]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 1271.43, 61.3953, 1270.64, -63.2498, -512, -64, -512, 64 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 2.05054, -2.05054 )
+color = Color( 0.101961, 0.690196, 0.0196078, 0.501961 )
+polygon = PoolVector2Array( -512, 64, -512, -64, 1268.93, -61.6837, 1269.11, 63.1823 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 512, 0 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Parallax.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://src/LevelDesign/Levels/Floor5_JumpObstacle.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/LevelDesign/World.cs" type="Script" id=11]
 [ext_resource path="res://src/LevelDesign/Levels/Floor7_TunnelObstacle.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/LevelDesign/Levels/ExampleEasyLevel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/LevelDesign/Levels/ExampleMediumLevel.tscn" type="PackedScene" id=14]
 
 [node name="World" type="Node"]
 script = ExtResource( 11 )
@@ -28,7 +30,7 @@ position = Vector2( 256, 540 )
 [node name="LevelController" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 script = ExtResource( 4 )
-Scenes = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ) ]
+Scenes = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
 [node name="Level" type="Node2D" parent="LevelController"]
 

@@ -99,6 +99,10 @@ dash={
 
 file_logging/enable_file_logging=true
 
+[mono]
+
+debugger_agent/wait_for_debugger=true
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

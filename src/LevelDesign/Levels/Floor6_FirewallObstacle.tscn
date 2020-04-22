@@ -2,7 +2,6 @@
 
 [ext_resource path="res://src/LevelDesign/Obstacles/Firewall.tscn" type="PackedScene" id=1]
 
-
 [node name="LevelNode2D" type="Node2D"]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]

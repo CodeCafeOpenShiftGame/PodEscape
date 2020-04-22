@@ -69,6 +69,7 @@
     <Compile Include="src\CameraController.cs" />
     <Compile Include="src\LevelDesign\Collectable\Collectable.cs" />
     <Compile Include="src\LevelController.cs" />
+    <Compile Include="src\LevelDesign\Levels\LevelRoot.cs" />
     <Compile Include="src\LevelDesign\World.cs" />
     <Compile Include="src\Scenes\Credits.cs" />
     <Compile Include="src\LevelDesign\Obstacles\Firewall.cs" />
