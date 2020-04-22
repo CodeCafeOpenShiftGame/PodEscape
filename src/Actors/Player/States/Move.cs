@@ -71,7 +71,7 @@ abstract public class Move : State
             }
         }
 
-        if (@event.IsActionPressed("slow"))
+        if (@event.IsActionPressed("slow") && player.IsOnFloor())
         {
             GD.Print("slow");
             this.Acceleration = this.SlowAccelerationDefault;

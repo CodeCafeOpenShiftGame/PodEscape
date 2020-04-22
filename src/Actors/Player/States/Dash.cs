@@ -18,7 +18,7 @@ public class Dash : Move
     CollisionShape2D playerCollisionShape;
     CollisionShape2D slideCollisionShape;
     Boolean collisionDetected;
-    Boolean dashStopped;
+    // Boolean dashStopped;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -32,7 +32,7 @@ public class Dash : Move
         this.playerCollisionShape = this.GetParent().GetParent().GetNode("PlayerCollisionShape") as CollisionShape2D;
         this.slideCollisionShape = this.GetParent().GetParent().GetNode("SlideCollisionShape") as CollisionShape2D;
         this.collisionDetected = false;
-        this.dashStopped = false;
+        // this.dashStopped = false;
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -41,12 +41,13 @@ public class Dash : Move
         {
             base.Velocity = this.CalculateDashVelocity(base.DashImpulse);
         }
-        else if (@event.IsActionPressed("slow"))
-        {
-            dashTween.Stop(player, "position");
-            dashStopped = true;
-            hasDashed = false;
-        }
+        // Stop dash feature working with issues
+        // else if (@event.IsActionPressed("slow"))
+        // {
+        //     dashTween.Stop(player, "position");
+        //     dashStopped = true;
+        //     hasDashed = false;
+        // }
         else
         {
             base.UnhandledInput(@event);
@@ -198,11 +199,11 @@ public class Dash : Move
     public virtual void _OnDashTimerTimeout()
     {
         // The dash was stopped before colliding
-        if (dashStopped)
-        {
-            collisionDetected = false;
-        }
-        if (collisionDetected && !dashStopped)
+        // if (dashStopped)
+        // {
+        //     collisionDetected = false;
+        // }
+        if (collisionDetected)
         {
             this.StateMachine.TransitionTo("Die");
         }
