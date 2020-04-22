@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/Backgrounds/PodEscape_logo_Main.png" type="Texture" id=1]
+[ext_resource path="res://assets/Backgrounds/Pod_UI_Hud.png" type="Texture" id=2]
 [ext_resource path="res://src/Scenes/MenuControls/PlayButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Scenes/MenuControls/QuitButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Themes/MainTheme.tres" type="Theme" id=5]
@@ -148,6 +149,16 @@ margin_bottom = 1085.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionsTextureRect" type="TextureRect" parent="TitleImage"]
+margin_left = 1159.5
+margin_top = 829.933
+margin_right = 1838.5
+margin_bottom = 1050.93
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

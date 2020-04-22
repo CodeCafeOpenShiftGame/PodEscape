@@ -134,13 +134,13 @@ public class InGameOverlay : Control
     {
         this.lastKnownScore = score;
         String scoreText = ""+score;
-        this.scoreLabel.Text = "Score: " + scoreText.PadLeft(6,'0');
+        this.scoreLabel.Text = scoreText.PadLeft(6,'0');
     }
 
     private void _on_GracePeriodUpdated(int gracePeriod)
     {
         String gracePeriodText = ""+gracePeriod;
-        this.gracePeriodLabel.Text = "Grace Period: " + gracePeriodText.PadLeft(3,'0');
+        this.gracePeriodLabel.Text = gracePeriodText.PadLeft(3,'0');
     }
 
     private void _on_PlayerDied(string howPlayerDied)
@@ -166,7 +166,7 @@ public class InGameOverlay : Control
     private void _on_GracePeriodExpired()
     {
         GD.Print("InGameOverlay::_on_GracePeriodExpired()");
-        this.gracePeriodLabel.Text = "EXPIRED";
+        this.gracePeriodLabel.Text = "XPIRD";
     }
 
     public void _OnGETRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
