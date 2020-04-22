@@ -5,7 +5,8 @@
 [ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Entrance_recropped.png" type="Texture" id=3]
 [ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Exit_cropped.png" type="Texture" id=4]
 [ext_resource path="res://assets/Sprites/Obstacles/Tunnel/PodEscape_layered_Tunnel_Middle_cropped.png" type="Texture" id=5]
-[ext_resource path="res://src/Scenes/Tunnel.cs" type="Script" id=6]
+[ext_resource path="res://src/LevelDesign/Obstacles/Tunnel.cs" type="Script" id=6]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

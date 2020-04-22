@@ -30,7 +30,7 @@ public class GameManager : Node
     public void newGame()
     {
         this.Score = 0;
-        GetTree().ChangeScene("res://src/Levels/World.tscn");
+        GetTree().ChangeScene("res://src/LevelDesign/World.tscn");
         GetTree().Paused = false;
         everySecond.Start(1);
     }

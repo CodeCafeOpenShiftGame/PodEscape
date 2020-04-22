@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://src/Collectable/Collectable.cs" type="Script" id=1]
+[ext_resource path="res://src/LevelDesign/Collectable/Collectable.cs" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Collectibles/10m/Normal/10m_Normal_5.png" type="Texture" id=2]
 [ext_resource path="res://assets/Sprites/Collectibles/10m/Normal/10m_Normal_6.png" type="Texture" id=3]
 [ext_resource path="res://assets/Sprites/Collectibles/10m/Normal/10m_Normal_7.png" type="Texture" id=4]

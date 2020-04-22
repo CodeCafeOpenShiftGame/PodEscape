@@ -17,7 +17,7 @@
 [ext_resource path="res://assets/Sprites/Collectibles/100Mi/Fade/100Mi_FadeOut_6.png" type="Texture" id=15]
 [ext_resource path="res://assets/Sprites/Collectibles/100Mi/Fade/100Mi_FadeOut_5.png" type="Texture" id=16]
 [ext_resource path="res://assets/Sprites/Collectibles/100Mi/Fade/100Mi_FadeOut_7.png" type="Texture" id=17]
-[ext_resource path="res://src/Collectable/Collectable.cs" type="Script" id=18]
+[ext_resource path="res://src/LevelDesign/Collectable/Collectable.cs" type="Script" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fadeOut"

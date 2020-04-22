@@ -12,12 +12,13 @@
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Normal/100m_Normal_10.png" type="Texture" id=10]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Fade/100m_FadeOut_4.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Fade/100m_FadeOut_1.png" type="Texture" id=12]
-[ext_resource path="res://src/Collectable/Collectable.cs" type="Script" id=13]
+[ext_resource path="res://src/LevelDesign/Collectable/Collectable.cs" type="Script" id=13]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Fade/100m_FadeOut_5.png" type="Texture" id=14]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Fade/100m_FadeOut_3.png" type="Texture" id=15]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Fade/100m_FadeOut_6.png" type="Texture" id=16]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Fade/100m_FadeOut_2.png" type="Texture" id=17]
 [ext_resource path="res://assets/Sprites/Collectibles/100m/Normal/100m_Normal_6.png" type="Texture" id=18]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "fadeOut"
