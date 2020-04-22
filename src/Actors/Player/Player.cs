@@ -6,10 +6,10 @@ public class Player : Actor
     [Signal]
     delegate void PlayerDied(string howPlayerDied);
 
-    private static string name = string.Empty;
+    public static string name = string.Empty;
     private static string prefix = string.Empty;
     private static string suffix = string.Empty;
-    private string[] namePrefixes = {"artemis", "strimzi", "dispatch", "proton", "rhea", "qpid", "jboss", "fuse", "infinispan", "camel", "activemq", "drools", "fis"};
+    private string[] namePrefixes = {"artemis", "strimzi", "dispatch", "proton", "rhea", "qpid", "jboss", "fuse", "infini", "camel", "activemq", "drools", "fis"};
     private static int count = 0;
 
     private GameManager gameManager;
@@ -46,6 +46,7 @@ public class Player : Actor
     {
         GD.Print("Player::_on_GracePeriodExpired()");
         this.StateMachine.TransitionTo("Die");
+        this.playerNameLabel.Visible = true;
     }
 
     public void _on_AnimationPlayer_animation_finished(String anim_name)
@@ -59,12 +60,8 @@ public class Player : Actor
         else if ("Fall" == anim_name)
         {
             EmitSignal(nameof(PlayerDied), "collision");
-            if (this.playerNameLabel.Visible)
-            {
-                this.playerNameLabel.Visible = false;
-            }
+            this.playerNameLabel.Visible = true;
         }
-
     }
 
     private void SetPlayerName()
@@ -87,10 +84,9 @@ public class Player : Actor
     private void GenerateSuffix()
     {
         Random random = new Random();
-        byte[] arrSuffixChars = new byte[6];
+        byte[] arrSuffixChars = new byte[5];
         int asciiIndex = 0;
 
-        arrSuffixChars[5] = 0;
         for (int i = 0; i < 5; ++i)
         {
             if (random.Next(0,3) > 0)
@@ -107,11 +103,11 @@ public class Player : Actor
         }
 
         suffix = System.Text.Encoding.ASCII.GetString(arrSuffixChars);
+        GD.Print("suffix is " + suffix);
     }
 
     public void _on_PlayerNameTimer_timeout()
     {
         this.playerNameLabel.Visible = false;
     }
-
 }

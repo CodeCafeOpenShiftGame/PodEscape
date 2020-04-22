@@ -36,13 +36,16 @@ public class InGameOverlay : Control
         }
     }
 
+    private int lastKnownScore = 0;
+
     [Export]
     public int gracePeriodTotal = 0;
 
     [Export]
     public string highScoresAPIURL = "";
 
-    private HTTPRequest _httpRequest;
+    private HTTPRequest _getHttpRequest;
+    private HTTPRequest _postHttpRequest;
     private string _strURL;
 
     private Button audioButton;
@@ -73,8 +76,11 @@ public class InGameOverlay : Control
         this.player.Connect("PlayerDied", this, "_on_PlayerDied");
         this.gameManager.Connect("GracePeriodExpired", this, "_on_GracePeriodExpired");
 
-        this._httpRequest = (Godot.HTTPRequest)GetNode("HighScoresOverlay/HTTPRequest");
-        this._httpRequest.Connect("request_completed", this, nameof(this._OnRequestCompleted));
+        this._getHttpRequest = (Godot.HTTPRequest)GetNode("HighScoresOverlay/GETHTTPRequest");
+        this._getHttpRequest.Connect("request_completed", this, nameof(this._OnGETRequestCompleted));
+        this._postHttpRequest = (Godot.HTTPRequest)GetNode("HighScoresOverlay/POSTHTTPRequest");
+        this._postHttpRequest.Connect("request_completed", this, nameof(this._OnPOSTRequestCompleted));
+
         if (!this.highScoresAPIURL.Empty())
         {
             this._strURL = this.highScoresAPIURL;
@@ -112,7 +118,7 @@ public class InGameOverlay : Control
     private void _on_QuitButton_button_up()
     {
         gameManager.endGame();
-        this._httpRequest.Request(this._strURL + "/scores/topten");
+        this._getHttpRequest.Request(this._strURL + "/scores/topten");
         this.HighScores = true;
     }
 
@@ -126,6 +132,7 @@ public class InGameOverlay : Control
 
     private void _on_ScoreUpdated(int score)
     {
+        this.lastKnownScore = score;
         String scoreText = ""+score;
         this.scoreLabel.Text = "Score: " + scoreText.PadLeft(6,'0');
     }
@@ -138,9 +145,21 @@ public class InGameOverlay : Control
 
     private void _on_PlayerDied(string howPlayerDied)
     {
+        string name = Player.name;
         GD.Print("InGameOverlay::_on_PlayerDied()");
         this.gracePeriodLabel.Text = "DIED";
-        this._httpRequest.Request(this._strURL + "/scores/topten");
+
+        // POST the new score
+        // TODO: Integrate with real score handling code rather than taking the string from the label
+//        GD.Print("score was " + this.lastKnownScore);
+        string strJSON = "{\"name\":\"" + name + "\",\"score\":" + this.lastKnownScore + "}";
+        string[] headers = { "Content-Type: application/json" };
+        this._postHttpRequest.Request(this._strURL + "/scores", headers, false, HTTPClient.Method.Post, strJSON);
+
+//        // GET the top ten high scores
+//        this._getHttpRequest.Request(this._strURL + "/scores/topten");
+//
+        // Bring up the high scores
         this.HighScores = true;
     }
 
@@ -150,9 +169,9 @@ public class InGameOverlay : Control
         this.gracePeriodLabel.Text = "EXPIRED";
     }
 
-    public void _OnRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
+    public void _OnGETRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
     {
-        GD.Print("InGameOverlay::_OnRequestCompleted");
+        GD.Print("InGameOverlay::_OnGETRequestCompleted");
 
         do
         {
@@ -180,5 +199,28 @@ public class InGameOverlay : Control
                 this.arrScoreLabels[i].Text = dict["name"] + " " + dict["score"];
             }
         } while (false);
+    }
+
+    public void _OnPOSTRequestCompleted(int result, int responseCode, Array<string> headers, Array<byte> body)
+    {
+        GD.Print("InGameOverlay::_OnPOSTRequestCompleted");
+
+        do
+        {
+            if (0 != result)
+            {
+                GD.Print("FAIL: result was " + result);
+                break;
+            }
+
+            if (201 != responseCode)
+            {
+                GD.Print("FAIL: responseCode was " + responseCode);
+                break;
+            }
+        } while (false);
+
+        // GET the top ten high scores
+        this._getHttpRequest.Request(this._strURL + "/scores/topten");
     }
 }
