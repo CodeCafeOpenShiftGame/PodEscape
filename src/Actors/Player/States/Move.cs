@@ -58,17 +58,15 @@ abstract public class Move : State
             this.StateMachine.TransitionTo("Air", msg);
         }
 
-        if (@event.IsActionPressed("dash"))
+        if (@event.IsActionPressed("dash") && !player.IsOnFloor() && !this.hasDashed)
         {
-            if (player.IsOnFloor())
-            {
-                StartDash();
-            }
-            else if (!player.IsOnFloor() && !this.hasDashed)
-            {
-                StartDash();
-                hasDashed = true;
-            }
+            StartDash();
+            hasDashed = true;
+        }
+
+        if (@event.IsActionPressed("slide") && player.IsOnFloor())
+        {
+            StartDash();
         }
 
         if (@event.IsActionPressed("slow") && player.IsOnFloor())
