@@ -8,17 +8,15 @@
 [node name="Floor" instance=ExtResource( 4 )]
 difficulty = 1
 
-[node name="Firewall" parent="." index="3" instance=ExtResource( 1 )]
-position = Vector2( -797.662, -67.668 )
-scale = Vector2( 0.2, 0.2 )
-
-[node name="Firewall2" parent="." index="4" instance=ExtResource( 1 )]
-position = Vector2( -576.203, -69.7186 )
-scale = Vector2( 0.2, 0.2 )
-
-[node name="1Gi" parent="." index="5" instance=ExtResource( 3 )]
+[node name="1Gi" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( -207.105, -106.628 )
 
-[node name="Tunnel" parent="." index="6" instance=ExtResource( 2 )]
+[node name="Tunnel" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 231.712, -323.986 )
 xtraMiddleSegments = 20
+
+[node name="Firewall" parent="." index="5" instance=ExtResource( 1 )]
+position = Vector2( -597, -66 )
+
+[node name="Firewall2" parent="." index="6" instance=ExtResource( 1 )]
+position = Vector2( -797, -66 )
