@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MediumFloor : StaticBody2D
+public class Floor : StaticBody2D
 {
     [Export]
     public GameManager.LevelDifficulty difficulty; 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Collectable/10m.tscn" type="PackedScene" id=2]
+
+[node name="Floor" instance=ExtResource( 1 )]
+difficulty = 0
+
+[node name="10m" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( -539.294, -215.307 )

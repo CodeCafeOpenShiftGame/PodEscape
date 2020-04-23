@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/Floors/MediumFloor.cs" type="Script" id=1]
+[ext_resource path="res://src/Levels/Floor.cs" type="Script" id=1]
 
-[node name="SmallFloor" type="StaticBody2D"]
+[node name="Floor" type="StaticBody2D"]
 z_index = 1
 script = ExtResource( 1 )
 
