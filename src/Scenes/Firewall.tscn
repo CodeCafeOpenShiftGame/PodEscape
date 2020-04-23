@@ -9,6 +9,7 @@
 [sub_resource type="RectangleShape2D" id=2]
 
 [node name="Firewall" type="Node2D"]
+scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 3 )
 WallHeight = 100.0
 WallRaiseDuration = 1.0
