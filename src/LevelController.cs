@@ -10,6 +10,9 @@ public class LevelController : Node2D
     [Export((PropertyHint)24, "17/17:PackedScene")]
     public Godot.Collections.Array<PackedScene> HardLevels;
 
+    [Export((PropertyHint)24, "17/17:PackedScene")]
+    public Godot.Collections.Array<PackedScene> DebugLevels;
+
     private Node2D LevelHolder;
     private float lastX = 0.0f;
     private float currentX = 0.0f;
@@ -19,6 +22,9 @@ public class LevelController : Node2D
     private Timer EasyTimer;
     private Timer MediumTimer;
     private GameManager.LevelDifficulty currentDifficulty;
+
+    [Export]
+    private Boolean levelDebug = false;
 
     public override void _Ready()
     {
@@ -32,7 +38,10 @@ public class LevelController : Node2D
 
     private PackedScene GetRandomScene()
     {
-        
+        if (levelDebug == true)
+        {
+            return GetRandomSceneDifficulty(this.DebugLevels);
+        }
         if (currentDifficulty == GameManager.LevelDifficulty.easy)
         {
             return GetRandomSceneDifficulty(this.EasyLevels);

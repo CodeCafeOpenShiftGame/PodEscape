@@ -26,5 +26,14 @@ The purpose of this part of the document is to explain how to design levels for 
 8. Select `LevelController` node.
 9. Add your new scene to the corresponding array in the inspector, depending on the difficulty of the level.
 10. Save the World scene.
-11. Test your scene and do all the modifications you want.
+11. Test your scene and do all the modifications you want. Check next section for easy tests.
 12. Commit and push your code.
+
+### Testing your levels
+
+For testing your levels in an easy way and not having to wait for a medium or hard level to appear, do the following:
+
+1. In `World` scene, add your level to `Debug Levels` array.
+2. Enable `Level Debug`.
+3. Run the game. The levels you want to test now will appear in the first minute.
+4. Remember to disable `Level Debug` before pushing and cleaning the array.
