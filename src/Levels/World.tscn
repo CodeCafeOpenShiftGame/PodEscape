@@ -1,17 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Parallax.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Levels/Floor1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/EasiestLevel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/LevelController.cs" type="Script" id=4]
 [ext_resource path="res://src/Scenes/InGameOverlay.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Levels/Floor2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Levels/Floor3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/2FireTunnel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Levels/EasyBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/SFX/bg_music.ogg" type="AudioStream" id=8]
-[ext_resource path="res://src/Levels/Floor6_FirewallObstacle.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/Levels/Floor5_JumpObstacle.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Levels/World.cs" type="Script" id=11]
-[ext_resource path="res://src/Levels/Floor7_TunnelObstacle.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node"]
 script = ExtResource( 11 )
@@ -28,7 +25,7 @@ position = Vector2( 256, 540 )
 [node name="LevelController" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 script = ExtResource( 4 )
-Scenes = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ) ]
+Scenes = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ) ]
 
 [node name="Level" type="Node2D" parent="LevelController"]
 

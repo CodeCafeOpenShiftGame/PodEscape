@@ -3,6 +3,14 @@ using System;
 
 public class GameManager : Node
 {
+
+    public enum LevelDifficulty 
+    {
+        easy,
+        medium,
+        hard
+    }
+
     [Signal]
     delegate void GameManagerReady();
     [Signal]

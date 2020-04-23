@@ -19,7 +19,9 @@ offset = Vector2( 0, -32 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -176 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"killingObstacles",
+]]
 position = Vector2( 0, -144 )
 scale = Vector2( 12, 14 )
 

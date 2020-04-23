@@ -24,7 +24,9 @@ z_index = -1
 texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GeneratorNode2D/FireNode2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="GeneratorNode2D/FireNode2D" groups=[
+"dashable",
+]]
 position = Vector2( 0, -5 )
 scale = Vector2( 5.6, 0.5 )
 
@@ -36,7 +38,9 @@ shape = SubResource( 1 )
 [node name="GeneratorSprite" type="Sprite" parent="GeneratorNode2D"]
 texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GeneratorNode2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="GeneratorNode2D" groups=[
+"killingObstacles",
+]]
 position = Vector2( -34, 1 )
 scale = Vector2( 6.5, 19 )
 
