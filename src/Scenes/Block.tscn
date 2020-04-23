@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Sprites/Obstacles/Block/Podescape_objects_Obstacle_top.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sprites/Obstacles/Block/Podescape_objects_Obstacle_bottom_segment.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Block" type="Node2D"]
+
+[node name="BottomNode2D" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="BottomNode2D"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -32 )
+
+[node name="TopNode2D" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="TopNode2D"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -176 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -144 )
+scale = Vector2( 12, 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )

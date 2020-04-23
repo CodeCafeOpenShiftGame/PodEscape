@@ -84,4 +84,9 @@ public class ScreenShake : Node
        this.Start();
     }
 
+    public virtual void _on_Die_DieSignal()
+    {
+        this.Start();
+    }
+
 }

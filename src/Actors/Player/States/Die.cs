@@ -4,12 +4,17 @@ using System;
 
 public class Die : Move
 {
+
+    [Signal]
+    public delegate void DieSignal();
+
     public override void Enter(Dictionary<string, object> msg = null)
     {
         base.Enter(msg);
 
         player.AnimationPlayer.Play("Fall");
         player.PlayerTrail.Emitting = false;
+        EmitSignal(nameof(DieSignal));
 
         base.moveDirection = Vector2.Zero;
     }
