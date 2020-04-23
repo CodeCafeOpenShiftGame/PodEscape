@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Block" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="BottomNode2D" type="Node2D" parent="."]
 
