@@ -24,7 +24,7 @@ The purpose of this part of the document is to explain how to design levels for 
 6. Save the scene with the name you want in the `res://src/Levels` directory.
 7. Open `res://src/Levels/World.tscn` in the Godot editor.
 8. Select `LevelController` node.
-9. Add your new scene to the array in the inspector.
+9. Add your new scene to the corresponding array in the inspector, depending on the difficulty of the level.
 10. Save the World scene.
 11. Test your scene and do all the modifications you want.
 12. Commit and push your code.
