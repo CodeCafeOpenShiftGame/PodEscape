@@ -134,7 +134,7 @@ public class Dash : Move
             {
                 if (node.GlobalPosition.x > player.Position.x && node.GlobalPosition.x < player.Position.x + ((float)msg["impulse"] / 2))
                 {
-                    if (player.IsOnFloor())
+                    if (player.Position.y > node.GlobalPosition.y)
                     {
                         dashTween.InterpolateProperty
                         (

@@ -30,7 +30,6 @@ script = ExtResource( 4 )
 EasyLevels = [ ExtResource( 3 ), ExtResource( 7 ) ]
 MediumLevels = [ ExtResource( 6 ), ExtResource( 10 ) ]
 HardLevels = [ ExtResource( 9 ) ]
-DebugLevels = [  ]
 
 [node name="Level" type="Node2D" parent="LevelController"]
 

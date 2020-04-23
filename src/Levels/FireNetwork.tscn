@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Scenes/Firewall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Scenes/Tunnel.tscn" type="PackedScene" id=3]
+
+[node name="Floor" instance=ExtResource( 1 )]
+difficulty = 1
+
+[node name="Tunnel" parent="." index="3" instance=ExtResource( 3 )]
+position = Vector2( -725.47, -352.66 )
+xtraMiddleSegments = 30
+
+[node name="Tunnel2" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 645.498, -352.304 )
+xtraMiddleSegments = 30
+
+[node name="Firewall" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( -44.8997, -66.1373 )
+scale = Vector2( 0.2, 0.2 )
+WallHeight = 150.0
+WallRaiseDuration = 1.5
