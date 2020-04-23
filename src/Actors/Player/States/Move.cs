@@ -9,6 +9,8 @@ abstract public class Move : State
     [Export]
     public Vector2 MaxSpeedDefault = new Vector2(500f, 1500f);
     [Export]
+    public float MinSpeedX = 0f;
+    [Export]
     public Vector2 AccelerationDefault = new Vector2(100000f, 3000f);
     [Export]
     public Vector2 SlowAccelerationDefault = new Vector2(-1000f, -10f); // -1000f, 3000f for normal slow jumping
@@ -43,6 +45,7 @@ abstract public class Move : State
         // TODO: Epsilon check
         if (this.GetMoveDirection().x == 0f)
         {
+            // GD.Print("move direction x == 0");
             return;
         }
 
@@ -90,6 +93,14 @@ abstract public class Move : State
 
     public override void PhysicsProcess(float delta)
     {
+        // give the slow a "break" type feel - for the gamepads, key events get this by default
+        if (this.Velocity.x <= 0f)
+        {
+            GD.Print("disengage break, move velocity < 0");
+            this.Velocity.x = this.MinSpeedX;
+            this.Acceleration = this.AccelerationDefault;
+        }
+
         Vector2 direction = this.GetMoveDirection();
 
         Player player = (Player)this.Owner;
@@ -148,7 +159,7 @@ abstract public class Move : State
         Vector2 newVelocity = oldVelocity;
 
         newVelocity += moveDirection * acceleration * delta;
-        newVelocity.x = Mathf.Clamp(newVelocity.x, -maxSpeed.x, maxSpeed.x);
+        newVelocity.x = Mathf.Clamp(newVelocity.x, MinSpeedX, maxSpeed.x);
         newVelocity.y = Mathf.Clamp(newVelocity.y, -maxSpeed.y, maxSpeed.y);
 
         return newVelocity;

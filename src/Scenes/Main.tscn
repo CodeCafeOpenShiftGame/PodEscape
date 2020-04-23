@@ -243,13 +243,13 @@ __meta__ = {
 }
 
 [node name="PlayButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_right = 198.0
+margin_right = 243.0
 margin_bottom = 47.0
 theme = ExtResource( 5 )
-text = "Play"
+text = "Play (Ctrl+Enter)"
 
 [node name="QuitButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 202.0
+margin_left = 247.0
 margin_right = 400.0
 margin_bottom = 47.0
 theme = ExtResource( 5 )
