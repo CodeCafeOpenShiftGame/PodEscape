@@ -13,7 +13,7 @@ abstract public class Move : State
     [Export]
     public Vector2 SlowAccelerationDefault = new Vector2(-1000f, -10f); // -1000f, 3000f for normal slow jumping
     [Export]
-    public float JumpImpulse = 1200f;
+    public float JumpImpulse = 1350f;
     [Export]
     public float DashImpulse = 1500f;
     [Export]

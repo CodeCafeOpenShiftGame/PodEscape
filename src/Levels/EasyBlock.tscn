@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Collectable/100m.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Block.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Collectable/10m.tscn" type="PackedScene" id=4]
 
 [node name="Floor" instance=ExtResource( 3 )]
 
@@ -10,4 +11,7 @@
 position = Vector2( -156.29, -66.5821 )
 
 [node name="100m" parent="." index="4" instance=ExtResource( 1 )]
-position = Vector2( -253.164, -479.958 )
+position = Vector2( -155.416, -331.574 )
+
+[node name="10m" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 370.956, -149.437 )
