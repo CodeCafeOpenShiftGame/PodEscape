@@ -4,7 +4,11 @@ using System;
 public class LevelController : Node2D
 {
     [Export((PropertyHint)24, "17/17:PackedScene")]
-    public Godot.Collections.Array<PackedScene> Scenes;
+    public Godot.Collections.Array<PackedScene> EasyLevels;
+    [Export((PropertyHint)24, "17/17:PackedScene")]
+    public Godot.Collections.Array<PackedScene> MediumLevels;
+    [Export((PropertyHint)24, "17/17:PackedScene")]
+    public Godot.Collections.Array<PackedScene> HardLevels;
 
     private Node2D LevelHolder;
     private float lastX = 0.0f;
@@ -12,17 +16,43 @@ public class LevelController : Node2D
     private Vector2 currentPosition;
     private Vector2 lastPosition;
 
+    private Timer EasyTimer;
+    private Timer MediumTimer;
+    private GameManager.LevelDifficulty currentDifficulty;
+
     public override void _Ready()
     {
         this.LevelHolder = this.GetNode("Level") as Node2D;
         this.SpawnRandomScene();
+        this.EasyTimer = this.GetNode<Timer>("EasyTimer");
+        this.MediumTimer = this.GetNode<Timer>("MediumTimer");
+        this.EasyTimer.Start(60);
+        this.currentDifficulty = GameManager.LevelDifficulty.easy;
     }
 
     private PackedScene GetRandomScene()
     {
+        
+        if (currentDifficulty == GameManager.LevelDifficulty.easy)
+        {
+            return GetRandomSceneDifficulty(this.EasyLevels);
+        } 
+        else if (currentDifficulty == GameManager.LevelDifficulty.medium)
+        {
+            return GetRandomSceneDifficulty(this.MediumLevels);
+        }
+        else
+        {
+            return GetRandomSceneDifficulty(this.HardLevels);
+        }
+        
+    }
+
+    private PackedScene GetRandomSceneDifficulty(Godot.Collections.Array<PackedScene> levels)
+    {
         Random random = new Random();
-        int index = random.Next(0, Scenes.Count);
-        return Scenes[index] as PackedScene;
+        int index = random.Next(0, levels.Count);
+        return levels[index] as PackedScene;
     }
 
     private Node2D InstantiateScene(PackedScene scene)
@@ -65,5 +95,16 @@ public class LevelController : Node2D
     public void _OnPieceScreenEntered()
     {
         this.SpawnRandomScene();
+    }
+
+    public void _on_EasyTimer_timeout()
+    {
+        this.currentDifficulty = GameManager.LevelDifficulty.medium;
+        this.MediumTimer.Start(30);
+    }
+
+    public void _on_MediumTimer_timeout()
+    {
+        this.currentDifficulty = GameManager.LevelDifficulty.hard;
     }
 }
