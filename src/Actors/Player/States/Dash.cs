@@ -131,27 +131,26 @@ public class Dash : Move
     private void HandleCollisions(Dictionary<string, object> msg = null)
     {
         foreach (Node2D node in GetTree().GetNodesInGroup("killingObstacles"))
+        {
+            if (node.GlobalPosition.x > player.Position.x && node.GlobalPosition.x < player.Position.x + ((float)msg["impulse"] / 2))
             {
-                if (node.GlobalPosition.x > player.Position.x && node.GlobalPosition.x < player.Position.x + ((float)msg["impulse"] / 2))
+                if (player.GlobalPosition.Normalized().y > node.GlobalPosition.Normalized().y)
                 {
-                    if (player.Position.y > node.GlobalPosition.y)
-                    {
-                        dashTween.InterpolateProperty
-                        (
-                            player,
-                            "position",
-                            player.Position,
-                            new Vector2(node.GlobalPosition.x, player.Position.y),
-                            .5f,
-                            Tween.TransitionType.Linear,
-                            Tween.EaseType.InOut
-                        );
-                        dashTween.Start();
-                        collisionDetected = true;
-                    }
+                    dashTween.InterpolateProperty
+                    (
+                        player,
+                        "position",
+                        player.Position,
+                        new Vector2(node.GlobalPosition.x - 50, player.Position.y),
+                        .5f,
+                        Tween.TransitionType.Linear,
+                        Tween.EaseType.InOut
+                    );
+                    dashTween.Start();
+                    collisionDetected = true;
                 }
             }
-
+        }
         if (!collisionDetected)
         {
             dashTween.InterpolateProperty
