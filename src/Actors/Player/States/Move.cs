@@ -30,12 +30,17 @@ abstract public class Move : State
     public Boolean hasDashed;
     public Boolean isDashing;
 
+    private float PreviousPosition;
+    private float NewPosition;
+
     public override void _Ready()
     {
         base._Ready();
         this.Acceleration = this.AccelerationDefault;
         this.MaxSpeed = this.MaxSpeedDefault;
         this.isDashing = false;
+        this.PreviousPosition = 0;
+        this.NewPosition = 0;
     }
 
     public override void UnhandledInput(InputEvent @event)
@@ -93,6 +98,18 @@ abstract public class Move : State
 
     public override void PhysicsProcess(float delta)
     {
+
+        Player player = (Player)this.Owner;
+
+        //Calculate score by distance
+        this.NewPosition = player.GlobalPosition.x;
+        
+        if (this.NewPosition > this.PreviousPosition)
+        {
+            GameManager.Score += (int) this.NewPosition / 1000;
+            this.PreviousPosition = this.NewPosition;
+        }
+
         // give the slow a "break" type feel - for the gamepads, key events get this by default
         if (this.Velocity.x <= 0f)
         {
@@ -103,7 +120,6 @@ abstract public class Move : State
 
         Vector2 direction = this.GetMoveDirection();
 
-        Player player = (Player)this.Owner;
         //player.Flip(direction);
 
         this.Velocity = this.CalculateVelocity(

@@ -20,9 +20,10 @@ public class GameManager : Node
     [Signal]
     delegate void GracePeriodExpired();
 
-    public int Score { get; private set; } = 0;
+    public static int Score { get; set; } = 0;
     public int GracePeriod { get; set; } = 0;
     private Timer everySecond = new Timer();
+    private Timer updateScore = new Timer();
 
     public static Boolean AudioOn = true;
 
@@ -31,16 +32,19 @@ public class GameManager : Node
     {
         EmitSignal(nameof(GameManagerReady)); // just testing the C# signals
         this.AddChild(everySecond);
+        this.AddChild(updateScore);
         everySecond.Connect("timeout", this, nameof(_on_Timer_timeout));
+        updateScore.Connect("timeout", this, nameof(_on_Timer_Update_Score_timeout));
         //this.Connect("PlayerDied", Player, "_on_PlayerDied");
     }
 
     public void newGame()
     {
-        this.Score = 0;
+        Score = 0;
         GetTree().ChangeScene("res://src/Levels/World.tscn");
         GetTree().Paused = false;
         everySecond.Start(1);
+        updateScore.Start(0.1f);
     }
 
     public void endGame()
@@ -54,14 +58,14 @@ public class GameManager : Node
 
     private void _OnItemCollected(Collectable item)
     {
-        this.Score += item.ScorePoints;
-        EmitSignal(nameof(UpdatedScore), this.Score);
+        Score += item.ScorePoints;
+        EmitSignal(nameof(UpdatedScore), Score);
     }
 
     private void _on_Timer_timeout()
     {
-        this.Score = this.Score + 10;  // TODO: this is just for demo, need to calculate based on dist traveled not just time
-        EmitSignal(nameof(UpdatedScore), this.Score);
+        // this.Score = this.Score + 10;  // TODO: this is just for demo, need to calculate based on dist traveled not just time
+        // EmitSignal(nameof(UpdatedScore), Score);
 
         this.GracePeriod = this.GracePeriod - 1; // TODO: GracePeriod elapsing by variable due to game events?
         EmitSignal(nameof(UpdatedGracePeriod), this.GracePeriod);
@@ -71,6 +75,11 @@ public class GameManager : Node
             this.everySecond.Stop();
             EmitSignal(nameof(GracePeriodExpired));
         }
+    }
+
+    private void _on_Timer_Update_Score_timeout()
+    {
+        EmitSignal(nameof(UpdatedScore), Score);
     }
 
     private void _on_PlayerDied(string howPlayerDied)
