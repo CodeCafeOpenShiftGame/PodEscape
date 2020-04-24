@@ -22,6 +22,18 @@ public class Main : Control
 
     }
 
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("ui_start"))
+        {
+            this._on_PlayButton_button_up();
+        }
+        else if (@event.IsActionPressed("ui_select"))
+        {
+            this._on_CreditsButton_button_up();
+        }
+    }
+
     private void _on_CreditsButton_button_up()
     {
 //        GD.Print("credits selected from main menu");
@@ -42,3 +54,4 @@ public class Main : Control
         GetTree().Quit();
     }
 }
+
