@@ -115,7 +115,6 @@ abstract public class Move : State
         );
 
         this.Velocity.y += this.Gravity * delta;
-
         this.Velocity = player.MoveAndSlideWithSnap(
             this.Velocity,
             this.SnapVector,
