@@ -18,7 +18,7 @@ public class Dash : Move
     CollisionShape2D playerCollisionShape;
     CollisionShape2D slideCollisionShape;
     Boolean collisionDetected;
-    // Boolean dashStopped;
+    private float playerWidth = 100;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -141,7 +141,7 @@ public class Dash : Move
                         player,
                         "position",
                         player.Position,
-                        new Vector2(node.GlobalPosition.x - 50, player.Position.y),
+                        new Vector2(node.GlobalPosition.x - playerWidth / 2, player.Position.y),
                         .5f,
                         Tween.TransitionType.Linear,
                         Tween.EaseType.InOut
