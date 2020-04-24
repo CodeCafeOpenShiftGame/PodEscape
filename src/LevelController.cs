@@ -55,7 +55,6 @@ public class LevelController : Node2D
         {
             return GetRandomSceneDifficulty(this.HardLevels);
         }
-
     }
 
     private PackedScene GetRandomSceneDifficulty(Godot.Collections.Array<PackedScene> levels)
