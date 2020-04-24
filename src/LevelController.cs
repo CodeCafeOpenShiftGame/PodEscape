@@ -18,6 +18,7 @@ public class LevelController : Node2D
     private float currentX = 0.0f;
     private Vector2 currentPosition;
     private Vector2 lastPosition;
+    private VisibilityNotifier2D previousVisibilityNotifier2D;
 
     private Timer EasyTimer;
     private Timer MediumTimer;
@@ -45,7 +46,7 @@ public class LevelController : Node2D
         if (currentDifficulty == GameManager.LevelDifficulty.easy)
         {
             return GetRandomSceneDifficulty(this.EasyLevels);
-        } 
+        }
         else if (currentDifficulty == GameManager.LevelDifficulty.medium)
         {
             return GetRandomSceneDifficulty(this.MediumLevels);
@@ -53,7 +54,7 @@ public class LevelController : Node2D
         else
         {
             return GetRandomSceneDifficulty(this.HardLevels);
-        }   
+        }
     }
 
     private PackedScene GetRandomSceneDifficulty(Godot.Collections.Array<PackedScene> levels)
@@ -80,17 +81,20 @@ public class LevelController : Node2D
         PackedScene scene = this.GetRandomScene();
         Node2D instance = this.InstantiateScene(scene);
 
+        VisibilityNotifier2D vn2d = instance.GetNode<VisibilityNotifier2D>("VisibilityNotifier2D");
         Node2D prevPiece = this.LevelHolder.GetChild<Node2D>(this.LevelHolder.GetChildCount() - 2);
         if (null == prevPiece)
         {
-            this.lastPosition.x = -2048.0f;
-            this.lastPosition.y = 1000.0f;
+            this.lastPosition.x = -vn2d.Position.x;
+            this.lastPosition.y = instance.Position.y;
+            this.previousVisibilityNotifier2D = vn2d;
         }
 
-        this.currentPosition.x = this.lastPosition.x + 2048.0f;
-        this.currentPosition.y = 1000.0f;
+        this.currentPosition.x = this.lastPosition.x + this.previousVisibilityNotifier2D.Position.x;
+        this.currentPosition.y = instance.Position.y;
         instance.Position = this.currentPosition;
         this.lastPosition = instance.Position;
+        previousVisibilityNotifier2D = vn2d;
     }
 
     public void _OnPieceScreenExited()

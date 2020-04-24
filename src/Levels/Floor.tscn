@@ -1,20 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Levels/Floor.cs" type="Script" id=1]
+[ext_resource path="res://assets/Sprites/Floors/Podescape__Floor_Connector_NoLegs.png" type="Texture" id=2]
 
-[node name="Floor" type="StaticBody2D"]
+[node name="FloorNode2D" type="Node2D"]
+position = Vector2( 400, 0 )
+
+[node name="MidFloor" type="StaticBody2D" parent="."]
 z_index = 1
 script = ExtResource( 1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2( 2, 1 )
-polygon = PoolVector2Array( 512, 64, 512, -64, -512, -64, -512, 64 )
+[node name="Sprite" type="Sprite" parent="MidFloor"]
+texture = ExtResource( 2 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 2.05054, -2.05054 )
-scale = Vector2( 2, 1 )
-color = Color( 0.117647, 0.701961, 0.0666667, 0.501961 )
-polygon = PoolVector2Array( -512, 64, -512, -64, 512, -64, 512, 64 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 1026.57, -0.773773 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidFloor"]
+polygon = PoolVector2Array( 400, 92, 400, -92, -400, -92, -400, 92 )

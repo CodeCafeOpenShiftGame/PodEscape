@@ -6,10 +6,10 @@
 [ext_resource path="res://src/LevelController.cs" type="Script" id=4]
 [ext_resource path="res://src/Scenes/InGameOverlay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Levels/2FireTunnel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Levels/EasyBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/EasiestLevel2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/SFX/bg_music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Levels/HardBlockFire.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/Levels/FireNetwork.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Levels/EasiestLevel3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Levels/World.cs" type="Script" id=11]
 
 [node name="World" type="Node"]
@@ -27,9 +27,9 @@ position = Vector2( 256, 540 )
 [node name="LevelController" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 script = ExtResource( 4 )
-EasyLevels = [ ExtResource( 3 ), ExtResource( 7 ) ]
-MediumLevels = [ ExtResource( 6 ), ExtResource( 10 ) ]
-HardLevels = [ ExtResource( 9 ) ]
+EasyLevels = [ ExtResource( 10 ), ExtResource( 3 ), ExtResource( 7 ) ]
+MediumLevels = [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 10 ) ]
+HardLevels = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ) ]
 
 [node name="Level" type="Node2D" parent="LevelController"]
 

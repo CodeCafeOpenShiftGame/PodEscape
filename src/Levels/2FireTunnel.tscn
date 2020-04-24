@@ -5,18 +5,22 @@
 [ext_resource path="res://src/Collectable/1Gi.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=4]
 
-[node name="Floor" instance=ExtResource( 4 )]
-difficulty = 1
+[node name="2FireTunnel" type="Node2D"]
+position = Vector2( 0, 1000 )
 
-[node name="1Gi" parent="." index="3" instance=ExtResource( 3 )]
-position = Vector2( -207.105, -106.628 )
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 800, 0 )
 
-[node name="Tunnel" parent="." index="4" instance=ExtResource( 2 )]
-position = Vector2( 231.712, -323.986 )
-xtraMiddleSegments = 20
+[node name="FloorNode2D" parent="." instance=ExtResource( 4 )]
 
-[node name="Firewall" parent="." index="5" instance=ExtResource( 1 )]
-position = Vector2( -597, -66 )
+[node name="1Gi" parent="." instance=ExtResource( 3 )]
+position = Vector2( 600, -150 )
 
-[node name="Firewall2" parent="." index="6" instance=ExtResource( 1 )]
-position = Vector2( -797, -66 )
+[node name="Firewall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 100, -92 )
+
+[node name="Firewall2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, -92 )
+
+[node name="Tunnel" parent="." instance=ExtResource( 2 )]
+position = Vector2( 300, -300 )
