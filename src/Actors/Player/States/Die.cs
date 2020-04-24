@@ -17,14 +17,15 @@ public class Die : Move
         EmitSignal(nameof(DieSignal));
 
         base.moveDirection = Vector2.Zero;
+        Velocity = Vector2.Zero;
     }
 
     public override void Exit()
     {
-        GD.Print("Die::Exit()");
+//        GD.Print("Die::Exit()");
+        moveDirection = Vector2.Zero;
+        Velocity = Vector2.Zero;
         base.Exit();
-
-        //this.StateMachine.TransitionTo("[stop]");
     }
 
     public void _on_AnimationPlayer_animation_finished(String anim_name)

@@ -98,12 +98,11 @@ abstract public class Move : State
 
     public override void PhysicsProcess(float delta)
     {
-
         Player player = (Player)this.Owner;
 
         //Calculate score by distance
         this.NewPosition = player.GlobalPosition.x;
-        
+
         if (this.NewPosition > this.PreviousPosition)
         {
             GameManager.Score += (int) this.NewPosition / 1000;
@@ -113,7 +112,7 @@ abstract public class Move : State
         // give the slow a "break" type feel - for the gamepads, key events get this by default
         if (this.Velocity.x <= 0f)
         {
-            GD.Print("disengage break, move velocity < 0");
+//            GD.Print("disengage break, move velocity < 0");
             this.Velocity.x = this.MinSpeedX;
             this.Acceleration = this.AccelerationDefault;
         }
@@ -142,6 +141,11 @@ abstract public class Move : State
 
     public void HandleCollisions(float delta)
     {
+        // @TODO @FIXME Remove this hack to prevent Die To Die transitions
+        if (this.moveDirection.x <= float.Epsilon)
+        {
+            return;
+        }
         var collisionInfo = player.MoveAndCollide(this.Velocity * delta, true, true, true);
 
         if (collisionInfo != null && !isDashing)
@@ -150,6 +154,7 @@ abstract public class Move : State
             {
                 if (collisionInfo.ColliderId == node.GetInstanceId())
                 {
+                    GD.Print("Move::HandleCollisions transitioning to Die 1");
                     this.StateMachine.TransitionTo("Die");
                 }
             }
@@ -157,6 +162,8 @@ abstract public class Move : State
             {
                 if (collisionInfo.ColliderId == node.GetInstanceId())
                 {
+                    // @TODO @FIXME fix Die to Die loop
+                    //GD.Print("Move::HandleCollisions transitioning to Die 2");
                     this.StateMachine.TransitionTo("Die");
                 }
             }
@@ -187,5 +194,18 @@ abstract public class Move : State
 //            1f,//Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
 //            1f
 //        );
+    }
+
+
+    public override void Enter(Dictionary<string, object> msg = null)
+    {
+//        GD.Print("Move::Enter()");
+        base.Enter(msg);
+    }
+
+    public override void Exit()
+    {
+//        GD.Print("Move::Exit()");
+        base.Exit();
     }
 }

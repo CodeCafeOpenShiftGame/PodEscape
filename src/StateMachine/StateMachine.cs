@@ -41,10 +41,18 @@ public class StateMachine : Node
         //     return;
         // }
 
+
+
         State newState = (State)this.GetNode(newStatePath);
 
-        // GD.Print($"Transition from {this.CurrentState.Name} to {newState.Name}.");
-
+        //GD.Print($"Transition from {this.CurrentState.Name} to {newState.Name}.");
+        if (this.CurrentState.Name == newState.Name)
+        {
+            // @TODO @FIXME Transition from and to same state!
+            //GD.Print("Attempting to transition from and to same state!");
+            // HACK
+            return;
+        }
         this.CurrentState.Exit();
         this.CurrentState = newState;
         this.CurrentState.Enter(msg);

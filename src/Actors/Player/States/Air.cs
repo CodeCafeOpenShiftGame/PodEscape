@@ -55,6 +55,7 @@ public class Air : Move
 
     public override void Enter(Dictionary<string, object> msg = null)
     {
+//        GD.Print("Air::Enter()");
         base.Enter(msg);
 
         // Disable the snap vector when Jumping
@@ -89,6 +90,7 @@ public class Air : Move
 
     public override void Exit()
     {
+//        GD.Print("Air::Exit()");
         this.Acceleration = this.AccelerationDefault;
         hasDashed = false;
         base.Exit();

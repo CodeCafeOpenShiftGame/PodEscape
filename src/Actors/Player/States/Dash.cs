@@ -66,12 +66,12 @@ public class Dash : Move
         Player player = this.Owner as Player;
 
         // TODO: Epsilon check
-        if (this.GetMoveDirection().x == 0f)
-        {
-            this.StateMachine.TransitionTo("Idle");
-
-            return;
-        }
+//        if (this.GetMoveDirection().x == 0f)
+//        {
+//            this.StateMachine.TransitionTo("Idle");
+//
+//            return;
+//        }
 
         if (player.IsOnFloor())
         {
@@ -88,6 +88,7 @@ public class Dash : Move
 
     public override void Enter(Dictionary<string, object> msg = null)
     {
+//        GD.Print("Dash::Enter()");
         base.Enter(msg);
 
         if (msg == null)
@@ -169,6 +170,7 @@ public class Dash : Move
 
     public override void Exit()
     {
+//        GD.Print("Dash::Exit()");
         this.Acceleration = this.AccelerationDefault;
         base.Exit();
     }
@@ -204,6 +206,8 @@ public class Dash : Move
         // }
         if (collisionDetected)
         {
+            this.DashTimer.Stop();
+            GD.Print("Dash::_OnDashTimerTimeout transitioning to Die");
             this.StateMachine.TransitionTo("Die");
         }
         this.GhostTimer.Stop();

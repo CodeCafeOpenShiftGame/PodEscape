@@ -45,6 +45,7 @@ public class Run : Move
 
     public override void Enter(Dictionary<string, object> msg = null)
     {
+//        GD.Print("Run::Enter()");
         base.Enter(msg);
 
         this.player.AnimationPlayer.Play("Run");
@@ -53,5 +54,13 @@ public class Run : Move
         {
             this.SlowStarter.Start();
         }
+
+        moveDirection = Vector2.One;
+    }
+
+    public override void Exit()
+    {
+//        GD.Print("Run::Exit()");
+        base.Exit();
     }
 }
