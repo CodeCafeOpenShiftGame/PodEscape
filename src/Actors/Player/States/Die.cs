@@ -12,6 +12,12 @@ public class Die : Move
     {
         base.Enter(msg);
 
+        if (GameManager.AudioOn)
+        {
+            AudioStreamPlayer dieSound = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+            dieSound.Play();
+        }
+        
         this.player.IsDead = true;
         player.AnimationPlayer.Play("Fall");
         player.PlayerTrail.Emitting = false;
