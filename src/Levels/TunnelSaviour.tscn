@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Scenes/Block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Scenes/Tunnel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Scenes/Firewall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Collectable/1Gi.tscn" type="PackedScene" id=5]
+
+[node name="TunnelSaviour" type="Node2D"]
+
+[node name="FloorNode2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1201.82, 1000.25 )
+
+[node name="FloorNode2D2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 401.328, 1000.22 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1602.11, 1002.61 )
+
+[node name="Firewall" parent="." instance=ExtResource( 4 )]
+position = Vector2( 107.279, 906.613 )
+
+[node name="Block" parent="." instance=ExtResource( 1 )]
+position = Vector2( 317.266, 910.487 )
+
+[node name="1Gi" parent="." instance=ExtResource( 5 )]
+position = Vector2( 617.524, 858.333 )
+
+[node name="Block2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 986.813, 912.261 )
+
+[node name="Block3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1188.75, 911.711 )
+
+[node name="Tunnel" parent="." instance=ExtResource( 2 )]
+position = Vector2( 888.109, 618.479 )
+xtraMiddleSegments = 40
