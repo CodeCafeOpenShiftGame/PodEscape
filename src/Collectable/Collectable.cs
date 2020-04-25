@@ -24,5 +24,10 @@ public class Collectable : Node2D
     {
         EmitSignal(nameof(ItemCollected), this);
         this.animationPlayer.Play("fadeOut");
+        if (GameManager.AudioOn)
+        {
+            AudioStreamPlayer audio = this.GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+            audio.Play();
+        }
     }
 }

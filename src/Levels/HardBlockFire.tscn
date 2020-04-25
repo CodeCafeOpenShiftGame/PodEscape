@@ -9,12 +9,14 @@
 position = Vector2( 0, 1000 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 800, 0 )
+position = Vector2( 1601.02, 5.61414 )
+scale = Vector2( 1.09267, 1 )
 
 [node name="100Mi" parent="." instance=ExtResource( 3 )]
 position = Vector2( 800, -400 )
 
 [node name="FloorNode2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 398.924, -0.358521 )
 
 [node name="FloorNode2D2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1200, 0 )

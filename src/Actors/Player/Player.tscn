@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://assets/Sprites/Pod/swing/Podman_animation_Swing_M.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player/Player.cs" type="Script" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://assets/Sprites/Pod/death/Podman_animation_Death_C.png" type="Texture" id=35]
 [ext_resource path="res://src/Actors/Player/PlayerTrail.cs" type="Script" id=36]
 [ext_resource path="res://assets/Themes/MainTheme.tres" type="Theme" id=37]
+[ext_resource path="res://assets/SFX/player_death.wav" type="AudioStream" id=38]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dash"
@@ -221,6 +222,9 @@ InitialState = NodePath("Idle")
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Die"]
+stream = ExtResource( 38 )
+
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
@@ -293,5 +297,5 @@ shadow_enabled = true
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Die" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Die" method="_on_AnimationPlayer_animation_finished"]
