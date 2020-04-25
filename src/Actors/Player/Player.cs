@@ -20,11 +20,14 @@ public class Player : Actor
 	public CPUParticles2D PlayerTrail;
 	public CPUParticles2D PlayerBurst;
 
+    // @TODO Remove this hack
+    public bool IsDead = false;
+
 
 	public override void _Ready()
 	{
 		GD.Print("Player::_Ready()");
-		//GD.Print(this.GetPath());
+        //GD.Print(this.GetPath());
 		this.StateMachine = this.GetNode("StateMachine") as StateMachine;
 		this.AnimationPlayer = this.GetNode("AnimationPlayer") as AnimationPlayer;
 		this.PlayerTrail = this.GetNode("PlayerTrail") as CPUParticles2D;

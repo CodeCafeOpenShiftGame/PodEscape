@@ -54,6 +54,11 @@ abstract public class Move : State
             return;
         }
 
+        if (this.player.IsDead)
+        {
+            return;
+        }
+
         if (@event.IsActionPressed("slow") && isDashing)
         {
             // StopDash();
@@ -99,6 +104,12 @@ abstract public class Move : State
     public override void PhysicsProcess(float delta)
     {
         Player player = (Player)this.Owner;
+
+        // @TODO @FIXME Remove this hack
+        if (this.player.IsDead)
+        {
+            return;
+        }
 
         //Calculate score by distance
         this.NewPosition = player.GlobalPosition.x;
@@ -146,6 +157,7 @@ abstract public class Move : State
         {
             return;
         }
+
         var collisionInfo = player.MoveAndCollide(this.Velocity * delta, true, true, true);
 
         if (collisionInfo != null && !isDashing)
@@ -167,6 +179,14 @@ abstract public class Move : State
                     this.StateMachine.TransitionTo("Die");
                 }
             }
+        }
+
+        if (!this.player.IsOnFloor() &&
+            this.player.Position.y > 1200.0f)
+        {
+            this.StateMachine.TransitionTo("Die");
+            this.moveDirection = Vector2.Zero;
+            this.Velocity = Vector2.Zero;
         }
     }
 

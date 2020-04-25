@@ -25,6 +25,12 @@ public class Idle : Move
             return;
         }
 
+        // @TODO @FIXME Remove this hack
+        if (this.player.IsDead)
+        {
+            return;
+        }
+
         // TODO: Epsilon check
         if (player.IsOnFloor())
         {
@@ -44,6 +50,9 @@ public class Idle : Move
         base.Enter(msg);
 
         Player player = this.Owner as Player;
+
+        this.player.IsDead = false;
+
         player.AnimationPlayer.Play("Idle");
 
         this.MaxSpeed = this.MaxSpeedDefault;

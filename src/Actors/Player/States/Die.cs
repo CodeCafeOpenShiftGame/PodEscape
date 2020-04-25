@@ -12,8 +12,10 @@ public class Die : Move
     {
         base.Enter(msg);
 
+        this.player.IsDead = true;
         player.AnimationPlayer.Play("Fall");
         player.PlayerTrail.Emitting = false;
+
         EmitSignal(nameof(DieSignal));
 
         base.moveDirection = Vector2.Zero;

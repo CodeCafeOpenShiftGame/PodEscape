@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Parallax.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/Levels/HardBlockFire.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Levels/EasiestLevel3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Levels/World.cs" type="Script" id=11]
+[ext_resource path="res://src/Levels/EasiestLevel4.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node"]
 script = ExtResource( 11 )
@@ -27,9 +28,10 @@ position = Vector2( 256, 540 )
 [node name="LevelController" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 script = ExtResource( 4 )
-EasyLevels = [ ExtResource( 10 ), ExtResource( 3 ), ExtResource( 7 ) ]
+EasyLevels = [ ExtResource( 10 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 12 ) ]
 MediumLevels = [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 10 ) ]
 HardLevels = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ) ]
+DebugLevels = [  ]
 
 [node name="Level" type="Node2D" parent="LevelController"]
 
