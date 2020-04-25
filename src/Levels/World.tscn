@@ -49,5 +49,6 @@ one_shot = true
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -10.0
+autoplay = true
 [connection signal="timeout" from="LevelController/EasyTimer" to="LevelController" method="_on_EasyTimer_timeout"]
 [connection signal="timeout" from="LevelController/MediumTimer" to="LevelController" method="_on_MediumTimer_timeout"]
