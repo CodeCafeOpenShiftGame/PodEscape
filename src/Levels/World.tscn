@@ -17,6 +17,7 @@
 script = ExtResource( 11 )
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+layer = 128
 
 [node name="InGameOverlay" parent="UILayer" instance=ExtResource( 5 )]
 gracePeriodTotal = 120
