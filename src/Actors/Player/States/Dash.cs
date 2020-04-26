@@ -19,6 +19,7 @@ public class Dash : Move
     CollisionShape2D slideCollisionShape;
     Boolean collisionDetected;
     private float playerWidth = 100;
+    private float playerPositionOnY = 861.6033f;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -135,7 +136,7 @@ public class Dash : Move
         {
             if (node.GlobalPosition.x > player.Position.x && node.GlobalPosition.x < player.Position.x + ((float)msg["impulse"] / 2))
             {
-                if (player.GlobalPosition.Normalized().y > node.GlobalPosition.Normalized().y)
+                if (player.Position.y >= this.playerPositionOnY)
                 {
                     dashTween.InterpolateProperty
                     (
