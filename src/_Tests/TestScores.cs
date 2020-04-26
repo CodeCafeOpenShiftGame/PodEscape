@@ -44,13 +44,13 @@ public class TestScores : Godot.Panel
             return;
         }
         GD.Print("arrResults count " + arrResults.Count);
-        for (int i = 0; i < arrResults.Count; ++i)
-        {
-            Godot.Collections.Dictionary dict = arrResults[i] as Godot.Collections.Dictionary;
-            GD.Print(dict["id"]);
-            GD.Print(dict["name"]);
-            GD.Print(dict["score"]);
-        }
+//        for (int i = 0; i < arrResults.Count; ++i)
+//        {
+//            Godot.Collections.Dictionary dict = arrResults[i] as Godot.Collections.Dictionary;
+//            GD.Print(dict["id"]);
+//            GD.Print(dict["name"]);
+//            GD.Print(dict["score"]);
+//        }
     }
 
     // Called when the node enters the scene tree for the first time.
@@ -70,6 +70,9 @@ public class TestScores : Godot.Panel
 		this._httpRequest.Connect("request_completed", this, nameof(this._OnRequestCompleted));
 
 		this._urlTextEdit = (Godot.TextEdit)this.GetNode("URLTextEdit");
+
+
+
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -110,13 +113,56 @@ public class TestScores : Godot.Panel
 	{
 		GD.Print("_OnScoreButtonPressed");
 
-		Random r = new Random();
+        GD.Print("HOME is " + System.Environment.GetEnvironmentVariable("HOME"));
+//        quickauthenforcing=${QUICKAUTH_ENFORCING:true}
+//        quickauthuser=${QUICKAUTH_USER:dudash}
+//        quickauthpassword=${QUICKAUTH_PASSWORD:123456}
+        string quickauthenforcing = String.Empty;
+        string quickauthuser = String.Empty;
+        string quickauthpassword = String.Empty;
+
+        quickauthenforcing = System.Environment.GetEnvironmentVariable("QUICKAUTH_ENFORCING");
+        GD.Print("QUICKAUTH_ENFORCING is " + System.Environment.GetEnvironmentVariable("QUICKAUTH_ENFORCING"));
+        quickauthuser = System.Environment.GetEnvironmentVariable("QUICKAUTH_USER");
+        GD.Print("QUICKAUTH_USER is " + System.Environment.GetEnvironmentVariable("QUICKAUTH_USER"));
+        quickauthpassword = System.Environment.GetEnvironmentVariable("QUICKAUTH_PASSWORD");
+        GD.Print("QUICKAUTH_PASSWORD is " + System.Environment.GetEnvironmentVariable("QUICKAUTH_PASSWORD"));
+
+
+
+        Random r = new Random();
 		int playerNumber = r.Next(0, 9);
 		int score = r.Next(0, 99999);
-		string strJSON = "{\"name\":\"Player" + playerNumber + "\",\"score\":" + score + "}";
-		string[] headers = { "Content-Type: application/json" };
+//		string strJSON = "{\"name\":\"Player" + playerNumber + "\",\"score\":" + score + "}";
+//		string[] headers = { "Content-Type: application/json", "Authorization: Basic ZHVkYXNoOjEyMzQ1Ng==" };
 
-		this._strURL = this._urlTextEdit.Text;
-		this._httpRequest.Request(this._strURL + "/scores", headers, false, HTTPClient.Method.Post, strJSON);
+        string strJSON = "{\"name\":\"Player" + playerNumber + "\",\"score\":" + score + "}";
+
+        string[] headers = null;//new string[2];
+        if (quickauthenforcing.Equals("true"))
+        {
+            headers = new string[2];
+            headers[0] = "Content-Type: application/json";
+
+            GD.Print("checked and its true");
+            string userPassword = quickauthuser + ":" + quickauthpassword;
+            GD.Print("userPassword is " + userPassword);
+            byte[] userPasswordBytes = System.Text.Encoding.UTF8.GetBytes(userPassword);
+            GD.Print("userPasswordBytes is " + userPasswordBytes);
+            string userPasswordBase64String = System.Convert.ToBase64String(userPasswordBytes);
+            GD.Print("userPasswordBase64String is " + userPasswordBase64String);
+
+            headers[1] = "Authorization: Basic" + " " + userPasswordBase64String;
+        }
+        else // no quickauth
+        {
+            headers = new string[1];
+            headers[0] = "Content-Type: application/json";
+
+            GD.Print("checked and its false");
+        }
+        this._strURL = this._urlTextEdit.Text;
+        this._httpRequest.Request(this._strURL + "/scores", headers, false, HTTPClient.Method.Post, strJSON);
+
 	}
 }

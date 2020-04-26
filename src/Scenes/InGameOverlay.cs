@@ -151,9 +151,37 @@ public class InGameOverlay : Control
 
         // POST the new score
         // TODO: Integrate with real score handling code rather than taking the string from the label
-//        GD.Print("score was " + this.lastKnownScore);
         string strJSON = "{\"name\":\"" + name + "\",\"score\":" + this.lastKnownScore + "}";
-        string[] headers = { "Content-Type: application/json" };
+
+        string quickauthenforcing = String.Empty;
+        string quickauthuser = String.Empty;
+        string quickauthpassword = String.Empty;
+
+        quickauthenforcing = System.Environment.GetEnvironmentVariable("QUICKAUTH_ENFORCING");
+        GD.Print("QUICKAUTH_ENFORCING is " + System.Environment.GetEnvironmentVariable("QUICKAUTH_ENFORCING"));
+        if (quickauthenforcing.Empty())
+        {
+            quickauthenforcing = "false";
+        }
+        quickauthuser = System.Environment.GetEnvironmentVariable("QUICKAUTH_USER");
+        quickauthpassword = System.Environment.GetEnvironmentVariable("QUICKAUTH_PASSWORD");
+
+        string[] headers = null;
+        if (quickauthenforcing.Equals("true"))
+        {
+            headers = new string[2];
+            headers[0] = "Content-Type: application/json";
+
+            string userPassword = quickauthuser + ":" + quickauthpassword;
+            byte[] userPasswordBytes = System.Text.Encoding.UTF8.GetBytes(userPassword);
+            string userPasswordBase64String = System.Convert.ToBase64String(userPasswordBytes);
+            headers[1] = "Authorization: Basic" + " " + userPasswordBase64String;
+        }
+        else
+        {
+            headers = new string[1];
+            headers[0] = "Content-Type: application/json";
+        }
         this._postHttpRequest.Request(this._strURL + "/scores", headers, false, HTTPClient.Method.Post, strJSON);
 
 //        // GET the top ten high scores
@@ -177,13 +205,13 @@ public class InGameOverlay : Control
         {
             if (0 != result)
             {
-                GD.Print("FAIL: result was " + result);
+                GD.Print("GET FAIL: result was " + result);
                 break;
             }
 
             if (200 != responseCode)
             {
-                GD.Print("FAIL: responseCode was " + responseCode);
+                GD.Print("GET FAIL: responseCode was " + responseCode);
                 break;
             }
 
@@ -209,13 +237,13 @@ public class InGameOverlay : Control
         {
             if (0 != result)
             {
-                GD.Print("FAIL: result was " + result);
+                GD.Print("POST score FAIL: result was " + result);
                 break;
             }
 
             if (201 != responseCode)
             {
-                GD.Print("FAIL: responseCode was " + responseCode);
+                GD.Print("POST score FAIL: responseCode was " + responseCode);
                 break;
             }
         } while (false);
