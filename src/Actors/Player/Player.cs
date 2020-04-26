@@ -10,7 +10,7 @@ public class Player : Actor
 	private static string prefix = string.Empty;
 	private static string suffix = string.Empty;
 	private string[] namePrefixes = {"artemis", "strimzi", "dispatch", "proton", "rhea", "qpid", "jboss", "fuse", "infini", "camel", "activemq", "drools", "fis"};
-	private static int count = 0;
+	private static int count = 1;
 
 	private GameManager gameManager;
 	private Label playerNameLabel;
