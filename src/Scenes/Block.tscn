@@ -7,7 +7,7 @@
 extents = Vector2( 10, 9.28096 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 121.188, 10 )
+extents = Vector2( 118.55, 10 )
 
 [node name="Block" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -37,5 +37,5 @@ shape = SubResource( 1 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 0, -279.165 )
+position = Vector2( 1.85432, -278.798 )
 shape = SubResource( 2 )

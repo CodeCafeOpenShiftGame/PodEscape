@@ -66,7 +66,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 35 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 32 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 21 ), ExtResource( 33 ), ExtResource( 34 ) ]
 }
 
@@ -177,7 +177,7 @@ script = ExtResource( 36 )
 
 [node name="Sprite" type="Sprite" parent="BodyPivot"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 19 )
+texture = ExtResource( 27 )
 
 [node name="PlayerNameLabel" type="Label" parent="BodyPivot"]
 margin_top = -100.0
