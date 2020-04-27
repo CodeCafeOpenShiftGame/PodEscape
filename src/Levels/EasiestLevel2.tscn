@@ -16,7 +16,7 @@ position = Vector2( 1600, 0 )
 position = Vector2( 526.617, -87.478 )
 
 [node name="Block2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1276.87, -72 )
+position = Vector2( 1269.71, -89.1837 )
 
 [node name="FloorNode2D" parent="." instance=ExtResource( 1 )]
 
