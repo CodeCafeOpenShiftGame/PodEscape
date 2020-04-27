@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Parallax.tscn" type="PackedScene" id=2]
@@ -20,12 +20,15 @@
 [ext_resource path="res://src/Levels/HorizontalFire.tscn" type="PackedScene" id=18]
 [ext_resource path="res://src/Levels/2HorizontalFire.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/Levels/DashOrDie.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/Shaders/SimpleCRTShader.tscn" type="PackedScene" id=21]
 
 [node name="World" type="Node"]
 script = ExtResource( 11 )
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 128
+
+[node name="SimpleCRTShader" parent="UILayer" instance=ExtResource( 21 )]
 
 [node name="InGameOverlay" parent="UILayer" instance=ExtResource( 5 )]
 gracePeriodTotal = 120
