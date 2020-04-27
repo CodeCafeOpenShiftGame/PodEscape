@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Levels/FloorEnd.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Collectable/1Gi.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Scenes/Block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Scenes/Tunnel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Scenes/Firewall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Collectable/100Mi.tscn" type="PackedScene" id=7]
+
+[node name="EasiestLevel4" type="Node2D"]
+position = Vector2( 0, 1000 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 2700, 0 )
+
+[node name="FloorNode2D" parent="." instance=ExtResource( 1 )]
+
+[node name="FloorNode2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2300, 0 )
+
+[node name="FloorEnd" parent="." instance=ExtResource( 2 )]
+position = Vector2( 800, 0 )
+
+[node name="FloorEnd2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1500, 0 )
+
+[node name="Sprite" parent="FloorEnd2/StaticBody2D" index="0"]
+flip_h = true
+
+[node name="Firewall" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1149.33, -95.4531 )
+WallHeight = 150.0
+
+[node name="Block" parent="." instance=ExtResource( 4 )]
+position = Vector2( 366.228, -93.5051 )
+
+[node name="1Gi" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1339.33, -272.65 )
+
+[node name="Tunnel" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1767.44, -282.216 )
+xtraMiddleSegments = 40
+
+[node name="100Mi" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2484.94, -186.55 )
+
+[editable path="FloorEnd2"]

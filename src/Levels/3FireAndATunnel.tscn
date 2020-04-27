@@ -20,7 +20,7 @@ position = Vector2( 1200.91, 0.0327148 )
 position = Vector2( 1998.53, 0.0327148 )
 
 [node name="Firewall" parent="." instance=ExtResource( 3 )]
-position = Vector2( 100, -92 )
+position = Vector2( 114.32, -92 )
 WallHeight = 50.0
 
 [node name="Firewall2" parent="." instance=ExtResource( 3 )]
