@@ -17,7 +17,7 @@ abstract public class Move : State
     [Export]
     public float JumpImpulse = 1350f;
     [Export]
-    public float DashImpulse = 1500f;
+    public float DashImpulse = 1450f;
     [Export]
     public float Gravity = 300f;
 
