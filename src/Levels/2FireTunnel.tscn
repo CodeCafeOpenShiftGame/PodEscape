@@ -18,9 +18,13 @@ position = Vector2( 600, -150 )
 
 [node name="Firewall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, -92 )
+WallHeight = 20.0
+WallRaiseDuration = 0.5
 
 [node name="Firewall2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, -92 )
+WallHeight = 30.0
+WallRaiseDuration = 0.5
 
 [node name="Tunnel" parent="." instance=ExtResource( 2 )]
 position = Vector2( 300, -300 )
