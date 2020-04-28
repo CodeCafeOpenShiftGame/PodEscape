@@ -175,10 +175,6 @@ public class Dash : Move
     {
 //        GD.Print("Dash::Exit()");
         this.Acceleration = this.AccelerationDefault;
-        // In "Slide" in Enter() we turn off the player collision and turn on the slide. Put things back.
-        this.playerCollisionShape.Disabled = false;
-        this.slideCollisionShape.Disabled = true;
-
         base.Exit();
     }
 

@@ -177,7 +177,7 @@ script = ExtResource( 36 )
 
 [node name="Sprite" type="Sprite" parent="BodyPivot"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 27 )
+texture = ExtResource( 34 )
 
 [node name="PlayerNameLabel" type="Label" parent="BodyPivot"]
 margin_top = -100.0
@@ -224,6 +224,9 @@ script = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Die"]
 stream = ExtResource( 38 )
+
+[node name="DieTimer" type="Timer" parent="StateMachine/Die"]
+one_shot = true
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
@@ -294,6 +297,8 @@ texture_scale = 3.0
 shadow_enabled = true
 [connection signal="timeout" from="BodyPivot/PlayerNameTimer" to="." method="_on_PlayerNameTimer_timeout"]
 [connection signal="DieSignal" from="StateMachine/Die" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Die_DieSignal"]
+[connection signal="timeout" from="StateMachine/Die/DieTimer" to="." method="_on_DieTimer_timeout"]
+[connection signal="timeout" from="StateMachine/Die/DieTimer" to="StateMachine/Die" method="_on_DieTimer_timeout"]
 [connection signal="DashSignal" from="StateMachine/Dash" to="CameraPivot/CameraOffset/Camera2D/ScreenShake" method="_on_Dash_DashSignal"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_OnDashTimerTimeout"]
 [connection signal="timeout" from="StateMachine/Dash/GhostTimer" to="StateMachine/Dash" method="_OnGhostTimerTimeout"]
