@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Levels/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Block.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Collectable/10m.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Collectable/1Gi.tscn" type="PackedScene" id=4]
 
 [node name="EasiestLevel3" type="Node2D"]
 position = Vector2( 0, 1000 )
@@ -19,3 +21,15 @@ position = Vector2( 2000, 0 )
 
 [node name="Block" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1200, -92 )
+
+[node name="Block2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 736.371, -92 )
+
+[node name="Block3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1663.63, -92 )
+
+[node name="10m" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1192.19, -349.817 )
+
+[node name="1Gi" parent="." instance=ExtResource( 4 )]
+position = Vector2( 481.161, -130.517 )

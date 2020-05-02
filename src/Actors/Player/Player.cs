@@ -10,7 +10,7 @@ public class Player : Actor
 	private static string prefix = string.Empty;
 	private static string suffix = string.Empty;
 	private string[] namePrefixes = {"artemis", "strimzi", "dispatch", "proton", "rhea", "qpid", "jboss", "fuse", "infini", "camel", "activemq", "drools", "fis"};
-	private static int count = 0;
+	private static int count = 1;
 
 	private GameManager gameManager;
 	private Label playerNameLabel;
@@ -52,15 +52,29 @@ public class Player : Actor
 		this.playerNameLabel.Visible = true;
 	}
 
-	public void _on_AnimationPlayer_animation_finished(String anim_name)
-	{
-		GD.Print("Player::_on_AnimationPlayer_animation_finished() anim_name is " + anim_name);
+	// public void _on_AnimationPlayer_animation_finished(String anim_name)
+	// {
+	// 	GD.Print("Player::_on_AnimationPlayer_animation_finished() anim_name is " + anim_name);
 
+	// 	if (0 == this.gameManager.GracePeriod)
+	// 	{
+	// 		EmitSignal(nameof(PlayerDied), "expired");
+	// 	}
+	// 	else if ("Fall" == anim_name)
+	// 	{
+	// 		EmitSignal(nameof(PlayerDied), "collision");
+	// 		this.playerNameLabel.Visible = true;
+	// 	}
+	// }
+
+	public void _on_DieTimer_timeout()
+	{
+		GD.Print("Player::_on_DieTimer_timeout()");
 		if (0 == this.gameManager.GracePeriod)
 		{
 			EmitSignal(nameof(PlayerDied), "expired");
 		}
-		else if ("Fall" == anim_name)
+		else
 		{
 			EmitSignal(nameof(PlayerDied), "collision");
 			this.playerNameLabel.Visible = true;
@@ -113,4 +127,6 @@ public class Player : Actor
 	{
 		this.playerNameLabel.Visible = false;
 	}
+
+	
 }

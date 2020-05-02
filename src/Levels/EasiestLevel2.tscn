@@ -13,10 +13,10 @@ __meta__ = {
 position = Vector2( 1600, 0 )
 
 [node name="Block" parent="." instance=ExtResource( 2 )]
-position = Vector2( 400, -92 )
+position = Vector2( 526.617, -87.478 )
 
 [node name="Block2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1200, -72 )
+position = Vector2( 1269.71, -89.1837 )
 
 [node name="FloorNode2D" parent="." instance=ExtResource( 1 )]
 
