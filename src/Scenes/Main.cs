@@ -12,7 +12,7 @@ public class Main : Control
     {
         storyLabel = GetNode<Label>("StoryLabel");
         gameManager = GetNode<GameManager>("/root/GameManager");
-        quitButton = GetNode<Button>("VBoxContainer/HBoxContainer/QuitButton");
+        quitButton = GetNode<Button>("CenterContainer/VBoxContainer/HBoxContainer/QuitButton");
         quitButton.Visible = false;
         if (OS.GetName() == "HTML5")
         {
