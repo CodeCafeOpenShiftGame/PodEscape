@@ -1,0 +1,9 @@
+keys,en,pt_BR
+TIP_DISTANCE,See how far you can go before time expires,Veja o quão longe você pode ir antes que o tempo expire
+TIP_DONTCRASH,Don't crash,Não bata
+TIP_NETWORKTUNNELS,Go through network tunnels,Passe por túneis de rede
+TIP_FIREWALLS,Avoid (or dash through) the firewalls,Evite (ou atravesse) os firewalls
+BTN_PLAY,Play (Ctrl+Enter),Jogar (Ctrl+Enter)
+BTN_CREDITS,Credits,Créditos
+BTN_QUIT,Quit,Sair
+STORY,You need to escape before your `grace period` expires! Otherwise Kubernetes will forcefully terminate you!,"Você precisa escapar antes que seu `período de carência` expire! Caso contrário, o Kubernetes encerrará você à força!"

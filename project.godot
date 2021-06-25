@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -107,6 +106,10 @@ dash={
 2d_physics/layer_2="world"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="collectable"
+
+[locale]
+
+translations=PoolStringArray( "res://locale/messages.en.translation", "res://locale/messages.pt_BR.translation" )
 
 [logging]
 

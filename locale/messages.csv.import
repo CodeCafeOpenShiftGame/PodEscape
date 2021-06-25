@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://locale/messages.en.translation", "res://locale/messages.pt_BR.translation" ]
+
+source_file="res://locale/messages.csv"
+dest_files=[ "res://locale/messages.en.translation", "res://locale/messages.pt_BR.translation" ]
+
+[params]
+
+compress=true
+delimiter=0
