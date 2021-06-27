@@ -359,7 +359,12 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -47.0
+margin_left = 4.0
+margin_top = -55.0
+margin_right = 128.0
+margin_bottom = -8.0
+theme = ExtResource( 5 )
+text = "Language"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
