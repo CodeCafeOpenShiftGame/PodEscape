@@ -10,9 +10,13 @@ public class LanguageSelector : Control
 	{
 		button = GetNode<OptionButton>("OptionButton");
 
+		string current = TranslationServer.GetLocale();
 		languages = TranslationServer.GetLoadedLocales();
-		foreach (string lang in languages) {
-			button.AddItem(lang.ToUpper());
+		for (int i = 0; i < languages.Count; i++) {
+			button.AddItem(TranslationServer.GetLocaleName((string)languages[i]), i);
+			if (languages[i] == current) {
+				button.Select(i);
+			}
 		}
 	}
 
@@ -21,5 +25,4 @@ public class LanguageSelector : Control
 		string lang = (string)languages[index];
 		TranslationServer.SetLocale(lang);
 	}
-
 }
