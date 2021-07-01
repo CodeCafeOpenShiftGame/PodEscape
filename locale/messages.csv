@@ -1,0 +1,24 @@
+keys,en_US,pt_BR
+TIP_DISTANCE,See how far you can go before time expires,Veja o quão longe você pode ir antes que o tempo expire
+TIP_DONTCRASH,Don't crash,Não bata
+TIP_NETWORKTUNNELS,Go through network tunnels,Passe por túneis de rede
+TIP_FIREWALLS,Avoid (or dash through) the firewalls,Evite (ou atravesse) os firewalls
+BTN_PLAY,Play (Ctrl+Enter),Jogar (Ctrl+Enter)
+BTN_CREDITS,Credits,Créditos
+BTN_QUIT,Quit,Sair
+STORY,You need to escape before your `grace period` expires! Otherwise Kubernetes will forcefully terminate you!,"Você precisa escapar antes que seu `período de carência` expire! Caso contrário, o Kubernetes encerrará você à força!"
+CREDITS_THANKS_TITLE,THANKS TO THE FOLLOWING\n COMMUNITIES AND TEAMS,OBRIGADO AS SEGUINTES\n COMUNIDADES E TIMES
+CREDITS_CONTRIBUTORS_TITLE,CONTRIBUTORS,CONTRIBUIDORES
+CREDITS_ART_TITLE,Art,Arte
+CREDITS_CODE_TITLE,Code,Código
+CREDITS_CONCEPT_TITLE,Concept,Conceito
+CREDITS_CONCEPTREPITCH_TITLE,Concept Repitch,Repetição de Conceito
+CREDITS_EVENTCOORDINATION_TITLE,Event Coordination,Coordenação de Evento
+CREDITS_CLOUDCOORDINATION_TITLE,IBM Cloud Coordination,Coordenação da IBM Cloud
+CREDITS_IDEATION_TITLE,Ideation,Idealização
+CREDITS_MEETINGSPACE_TITLE,Meeting Space,Espaço de Reuniões
+CREDITS_AUDIO_TITLE,Music & SFX,Música e Efeitos sonoros
+BTN_CONTINUE,Continue,Continuar
+BTN_ENDGAME,End Game,Fim de jogo
+TITLE_HIGHSCORE,High Scores,High Scores
+BTN_PRESSTOCONTINUE,Press any key to continue,Pressione qualquer tecla para continuar
