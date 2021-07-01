@@ -13,8 +13,9 @@ public class LanguageSelector : Control
 		string current = TranslationServer.GetLocale();
 		languages = TranslationServer.GetLoadedLocales();
 		for (int i = 0; i < languages.Count; i++) {
-			button.AddItem(TranslationServer.GetLocaleName((string)languages[i]), i);
-			if (languages[i] == current) {
+			string code = (string)languages[i];
+			button.AddItem(TranslationServer.GetLocaleName(code), i);
+			if (code == current) {
 				button.Select(i);
 			}
 		}
@@ -23,6 +24,7 @@ public class LanguageSelector : Control
 	private void _on_OptionButton_item_selected(int index)
 	{
 		string lang = (string)languages[index];
+		GD.Print("Select: " + index);
 		TranslationServer.SetLocale(lang);
 	}
 }
