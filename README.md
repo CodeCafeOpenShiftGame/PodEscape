@@ -1,40 +1,42 @@
-# PodEscape
+<p align="center">
+  <a href="https://podscape.io">
+    <img src=".github/cover.png" />
+  </a>
+</p>
+
+## Introduction
+
 Endless runner of a pod trying to escape from a project being deleted.
 
-## Obstacles groups
+## Table of Contents
 
-There are right now two groups of obstacles:
+- [Prerequisites](#prerequisites)
+- [Contributing](#contributing)
+- [Documentation](#documentation)
+- [Support](#support)
+- [License](#license)
 
-* killingObstacles: All obstacles that kill the player when colliding with them.
-* dashable: All obstacles that the player can dash through them but if it is not dashing, they will kill him (e.g.fire wall)
+## Prerequisites
 
-Every new obstacle need to be added to one of those groups for collisions to work
+- Godot >= 3.2
 
-## Level design
+## Contributing
 
-The purpose of this part of the document is to explain how to design levels for Pod Escape.
+Contribute with the game is very simple. All that you need is to:
 
-### Steps for creating a level
+1. Fork the repository
+2. Do your changes
+3. Push it to your repository
+4. Create a pull request
 
-1. Create a new scene with a Node2D as root.
-2. Click on the "Instance a scene as a Node" button.
-3. Select `res://src/Levels/Floor.tscn` as the scene to instance so you can add the first floor.
-4. Repeat step 2 for every obstacle or collectable to add to the scene (always as a child of the root node, if you want to create a new obstacle, do it in `res://src/Scenes` directory).
-5. Add a `VisibilityNotifier2D` as a child of the root node and move it to the end of the level (see `HardBlockFire.tscn` as an example)
-5. Select the difficulty of the level.
-6. Save the scene with the name you want in the `res://src/Levels` directory.
-7. Open `res://src/Levels/World.tscn` in the Godot editor.
-8. Select `LevelController` node.
-9. Add your new scene to the corresponding array in the inspector, depending on the difficulty of the level.
-10. Save the World scene.
-11. Test your scene and do all the modifications you want. Check next section for easy tests.
-12. Commit and push your code.
+## Documentation
 
-### Testing your levels
+You can find some other documentations in our [wiki](https://github.com/CodeCafeOpenShiftGame/PodEscape/wiki).
 
-For testing your levels in an easy way and not having to wait for a medium or hard level to appear, do the following:
+## Support
 
-1. In `World` scene, add your level to `Debug Levels` array.
-2. Enable `Level Debug`.
-3. Run the game. The levels you want to test now will appear in the first minute.
-4. Remember to disable `Level Debug` before pushing and cleaning the array.
+If you need any help or if you found a bug, open a issue and we will be happy to answer you.
+
+## License
+
+This project is licensed by the Apache License 2.0. For more information check the LICENSE file.
