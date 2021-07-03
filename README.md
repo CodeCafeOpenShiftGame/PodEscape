@@ -4,6 +4,11 @@
   </a>
 </p>
 
+<p align="center">
+  <img alt="Godot" src="https://img.shields.io/badge/Godot-%3E%3D3.2-blue">
+  <img alt="GitHub" src="https://img.shields.io/github/license/CodeCafeOpenShiftGame/PodEscape">
+</p>
+
 ## Introduction
 
 Endless runner of a pod trying to escape from a project being deleted.
