@@ -47,17 +47,17 @@ __meta__ = {
 
 [node name="ThanksToLabel" type="Label" parent="VBoxContainer"]
 margin_right = 960.0
-margin_bottom = 129.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 160 )
 theme = ExtResource( 1 )
-text = "THANKS TO THE FOLLOWING
-COMMUNITIES AND TEAMS
-"
+text = "CREDITS_THANKS_TITLE"
 align = 1
+autowrap = true
 
 [node name="ThanksToListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 133.0
+margin_top = 164.0
 margin_right = 960.0
-margin_bottom = 482.0
+margin_bottom = 513.0
 theme = ExtResource( 1 )
 text = "The Godot community
 The IBM Cloud team
@@ -70,77 +70,119 @@ The Red Hat Virtual Summit event team
 align = 1
 
 [node name="ContributorsLabel" type="Label" parent="VBoxContainer"]
-margin_top = 486.0
+margin_top = 517.0
 margin_right = 960.0
-margin_bottom = 571.0
+margin_bottom = 617.0
+rect_min_size = Vector2( 0, 100 )
 theme = ExtResource( 1 )
-text = "CONTRIBUTORS
-"
+text = "CREDITS_CONTRIBUTORS_TITLE"
+align = 1
+
+[node name="ArtContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 621.0
+margin_right = 960.0
+margin_bottom = 662.0
+theme = ExtResource( 1 )
+text = "CREDITS_ART_TITLE"
 align = 1
 
 [node name="ArtContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 575.0
+margin_top = 666.0
 margin_right = 960.0
-margin_bottom = 748.0
+margin_bottom = 795.0
 theme = ExtResource( 1 )
-text = "Art
-Kaliq Ray
+text = "Kaliq Ray
 Luke Dary
 "
 align = 1
 
-[node name="CodeContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 752.0
+[node name="CodeContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 799.0
 margin_right = 960.0
-margin_bottom = 1013.0
+margin_bottom = 840.0
 theme = ExtResource( 1 )
-text = "Code
-Ernesto Gonzalez
+text = "CREDITS_CODE_TITLE"
+align = 1
+
+[node name="CodeContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 844.0
+margin_right = 960.0
+margin_bottom = 1061.0
+theme = ExtResource( 1 )
+text = "Ernesto Gonzalez
 Jason Dudash
 Ricardo Lüders
 Roddie Kieley
 "
 align = 1
 
-[node name="ConceptContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1017.0
+[node name="ConceptContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1065.0
 margin_right = 960.0
-margin_bottom = 1146.0
+margin_bottom = 1106.0
 theme = ExtResource( 1 )
-text = "Concept
-Ernesto Gonzalez
+text = "CREDITS_CONCEPT_TITLE"
+align = 1
+
+[node name="ConceptContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1110.0
+margin_right = 960.0
+margin_bottom = 1195.0
+theme = ExtResource( 1 )
+text = "Ernesto Gonzalez
 "
+align = 1
+
+[node name="ConceptRepitchContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1199.0
+margin_right = 960.0
+margin_bottom = 1240.0
+theme = ExtResource( 1 )
+text = "CREDITS_CONCEPTREPITCH_TITLE"
 align = 1
 
 [node name="ConceptRepitchContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1150.0
+margin_top = 1244.0
 margin_right = 960.0
-margin_bottom = 1279.0
+margin_bottom = 1329.0
 theme = ExtResource( 1 )
-text = "Concept Repitch
-Derek Reese
+text = "Derek Reese
 "
 align = 1
 
-[node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1283.0
+[node name="EventCoordinationContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1333.0
 margin_right = 960.0
-margin_bottom = 1500.0
+margin_bottom = 1374.0
 theme = ExtResource( 1 )
-text = "Event Coordination
-Jared Sprague
+text = "CREDITS_EVENTCOORDINATION_TITLE"
+align = 1
+
+[node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1378.0
+margin_right = 960.0
+margin_bottom = 1551.0
+theme = ExtResource( 1 )
+text = "Jared Sprague
 Kathy D'Angelo
 Roddie Kieley
 "
 align = 1
 
-[node name="CloudCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1504.0
+[node name="CloudCoordinationContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1555.0
 margin_right = 960.0
-margin_bottom = 1809.0
+margin_bottom = 1596.0
 theme = ExtResource( 1 )
-text = "IBM Cloud Coordination
-Akash Gunjal
+text = "CREDITS_CLOUDCOORDINATION_TITLE"
+align = 1
+
+[node name="CloudCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1600.0
+margin_right = 960.0
+margin_bottom = 1861.0
+theme = ExtResource( 1 )
+text = "Akash Gunjal
 Jason Dudash
 Roddie Kieley
 Sagy Volkov
@@ -148,13 +190,23 @@ Sandy Amin
 "
 align = 1
 
-[node name="IdeasContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 1813.0
+[node name="IdeasContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1865.0
 margin_right = 960.0
-margin_bottom = 2162.0
+margin_bottom = 1906.0
 theme = ExtResource( 1 )
-text = "Ideation
-Adrian Brightmoore
+text = "CREDITS_IDEATION_TITLE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IdeasContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 1910.0
+margin_right = 960.0
+margin_bottom = 2215.0
+theme = ExtResource( 1 )
+text = "Adrian Brightmoore
 Adrian Leal
 Eric Kramer
 Juan Jose Floristan Jusue
@@ -163,23 +215,44 @@ Tom McKay
 "
 align = 1
 
-[node name="MeetingSpaceContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 2166.0
+[node name="MeetingSpaceContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2219.0
 margin_right = 960.0
-margin_bottom = 2295.0
+margin_bottom = 2260.0
+theme = ExtResource( 1 )
+text = "CREDITS_MEETINGSPACE_TITLE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MeetingSpaceContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2264.0
+margin_right = 960.0
+margin_bottom = 2393.0
 theme = ExtResource( 1 )
 text = "Meeting Space
 Radka Gustavsson
 "
 align = 1
 
-[node name="AudioContributorsListLabel" type="Label" parent="VBoxContainer"]
-margin_top = 2299.0
+[node name="AudioContributorstTitleLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2397.0
 margin_right = 960.0
-margin_bottom = 2428.0
+margin_bottom = 2438.0
 theme = ExtResource( 1 )
-text = "Music & SFX
-Juhani Junkala
+text = "CREDITS_AUDIO_TITLE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioContributorsListLabel" type="Label" parent="VBoxContainer"]
+margin_top = 2442.0
+margin_right = 960.0
+margin_bottom = 2527.0
+theme = ExtResource( 1 )
+text = "Juhani Junkala
 "
 align = 1
 

@@ -19,6 +19,8 @@ public class LevelController : Node2D
     private Vector2 currentPosition;
     private Vector2 lastPosition;
     private VisibilityNotifier2D previousVisibilityNotifier2D;
+    private Boolean firstLevel = true;
+    private int firstLevelIndex = 4;
 
     private Timer EasyTimer;
     private Timer MediumTimer;
@@ -39,6 +41,11 @@ public class LevelController : Node2D
 
     private PackedScene GetRandomScene()
     {
+        if (firstLevel)
+        {
+            firstLevel = false;
+            return this.EasyLevels[firstLevelIndex];
+        }
         if (levelDebug == true)
         {
             return GetRandomSceneDifficulty(this.DebugLevels);
