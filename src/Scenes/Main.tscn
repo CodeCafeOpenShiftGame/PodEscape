@@ -273,31 +273,6 @@ __meta__ = {
 autoplay = "anim"
 anims/anim = SubResource( 2 )
 
-[node name="LanguageSelector" type="Control" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionButton" type="OptionButton" parent="LanguageSelector"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = -55.0
-margin_right = 128.0
-margin_bottom = -8.0
-theme = ExtResource( 5 )
-text = "Language"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -370,7 +345,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="item_selected" from="LanguageSelector/OptionButton" to="LanguageSelector" method="_on_OptionButton_item_selected"]
+[node name="LanguageSelector" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="LanguageSelector"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -55.0
+margin_right = 128.0
+margin_bottom = -8.0
+theme = ExtResource( 5 )
+text = "Language"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]
+[connection signal="item_selected" from="LanguageSelector/OptionButton" to="LanguageSelector" method="_on_OptionButton_item_selected"]
