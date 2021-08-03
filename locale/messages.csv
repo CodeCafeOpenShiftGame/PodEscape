@@ -1,24 +1,24 @@
-keys,en_US,pt_BR,es_ES
-TIP_DISTANCE,See how far you can go before time expires,Veja o quão longe você pode ir antes que o tempo expire,Llega lo más lejos que puedas antes de que el tiempo se acabe
-TIP_DONTCRASH,Don't crash,Não bata,No choques
-TIP_NETWORKTUNNELS,Go through network tunnels,Passe por túneis de rede,Pasa por los túneles de red
-TIP_FIREWALLS,Avoid (or dash through) the firewalls,Evite (ou atravesse) os firewalls,Evita (o impúlsate) a través de los firewalls
-BTN_PLAY,Play (Ctrl+Enter),Jogar (Ctrl+Enter),Jugar (Ctrl+Enter)
-BTN_CREDITS,Credits,Créditos,Créditos
-BTN_QUIT,Quit,Sair,Salir
-STORY,You need to escape before your `grace period` expires! Otherwise Kubernetes will forcefully terminate you!,"Você precisa escapar antes que seu `período de carência` expire! Caso contrário, o Kubernetes encerrará você à força!","¡Tienes que escapar antes que se acabe el periodo de gracia! Si no, Kubernetes te expulsará"
-CREDITS_THANKS_TITLE,THANKS TO THE FOLLOWING\n COMMUNITIES AND TEAMS,OBRIGADO AS SEGUINTES\n COMUNIDADES E TIMES,GRACIAS A LAS SIGUIENTES COMUNIDADES Y EQUIPOS
-CREDITS_CONTRIBUTORS_TITLE,CONTRIBUTORS,CONTRIBUIDORES,CONTRIBUIDORES
-CREDITS_ART_TITLE,Art,Arte,Arte
-CREDITS_CODE_TITLE,Code,Código,Código
-CREDITS_CONCEPT_TITLE,Concept,Conceito,Concepto
-CREDITS_CONCEPTREPITCH_TITLE,Concept Repitch,Repetição de Conceito,Rediseño del Concepto
-CREDITS_EVENTCOORDINATION_TITLE,Event Coordination,Coordenação de Evento,Coordinación de Eventos
-CREDITS_CLOUDCOORDINATION_TITLE,IBM Cloud Coordination,Coordenação da IBM Cloud,Coordinación IBM Cloud
-CREDITS_IDEATION_TITLE,Ideation,Idealização,Idealización
-CREDITS_MEETINGSPACE_TITLE,Meeting Space,Espaço de Reuniões,Espacio de Reuniones
-CREDITS_AUDIO_TITLE,Music & SFX,Música e Efeitos sonoros,Música y Efectos Sonoros
-BTN_CONTINUE,Continue,Continuar,Continuar
-BTN_ENDGAME,End Game,Fim de jogo,Fin del Juego
-TITLE_HIGHSCORE,High Scores,High Scores,High Scores
-BTN_PRESSTOCONTINUE,Press any key to continue,Pressione qualquer tecla para continuar,Pulsa cualquier tecla para continuar
+keys,en_US,pt_BR,es_ES,gd_GB
+TIP_DISTANCE,See how far you can go before time expires,Veja o quão longe você pode ir antes que o tempo expire,Llega lo más lejos que puedas antes de que el tiempo se acabe,Faic dè cho fada ’s a thèid thu mus fhalbh an ùine ort
+TIP_DONTCRASH,Don't crash,Não bata,No choques,Na tuislich
+TIP_NETWORKTUNNELS,Go through network tunnels,Passe por túneis de rede,Pasa por los túneles de red,Rach tro thunailean lìonraidh
+TIP_FIREWALLS,Avoid (or dash through) the firewalls,Evite (ou atravesse) os firewalls,Evita (o impúlsate) a través de los firewalls,Seachain (no ruith tro) na cachaileithean-teine
+BTN_PLAY,Play (Ctrl+Enter),Jogar (Ctrl+Enter),Jugar (Ctrl+Enter),Cluich (Ctrl+Enter)
+BTN_CREDITS,Credits,Créditos,Créditos,Urram
+BTN_QUIT,Quit,Sair,Salir,Fàg an-seo
+STORY,You need to escape before your `grace period` expires! Otherwise Kubernetes will forcefully terminate you!,"Você precisa escapar antes que seu `período de carência` expire! Caso contrário, o Kubernetes encerrará você à força!","¡Tienes que escapar antes que se acabe el periodo de gracia! Si no, Kubernetes te expulsará","Feumaidh tu teicheachd mus fhalbh `an t-àm sìtheil` ort! Air neo cuiridh Kubernetes crìoch ort!"
+CREDITS_THANKS_TITLE,THANKS TO THE FOLLOWING\n COMMUNITIES AND TEAMS,OBRIGADO AS SEGUINTES\n COMUNIDADES E TIMES,GRACIAS A LAS SIGUIENTES COMUNIDADES Y EQUIPOS,"MÒRAN TAING DHA NA COIMHEARSNACHDAN ’S NA SGIOBANNAN SEO"
+CREDITS_CONTRIBUTORS_TITLE,CONTRIBUTORS,CONTRIBUIDORES,CONTRIBUIDORES,LUCHD-CUIDEACHAIDH
+CREDITS_ART_TITLE,Art,Arte,Arte,Obair-ealain
+CREDITS_CODE_TITLE,Code,Código,Código,Còd
+CREDITS_CONCEPT_TITLE,Concept,Conceito,Concepto,Bun-bheachd
+CREDITS_CONCEPTREPITCH_TITLE,Concept Repitch,Repetição de Conceito,Rediseño del Concepto,Bun-bheachd ùr
+CREDITS_EVENTCOORDINATION_TITLE,Event Coordination,Coordenação de Evento,Coordinación de Eventos,Co-òrdanachadh thachartasan
+CREDITS_CLOUDCOORDINATION_TITLE,IBM Cloud Coordination,Coordenação da IBM Cloud,Coordinación IBM Cloud,Co-òrdanachadh IBM Cloud
+CREDITS_IDEATION_TITLE,Ideation,Idealização,Idealización,Beachdachadh
+CREDITS_MEETINGSPACE_TITLE,Meeting Space,Espaço de Reuniões,Espacio de Reuniones,Àite coinneachaidh
+CREDITS_AUDIO_TITLE,Music & SFX,Música e Efeitos sonoros,Música y Efectos Sonoros,Ceòl ⁊ èifeachdan fuaime
+BTN_CONTINUE,Continue,Continuar,Continuar,Lean air adhart
+BTN_ENDGAME,End Game,Fim de jogo,Fin del Juego,Cuir crìoch air a’ gheama
+TITLE_HIGHSCORE,High Scores,High Scores,High Scores,Sgòran àrda
+BTN_PRESSTOCONTINUE,Press any key to continue,Pressione qualquer tecla para continuar,Pulsa cualquier tecla para continuar,Brùth air iuchair sam bith a leantainn air adhart
