@@ -18,6 +18,7 @@ Endless runner of a pod trying to escape from a project being deleted.
 - [Prerequisites](#prerequisites)
 - [Contributing](#contributing)
 - [Documentation](#documentation)
+- [Translate](#translate)
 - [Support](#support)
 - [License](#license)
 
@@ -37,6 +38,12 @@ Contribute with the game is very simple. All that you need is to:
 ## Documentation
 
 You can find some other documentations in our [wiki](https://github.com/CodeCafeOpenShiftGame/PodEscape/wiki).
+
+## Translate
+
+You can translate using the Fedora translation platform:
+
+[![Translation status](https://translate.fedoraproject.org/widgets/podescape/-/287x66-white.png)](https://translate.fedoraproject.org/engage/podescape/)
 
 ## Support
 

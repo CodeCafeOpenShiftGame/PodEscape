@@ -1,0 +1,213 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-08-15 19:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: src/Scenes/Credits.tscn:53
+msgid ""
+"THANKS TO THE FOLLOWING\n"
+" COMMUNITIES AND TEAMS"
+msgstr "GRACIAS A LAS SIGUIENTES\nCOMUNIDADES Y EQUIPOS"
+
+#: src/Scenes/Credits.tscn:62
+msgid ""
+"The Godot community\n"
+"The IBM Cloud team\n"
+"The Kubernetes community\n"
+"The OpenShift community\n"
+"The Red Hat OpenShift Container Storage team\n"
+"The Red Hat Virtual Summit event team\n"
+"\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:78
+msgid "CONTRIBUTORS"
+msgstr "CONTRIBUIDORES"
+
+#: src/Scenes/Credits.tscn:86
+msgid "Art"
+msgstr "Arte"
+
+#: src/Scenes/Credits.tscn:94
+msgid ""
+"Kaliq Ray\n"
+"Luke Dary\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:104
+msgid "Code"
+msgstr "Código"
+
+#: src/Scenes/Credits.tscn:112
+msgid ""
+"Ernesto Gonzalez\n"
+"Jason Dudash\n"
+"Ricardo Lüders\n"
+"Roddie Kieley\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:124
+msgid "Concept"
+msgstr "Concepto"
+
+#: src/Scenes/Credits.tscn:132
+msgid "Ernesto Gonzalez\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:141
+msgid "Concept Repitch"
+msgstr "Rediseño del Concepto"
+
+#: src/Scenes/Credits.tscn:149
+msgid "Derek Reese\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:158
+msgid "Event Coordination"
+msgstr "Coordinación de Eventos"
+
+#: src/Scenes/Credits.tscn:166
+msgid ""
+"Jared Sprague\n"
+"Kathy D'Angelo\n"
+"Roddie Kieley\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:177
+msgid "IBM Cloud Coordination"
+msgstr "Coordinación IBM Cloud"
+
+#: src/Scenes/Credits.tscn:185
+msgid ""
+"Akash Gunjal\n"
+"Jason Dudash\n"
+"Roddie Kieley\n"
+"Sagy Volkov\n"
+"Sandy Amin\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:198
+msgid "Ideation"
+msgstr "Idealización"
+
+#: src/Scenes/Credits.tscn:209
+msgid ""
+"Adrian Brightmoore\n"
+"Adrian Leal\n"
+"Eric Kramer\n"
+"Juan Jose Floristan Jusue\n"
+"Roman Luks\n"
+"Tom McKay\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:223
+msgid "Meeting Space"
+msgstr "Espacio de Reuniones"
+
+#: src/Scenes/Credits.tscn:234
+msgid ""
+"Meeting Space\n"
+"Radka Gustavsson\n"
+msgstr ""
+
+#: src/Scenes/Credits.tscn:244
+msgid "Music & SFX"
+msgstr "Música y Efectos Sonoros"
+
+#: src/Scenes/Credits.tscn:255
+msgid "Juhani Junkala\n"
+msgstr ""
+
+#: src/Scenes/InGameOverlay.tscn:53
+msgid "000000"
+msgstr ""
+
+#: src/Scenes/InGameOverlay.tscn:68
+msgid "000"
+msgstr ""
+
+#: src/Scenes/InGameOverlay.tscn:108
+#: src/Scenes/MenuControls/ContinueButton.tscn:9
+msgid "Continue"
+msgstr "Continuar"
+
+#: src/Scenes/InGameOverlay.tscn:119
+msgid "End Game"
+msgstr "Fin del Juego"
+
+#: src/Scenes/InGameOverlay.tscn:136
+msgid "High Scores"
+msgstr "High Scores"
+
+#: src/Scenes/InGameOverlay.tscn:224
+msgid "Press any key to continue"
+msgstr "Pulsa cualquier tecla para continuar"
+
+#: src/Scenes/Main.tscn:185
+msgid "v0.5.5"
+msgstr ""
+
+#: src/Scenes/Main.tscn:213
+msgid "Avoid (or dash through) the firewalls"
+msgstr "Evita (o impúlsate) a través de los firewalls"
+
+#: src/Scenes/Main.tscn:230
+msgid "Go through network tunnels"
+msgstr "Pasa por los túneles de red"
+
+#: src/Scenes/Main.tscn:247
+msgid "Don't crash"
+msgstr "No choques"
+
+#: src/Scenes/Main.tscn:264
+msgid "See how far you can go before time expires"
+msgstr "Llega lo más lejos que puedas antes de que el tiempo se acabe"
+
+#: src/Scenes/Main.tscn:315
+msgid "Play (Ctrl+Enter)"
+msgstr "Jugar (Ctrl+Enter)"
+
+#: src/Scenes/Main.tscn:322
+msgid "Credits"
+msgstr "Créditos"
+
+#: src/Scenes/Main.tscn:329 src/Scenes/MenuControls/QuitButton.tscn:8
+msgid "Quit"
+msgstr "Salir"
+
+#: src/Scenes/Main.tscn:340
+msgid ""
+"You need to escape before your `grace period` expires! Otherwise "
+"Kubernetes will forcefully terminate you!"
+msgstr "¡Tienes que escapar antes que se acabe el periodo de gracia! Si no, Kubernetes te expulsará"
+
+#: src/Scenes/Main.tscn:367
+msgid "Language"
+msgstr ""
+
+#: src/Scenes/MenuControls/AudioButton.tscn:8
+msgid "Audio Off"
+msgstr ""
+
+#: src/Scenes/MenuControls/PlayButton.tscn:8
+msgid "Play PodEscape"
+msgstr ""
+
+#: src/Scenes/MenuControls/Title.tscn:9
+msgid "Pod Escape!"
+msgstr ""
+
