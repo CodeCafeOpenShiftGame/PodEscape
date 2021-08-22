@@ -109,7 +109,7 @@ dash={
 
 [locale]
 
-translations=PoolStringArray( "res://locale/messages.pt_BR.translation", "res://locale/messages.en_US.translation", "res://locale/messages.es_ES.translation", "res://locale/messages.gd_GB.translation" )
+translations=PoolStringArray( "res://locale/en.po", "res://locale/es_ES.po", "res://locale/gd_GB.po", "res://locale/pt_BR.po" )
 
 [logging]
 
