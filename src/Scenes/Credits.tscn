@@ -50,7 +50,7 @@ margin_right = 960.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 0, 160 )
 theme = ExtResource( 1 )
-text = "CREDITS_THANKS_TITLE"
+text = "THANKS TO THE FOLLOWING\n COMMUNITIES AND TEAMS"
 align = 1
 autowrap = true
 
@@ -75,7 +75,7 @@ margin_right = 960.0
 margin_bottom = 617.0
 rect_min_size = Vector2( 0, 100 )
 theme = ExtResource( 1 )
-text = "CREDITS_CONTRIBUTORS_TITLE"
+text = "CONTRIBUTORS"
 align = 1
 
 [node name="ArtContributorstTitleLabel" type="Label" parent="VBoxContainer"]
@@ -83,7 +83,7 @@ margin_top = 621.0
 margin_right = 960.0
 margin_bottom = 662.0
 theme = ExtResource( 1 )
-text = "CREDITS_ART_TITLE"
+text = "Art"
 align = 1
 
 [node name="ArtContributorsListLabel" type="Label" parent="VBoxContainer"]
@@ -101,7 +101,7 @@ margin_top = 799.0
 margin_right = 960.0
 margin_bottom = 840.0
 theme = ExtResource( 1 )
-text = "CREDITS_CODE_TITLE"
+text = "Code"
 align = 1
 
 [node name="CodeContributorsListLabel" type="Label" parent="VBoxContainer"]
@@ -121,7 +121,7 @@ margin_top = 1065.0
 margin_right = 960.0
 margin_bottom = 1106.0
 theme = ExtResource( 1 )
-text = "CREDITS_CONCEPT_TITLE"
+text = "Concept"
 align = 1
 
 [node name="ConceptContributorsListLabel" type="Label" parent="VBoxContainer"]
@@ -138,7 +138,7 @@ margin_top = 1199.0
 margin_right = 960.0
 margin_bottom = 1240.0
 theme = ExtResource( 1 )
-text = "CREDITS_CONCEPTREPITCH_TITLE"
+text = "Concept Repitch"
 align = 1
 
 [node name="ConceptRepitchContributorsListLabel" type="Label" parent="VBoxContainer"]
@@ -155,7 +155,7 @@ margin_top = 1333.0
 margin_right = 960.0
 margin_bottom = 1374.0
 theme = ExtResource( 1 )
-text = "CREDITS_EVENTCOORDINATION_TITLE"
+text = "Event Coordination"
 align = 1
 
 [node name="EventCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
@@ -174,7 +174,7 @@ margin_top = 1555.0
 margin_right = 960.0
 margin_bottom = 1596.0
 theme = ExtResource( 1 )
-text = "CREDITS_CLOUDCOORDINATION_TITLE"
+text = "IBM Cloud Coordination"
 align = 1
 
 [node name="CloudCoordinationContributorsListLabel" type="Label" parent="VBoxContainer"]
@@ -195,7 +195,7 @@ margin_top = 1865.0
 margin_right = 960.0
 margin_bottom = 1906.0
 theme = ExtResource( 1 )
-text = "CREDITS_IDEATION_TITLE"
+text = "Ideation"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -220,7 +220,7 @@ margin_top = 2219.0
 margin_right = 960.0
 margin_bottom = 2260.0
 theme = ExtResource( 1 )
-text = "CREDITS_MEETINGSPACE_TITLE"
+text = "Meeting Space"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -241,7 +241,7 @@ margin_top = 2397.0
 margin_right = 960.0
 margin_bottom = 2438.0
 theme = ExtResource( 1 )
-text = "CREDITS_AUDIO_TITLE"
+text = "Music & SFX"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

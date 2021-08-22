@@ -105,7 +105,7 @@ __meta__ = {
 visible = true
 margin_right = 321.0
 margin_bottom = 84.0
-text = "BTN_CONTINUE"
+text = "Continue"
 
 [node name="AudioButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 88.0
@@ -116,7 +116,7 @@ margin_bottom = 172.0
 margin_top = 176.0
 margin_right = 321.0
 margin_bottom = 261.0
-text = "BTN_ENDGAME"
+text = "End Game"
 
 [node name="HighScoresOverlay" type="ColorRect" parent="."]
 visible = false
@@ -133,7 +133,7 @@ __meta__ = {
 [node name="POSTHTTPRequest" type="HTTPRequest" parent="HighScoresOverlay"]
 
 [node name="Title" parent="HighScoresOverlay" instance=ExtResource( 3 )]
-text = "TITLE_HIGHSCORE"
+text = "High Scores"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HighScoresOverlay"]
 anchor_left = 0.5
@@ -221,7 +221,7 @@ valign = 1
 margin_top = 980.0
 margin_right = 0.00012207
 margin_bottom = 1080.0
-text = "BTN_PRESSTOCONTINUE"
+text = "Press any key to continue"
 
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_button_up"]
 [connection signal="button_up" from="PauseOverlay/VBoxContainer/AudioButton" to="." method="_on_AudioButton_button_up"]
